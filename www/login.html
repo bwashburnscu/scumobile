@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>SCU Login</title>
+		<script>
+			$.get('http://m.scu.edu/login/', function(data) {
+  				$('.result').html(data);
+  				$('body').append( data )
+  				alert('Load was performed.');
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
