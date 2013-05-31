@@ -19,8 +19,9 @@
     <!--
         Enable individual API permissions by defining each here.
         The 'device' permission is required for the 'deviceready' event.
+        <feature name="http://api.phonegap.com/1.0/device" />
     -->
-    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/network" />
 
     <!--
         If you do not want any permissions to be added to your app, add the
