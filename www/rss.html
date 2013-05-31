@@ -1,29 +1,81 @@
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>RSS Reader</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/secondary.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script>
+		 // Listen for orientation changes
+		window.addEventListener("orientationchange", function() {
+		  window.location.reload( true );
+		}, false);
+	</script>
+
+	<script>
+	   $(document).ready(function() {
+	   	if($('#primary-nav').length == 0) {
+	   		$('.pnav-icon').hide();
+	   		}
+	      
+	   });
+	</script>
+	
+ 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
     google.load("feeds", "1");
 
     function initialize() {
-      var feed = new google.feeds.Feed("http://fastpshb.appspot.com/feed/1/fastpshb");
+      var feed = new google.feeds.Feed("http://www.scu.edu/syn/blog226.xml");
+      feed.setNumEntries(10);
       feed.load(function(result) {
         if (!result.error) {
           var container = document.getElementById("feed");
+          var rssContent = "";
           for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            var div = document.createElement("div");
-            div.appendChild(document.createTextNode(entry.title));
-            container.appendChild(div);
+            rssContent += "<div data-role='collapsible' data-theme='a'><h3>" + entry.title + "</h3><h4>" + entry.title + "</h4><h4>" + entry.publishedDate + "</h4><p>" + entry.contentSnippet + "</p><p><a href='" + entry.link + "'>Continue Reading &raquo;</a></p></div>";
           }
+          container.innerHTML=rssContent;
         }
+        $("#feed").collapsibleset("refresh");
       });
     }
     google.setOnLoadCallback(initialize);
-
     </script>
-  </head>
-  <body>
-    <div id="feed"></div>
-  </body>
+   
+	</head> 
+<body> 
+
+<div data-role="page" class="type-index">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1><a href="news.html">News</a></h1>
+		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <div class="content-primary">
+		<div data-role="collapsible-set" id="feed">
+		</div>
+	</div>
+	<div class="content-secondary">
+nav
+	</div>
+	</div
+	
+
+	
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
 </html>

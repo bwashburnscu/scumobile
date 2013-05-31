@@ -1,0 +1,242 @@
+
+
+.type-interior .content-secondary {
+	border-right: 0;
+	border-left: 0;
+	margin: 10px -15px 0;
+	border-top: 1px solid #ccc;
+}
+.type-home .ui-content {
+	margin-top: 5px;
+	overflow: hidden;
+	position: relative;
+}
+.type-interior .ui-content {
+	padding-bottom: 0;
+}
+.content-secondary .ui-collapsible {
+	padding: 0 15px 10px;
+
+}
+.content-secondary .ui-collapsible-content {
+	padding: 0;
+	background: none;
+	border-bottom: none;
+}
+.content-secondary .ui-listview {
+	margin: 0;
+}
+
+.content-primary table th, .content-primary table td {
+	padding:5px;
+	vertical-align:top;
+}
+
+.content-primary table br {
+	line-height:0;
+}
+
+.content-primary table h5 {
+	padding:0;
+	margin:0;
+}
+
+#primary-nav {
+	min-height:410px;
+	}
+
+
+/* SCU Home icon 175x40 pixels */
+.ui-header {
+	background: #979797 url(/mobimages/bg-header.png) repeat-y;
+}
+.ui-header .sculogo {
+    padding: 0px;
+    margin:-3px 0 0 -5px;
+}
+
+.ui-header h1.ui-title
+{
+	font-family: Helvetica, Verdana, sans-serif;
+	color:#323232;
+	font-weight:700;
+	font-size:20px;
+	line-height:20px;
+	margin:0px;
+	padding:11px 0 9px 105px;
+	text-align:left;
+	letter-spacing:0px;
+}
+
+.ui-header .pnav-icon {
+	margin-top:10px;
+}
+
+.ui-mobile .ui-bar-a {
+    border-width: 0pt !important;
+}
+
+/*.ui-icon-pnav-icon {
+    background-image: url("/images/icon/glyphish/259-list-w.png");
+}*/	
+
+
+
+@media all and (min-width: 650px){
+	
+
+	.type-home .ui-content {
+		margin-top: 5px;
+	}
+	.ui-mobile #scu-home {
+		max-width: 340px;
+	}
+/*
+	.ui-mobile .jqm-themeswitcher {
+		float: right;
+	}
+*/
+	p.intro {
+		margin: 2em 0;
+	}
+	.type-home .ui-content,
+	.type-interior .ui-content {
+		padding: 0;
+	}
+	.type-interior .ui-content {
+		background-position: 45%;
+		overflow: hidden;
+	}
+	.content-secondary {
+		text-align: left;
+		float: left;
+		width: 45%;
+		background: none;
+	}
+	.content-secondary,
+	.type-interior .content-secondary {
+		margin: 30px 0 20px 2%;
+		padding: 20px 4% 0 0;
+			background: none;
+					border-top: none;
+	}
+	.type-index .content-secondary {
+		padding: 0;
+	}
+	.content-secondary .ui-collapsible {
+		margin: 0;
+		padding: 0;
+	}
+	.content-secondary .ui-collapsible-content {
+		border: none;
+	}
+	.type-index .content-secondary .ui-listview {
+		margin: 0;
+	}
+
+	.ui-mobile #scu-home {
+		padding: 0;
+	}
+	.content-primary {
+		width: 45%;
+		float: right;
+		margin-top: 30px;
+		margin-right: 1%;
+		padding-right: 1%;
+	}
+	.content-primary ul:first-child {
+		margin-top: 0;
+	}
+	.content-secondary h2 {
+		position: absolute;
+		left: -9999px;
+	}
+	.type-interior .content-primary {
+		padding: 1.5em 6% 3em 0;
+		margin: 0;
+	}
+	/* fix up the collapsibles - expanded on desktop */
+	.content-secondary .ui-collapsible-heading {
+		display: none;
+	}
+	.content-secondary .ui-collapsible-contain {
+		margin:0;
+	}
+	.content-secondary .ui-collapsible-content {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+	.type-interior  .content-secondary .ui-li-divider {
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+	.type-interior .content-secondary {
+		margin: 0;
+		padding: 0;
+	}
+	
+	#homeFeatures {
+	}
+	
+}
+@media all and (min-width: 750px){
+	.type-home .ui-content,
+	.type-interior .ui-content {
+		background-position: 39%;
+	}
+	.content-secondary {
+		width: 34%;
+	}
+	.content-primary {
+		width: 56%;
+		padding-right: 1%;
+	}	
+	.type-interior .ui-content {
+		background-position: 34%;
+	}
+	
+	#homeFeatures {
+		/* ipad */
+	}
+	
+	.pnav-icon {
+		display:none;
+	}
+	
+}
+
+@media all and (min-width: 1200px){
+	.type-home .ui-content{
+		background-position: 38.5%;
+	}
+	.type-interior .ui-content {
+		background-position: 30%;
+	}
+	.content-secondary {
+		width: 30%;
+		padding-right:6%;
+		margin: 30px 0 20px 5%;
+	}
+	.type-interior .content-secondary {
+		margin: 2%;
+		padding: 0;
+	}
+	.content-primary {
+		width: 50%;
+		margin-right: 5%;
+		padding-right: 3%;
+	}
+	.type-interior .content-primary {
+		width: 60%;
+	}
+	
+	#homeFeatures {
+		/* standard desktop */
+	}
+	
+	.pnav-icon {
+		display:none;
+	}
+	
+}
