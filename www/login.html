@@ -53,7 +53,7 @@
 		 success: function(data){
 		 	var output = '';
 		    for (var i in data.menuitems) {
-			    output += '<li><a href="' + data.menuitems[i].href + '">';
+			    output += '<li><a href="' + data.menuitems[i].href + '" target="_blank"">';
 			    output += data.menuitems[i].label;
 			    output += '</a></li>';
 	        }
