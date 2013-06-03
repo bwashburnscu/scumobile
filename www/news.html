@@ -27,7 +27,7 @@
 	</head> 
 <body> 
 
-<div data-role="page" class="type-index">
+<div id="newspage" data-role="page" class="type-index">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
@@ -74,10 +74,15 @@
 	<div class="content-secondary">
 	<ul id="navmenu" data-role="listview" class="ui-listview"></ul>
     <script>
+    $("#newspage").live("pageshow", function(e) {
+    	var navstring = getUrlVars()["nav"];
+		if(!navstring){
+			navstring = 'main';
+		}
 	    $.ajax({
 	     type: "GET",
 	     //url: 'assets/login.json',
-	     url: 'http://test01.scu.edu/nav/news.json',
+	     url: 'http://test01.scu.edu/nav/'+navstring+'.json',
 	     dataType: 'json',
 	     beforeSend: function(x) {
 	      if(x && x.overrideMimeType) {
@@ -95,6 +100,20 @@
 	       //document.getElementById("navmenu").innerHTML=output;
 	     }
 		});
+	});
+	
+	function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+	}
+
     </script>
 	</div>
 	</div
