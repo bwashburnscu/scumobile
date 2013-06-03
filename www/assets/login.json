@@ -1,0 +1,48 @@
+{
+    "menuitems": [
+        {
+            "label": "SCU Gmail",
+            "href": "http://gmail.scu.edu/"
+        },
+        {
+            "label": "Ecampus",
+            "href": "https://www.scu.edu/ecampus/"
+        },
+        {
+            "label": "Mobile eCampus",
+            "href": "https://ecampus.scu.edu/SCMOBILE/signin.html"
+        },
+        {
+            "label": "Camino",
+            "href": "http://camino.scu.edu/"
+        },
+        {
+            "label": "SCU EPortfolio",
+            "href": "http://www.scu.edu/eportfolio"
+        },
+        {
+            "label": "Astra Calendar",
+            "href": "http://astra.scu.edu/"
+        },
+        {
+            "label": "ACCESS Office",
+            "href": "http://www.scu.edu/access/"
+        },
+        {
+            "label": "OrgSync",
+            "href": "https://orgsync.com/login/santa-clara-university"
+        },
+        {
+            "label": "BroncoLink",
+            "href": "http://www.scu.edu/careercenter/"
+        },
+        {
+            "label": "Alumni Directory",
+            "href": "https://alumnidirectory.scu.edu/"
+        },
+        {
+            "label": "GroupWise",
+            "href": "https://gw.scu.edu/gw/webacc"
+        }
+    ]
+}
