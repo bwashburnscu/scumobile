@@ -17,20 +17,42 @@
 
 	<script>
 	   $(document).ready(function() {
-	   	if($('#primary-nav').length == 0) {
+	   	if($('#navmenu').length == 0) {
 	   		$('.pnav-icon').hide();
 	   		}
-	      
 	   });
+   
+	   
+		function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		return vars;
+		}
+	
 	</script>
 	
  	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
     google.load("feeds", "1");
+    
+    var rssfeed = new Array();
+	rssfeed[0] = "http://www.scu.edu/syn/blog226.xml";
+	rssfeed[1] = "http://www.scu.edu/syn/blog93.xml";
+	rssfeed[2] = "http://www.santaclarabroncos.com/video/winterOlympics?feed=rss_2.0";
+	rssfeed[3] = "http://www.thesantaclara.com/se/the-santa-clara-rss-1.1833635";
+	rssfeed[4] = "http://feeds.feedburner.com/SantaClaraLawNews";
+	rssfeed[5] = "http://www.scu.edu/syn/blog93.xml";
 
     function initialize() {
-      var feed = new google.feeds.Feed("http://www.scu.edu/syn/blog226.xml");
+      var feedid = getUrlVars()["feed"];
+      var feed = new google.feeds.Feed(rssfeed[feedid]);
       feed.setNumEntries(10);
       feed.load(function(result) {
         if (!result.error) {
@@ -46,6 +68,7 @@
       });
     }
     google.setOnLoadCallback(initialize);
+    
     </script>
    
 	</head> 
@@ -55,7 +78,7 @@
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1><a href="news.html">News</a></h1>
+		<h1><a href="news.html" rel="external">News</a></h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 

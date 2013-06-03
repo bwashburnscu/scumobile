@@ -15,7 +15,7 @@ $("#navpage").live("pageshow", function(e) {
 			 success: function(data){
 			 	var output = '';
 			    for (var i in data.menuitems) {
-				    output += '<li><a href="' + data.menuitems[i].href + '">';
+				    output += '<li><a href="' + data.menuitems[i].href + '" rel="external">';
 				    output += data.menuitems[i].label;
 				    output += '</a></li>';
 		        }
