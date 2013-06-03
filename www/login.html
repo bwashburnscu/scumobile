@@ -52,13 +52,14 @@
       //}
 	 //},
 	 success: function(data){
-	 	var output = '<ul>';
+	 	var output = '<ul data-role="listview" class="ui-listview" id="navmenu">';
 	    for (var i in data.menuitems) {
             output+="<li>" + data.menuitems[i].label + "</li>";
         }
 
        output+="</ul>";
        document.getElementById("placeholder").innerHTML=output;
+       $("#navmenu").listview("refresh");
      },
      error: function (data) {
                     alert(data.menuitems);
