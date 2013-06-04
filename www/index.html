@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<!-- saved from url=(0017)http://m.scu.edu/ -->
-<html class="ui-mobile"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="http://m.scu.edu/">--><base href="."> 
-	<title>Mobile</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css">
-	<link rel="stylesheet" href="http://m.scu.edu/uicss/scu.css">
-	<link rel="stylesheet" href="http://m.scu.edu/uicss/secondary.css">
-	<link href="./assets/css" rel="stylesheet" type="text/css">
-	<script src="./assets/jquery-1.7.1.min.js"></script>
-	<script src="./assets/jquery.mobile-1.1.1.min.js"></script>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>SCU Mobile</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="http://m.scu.edu/uicss/scu.css" />
+	<link rel="stylesheet" href="http://m.scu.edu/uicss/secondary.css" />
+	<link href="assets/css" rel="stylesheet" type="text/css" />
+	<script src="assets/jquery-1.7.1.min.js"></script>
+	<script src="assets/jquery.mobile-1.1.1.min.js"></script>
 	
-	<link rel="stylesheet" type="text/css" href="./assets/touchcarousel.css">
-	<link rel="stylesheet" type="text/css" href="./assets/minimal-light-skin.css">
-	<link rel="stylesheet" type="text/css" href="./assets/home.css">
-	<script type="text/javascript" src="./assets/jquery.touchcarousel-1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/touchcarousel.css" />
+	<link rel="stylesheet" type="text/css" href="assets/minimal-light-skin.css" />
+	<link rel="stylesheet" type="text/css" href="assets/home.css" />
+	<script type="text/javascript" src="assets/jquery.touchcarousel-1.1.min.js"></script>
 	<script>
 		 // Listen for orientation changes
 		window.addEventListener("orientationchange", function() {
@@ -50,44 +51,13 @@
 <div id="main" data-role="page" class="type-home">
 	
 	<div data-role="header" class="ui-header ui-bar-a" role="banner">
-		<a rel="external" href="/" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="./assets/scu-home.png"></a>
+		<a rel="external" href="/" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png"></a>
 		<h1 class="ui-title" role="heading" aria-level="1"><a href="http://m.scu.edu/index.cfm" rel="external" class="ui-link">Mobile</a></h1>
-		<a href="http://m.scu.edu/#" onclick="$.mobile.silentScroll($.mobile.activePage.find(&#39;#primary-nav&#39;).position().top)" data-role="none" class="pnav-icon ui-btn-right" style="display: none;"><img alt="" src="./assets/259-list-w.png"></a>
+		<a href="http://m.scu.edu/#" onclick="$.mobile.silentScroll($.mobile.activePage.find(&#39;#primary-nav&#39;).position().top)" data-role="none" class="pnav-icon ui-btn-right" style="display: none;"><img alt="" src="assets/259-list-w.png"></a>
 	</div><!-- /header -->
 	<div data-role="content" id="homecontent" class="ui-content" role="main">
 		
 		<div class="content-secondary">
-			
-			<div id="homeFeatures" class="touchcarousel minimal-light" style="overflow: visible;">     
-			    <div class="touchcarousel-wrapper grab-cursor"><ul class="touchcarousel-container" style="width: 360px; left: 0px;">
-		        
-					<li class="touchcarousel-item last">
-						<a class="item-block ui-link" href="http://scu.edu/desaisset/exhibitions/Bullock.cfm">
-						
-						<img src="./assets/2013-04-desaisset.jpg">
-						
-						<div class="rblock">
-						<h4>Wynn Bullock Photographs: Apr 12 - Jun 30</h4>
-						<p></p>
-						</div>
-						</a>
-					</li>
-				
-			    </ul></div><a href="http://m.scu.edu/#" class="arrow-holder left disabled"><span class="arrow-icon left"></span></a> <a href="http://m.scu.edu/#" class="arrow-holder right disabled"><span class="arrow-icon right"></span></a><div class="tc-paging-container"><div class="tc-paging-centerer"><div class="tc-paging-centerer-inside"><a class="tc-paging-item current" href="http://m.scu.edu/#">1</a></div></div></div>
-			</div>
-			
-			<script>
-			jQuery(function($) {
-			    $("#homeFeatures").touchCarousel({					
-					pagingNav: true,
-					snapToItems: false,
-					itemsPerMove: 1,				
-					scrollToLast: false,
-					loopItems: false,
-					scrollbar: false
-			    });
-			});
-			</script>
 			
 			<form method="GET" action="http://search.scu.edu/search" name="gs" id="homesearch">
 				<input type="text" data-type="search" cid="q" name="q" id="search-basic" value="" placeholder="Search..." class="ui-input-text ui-body-c"><a href="http://m.scu.edu/#" class="ui-input-clear ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-fullsize ui-btn-icon-notext ui-input-clear-hidden" title="clear text" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="delete" data-iconpos="notext" data-theme="c" data-mini="false"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">clear text</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a>
@@ -106,7 +76,10 @@
 			
 		<div class="content-primary">
 			
-		<ul id="navHome" data-role="listview" class="ui-listview">
+			<div class="homeicon login"><a rel="external" href="login.html">Login</a></div>
+			<div class="homeicon news"><a rel="external" href="news.html">News</a></div>
+			
+		<!-- <ul id="navHome" data-role="listview" class="ui-listview">
 			<li><a rel="external" href="login.html"><img src="/mobimages/icon/123-id-card.png" alt="SCU Login" class="ui-li-icon">SCU Login</a></li>
 			<li><a rel="external" href="news.html"><img src="/mobimages/icon/70-tv.png" alt="News" class="ui-li-icon">News</a></li>
 			<li><a rel="external" href="/social/"><img src="/mobimages/icon/55-network.png" alt="Social Networks" class="ui-li-icon">Social Media</a></li>
@@ -120,8 +93,8 @@
 			<li><a href="/rooms/"><img src="/mobimages/icon/117-todo.png" alt="Room Reservations" class="ui-li-icon">Room Reservations</a></li>
 			<li><a href="/dining/"><img src="/mobimages/icon/100-coffee.png" alt="Dining" class="ui-li-icon">Dining Services</a></li>
 			<li><a href="/libraries/"><img src="/mobimages/icon/96-book.png" alt="Libraries" class="ui-li-icon">Libraries</a></li>
-		</ul>
-		<p></p>
+		</ul> -->
+
 		</div>	
 	</div><!-- /content -->
 	

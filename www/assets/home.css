@@ -64,6 +64,29 @@
 .content-primary, #homesearch {
 	padding:10px;
 	}
+	
+.homeicon {
+	background:#8E7A4A;
+	float:left;
+	width:25%;
+}
+
+.homeicon a {
+	display:block;
+	padding:10px;
+	vertical-align:bottom;
+	width:100%;
+}
+
+.homeicon.login {
+	background-image: url(home-login.png);
+	background-position: center top;
+}
+
+.homeicon.news {
+	background-image: url(home-news.png);
+	background-position: center top;
+}
 
 @media only screen and (min-width: 320px) { 
 	#homeFeatures {
