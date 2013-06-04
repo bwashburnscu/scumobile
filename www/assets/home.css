@@ -59,6 +59,7 @@
 	#homecontent {
 	padding:0 !important;
 	margin-top:0px;
+	background:#D2C599;
 	}
 	
 .content-primary, #homesearch {
@@ -66,27 +67,46 @@
 	}
 	
 .homeicon {
-	background:#8E7A4A;
+	background:#A99A76;
 	float:left;
-	width:25%;
+	width:24%;
+	text-align:center;
+	border:1px solid white;
 }
 
 .homeicon a {
+	position:relative;
 	display:block;
-	padding:10px;
+	padding:0px;
 	vertical-align:bottom;
+	text-align:center;
 	width:100%;
+	height:90px;
+	color:#fff !important;
+	font-weight:500 !important;
+	padding:0 !important;
+	margin:0 !important;
+	-moz-text-shadow: none !important;
+	-webkit-text-shadow: none !important;
+	text-shadow: none !important;
 }
 
-.homeicon.login {
-	background-image: url(home-login.png);
-	background-position: center top;
+.homeicon a span {
+	position:absolute;
+	bottom:10px;
+	left:0;
+	width:100%;
+	text-align:center;
 }
 
-.homeicon.news {
-	background-image: url(home-news.png);
-	background-position: center top;
+.homeicon a#login {
+	background: url(home-login.png) no-repeat center top;
 }
+
+.homeicon a#news {
+	background: url(home-news.png) no-repeat center top;
+}
+
 
 @media only screen and (min-width: 320px) { 
 	#homeFeatures {

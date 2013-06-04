@@ -51,33 +51,43 @@
 <div id="main" data-role="page" class="type-home">
 	
 	<div data-role="header" class="ui-header ui-bar-a" role="banner">
-		<a rel="external" href="/" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png"></a>
-		<h1 class="ui-title" role="heading" aria-level="1"><a href="http://m.scu.edu/index.cfm" rel="external" class="ui-link">Mobile</a></h1>
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png"></a>
+		<h1 class="ui-title" role="heading" aria-level="1"><a href="index.html" rel="external" class="ui-link">Mobile</a></h1>
 		<a href="http://m.scu.edu/#" onclick="$.mobile.silentScroll($.mobile.activePage.find(&#39;#primary-nav&#39;).position().top)" data-role="none" class="pnav-icon ui-btn-right" style="display: none;"><img alt="" src="assets/259-list-w.png"></a>
 	</div><!-- /header -->
-	<div data-role="content" id="homecontent" class="ui-content" role="main">
+	<div data-role="content" id="homecontent">
 		
 		<div class="content-secondary">
 			
 			<form method="GET" action="http://search.scu.edu/search" name="gs" id="homesearch">
-				<input type="text" data-type="search" cid="q" name="q" id="search-basic" value="" placeholder="Search..." class="ui-input-text ui-body-c"><a href="http://m.scu.edu/#" class="ui-input-clear ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-fullsize ui-btn-icon-notext ui-input-clear-hidden" title="clear text" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="delete" data-iconpos="notext" data-theme="c" data-mini="false"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">clear text</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a>
-				<input type="hidden" name="site" value="mobile">
-				<input type="hidden" name="access" value="p">
-				<input type="hidden" name="entqr" value="0">
-				<input type="hidden" name="ud" value="1">
-				<input type="hidden" name="sort" value="date:D:L:d1">
-				<input type="hidden" name="output" value="xml_no_dtd">
-				<input type="hidden" name="oe" value="UTF-8">
-				<input type="hidden" name="ie" value="UTF-8">
-				<input type="hidden" name="client" value="mobile">
-				<input type="hidden" name="proxystylesheet" value="mobile">
+				<input type="search" cid="q" name="q" id="search-basic" value="" placeholder="Search..." />
+				<input type="hidden" name="site" value="mobile" />
+				<input type="hidden" name="access" value="p"/>
+				<input type="hidden" name="entqr" value="0" />
+				<input type="hidden" name="ud" value="1" />
+				<input type="hidden" name="sort" value="date:D:L:d1" />
+				<input type="hidden" name="output" value="xml_no_dtd" />
+				<input type="hidden" name="oe" value="UTF-8" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="hidden" name="client" value="mobile" />
+				<input type="hidden" name="proxystylesheet" value="mobile" />
 			</form>
 		</div>
 			
 		<div class="content-primary">
 			
-			<div class="homeicon login"><a rel="external" href="login.html">Login</a></div>
-			<div class="homeicon news"><a rel="external" href="news.html">News</a></div>
+			<div class="homeicon"><a rel="external" href="login.html" id="login"><span>Login</span></a></div>
+			<div class="homeicon"><a rel="external" href="news.html" id="news"><span>News</span></a></div>
+			<div class="homeicon"><a rel="external" href="login.html" id="login"><span>Login</span></a></div>
+			<div class="homeicon"><a rel="external" href="news.html" id="news"><span>News</span></a></div>
+			<div class="homeicon"><a rel="external" href="login.html" id="login"><span>Login</span></a></div>
+			<div class="homeicon"><a rel="external" href="news.html" id="news"><span>News</span></a></div>
+			<div class="homeicon"><a rel="external" href="login.html" id="login"><span>Login</span></a></div>
+			<div class="homeicon"><a rel="external" href="news.html" id="news"><span>News</span></a></div>
+			<div class="homeicon"><a rel="external" href="login.html" id="login"><span>Login</span></a></div>
+			<div class="homeicon"><a rel="external" href="news.html" id="news"><span>News</span></a></div>
+			<div class="homeicon"><a rel="external" href="login.html" id="login"><span>Login</span></a></div>
+			<div class="homeicon"><a rel="external" href="news.html" id="news"><span>News</span></a></div>
 			
 		<!-- <ul id="navHome" data-role="listview" class="ui-listview">
 			<li><a rel="external" href="login.html"><img src="/mobimages/icon/123-id-card.png" alt="SCU Login" class="ui-li-icon">SCU Login</a></li>
@@ -105,5 +115,5 @@
 	</div><!-- /footer -->
 </div><!-- /page -->
 
-
-<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div></body></html>
+</body>
+</html>
