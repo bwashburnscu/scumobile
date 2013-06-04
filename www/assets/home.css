@@ -56,42 +56,43 @@
 		#homeFeatures .rblock p {			
 			display:none;
 		}
-	#homecontent {
+#homecontent {
 	padding:0 !important;
 	margin-top:0px;
-	background:#D2C599;
+	background:#eee1c7;
 	}
 	
 .content-primary, #homesearch {
 	padding:10px;
 	}
 	
-.homeicon {
-	background:#A99A76;
+.icongroup {
+
+}
+	
+.icongroup div {
 	float:left;
-	width:24%;
+	width:25%;
 	text-align:center;
-	border:1px solid white;
 }
 
-.homeicon a {
+.icongroup div a {
 	position:relative;
 	display:block;
+	margin:1px !important;
 	padding:0px;
 	vertical-align:bottom;
 	text-align:center;
-	width:100%;
-	height:90px;
+	height:95px;
 	color:#fff !important;
 	font-weight:500 !important;
-	padding:0 !important;
-	margin:0 !important;
 	-moz-text-shadow: none !important;
 	-webkit-text-shadow: none !important;
 	text-shadow: none !important;
+	text-decoration:none;
 }
 
-.homeicon a span {
+.icongroup div a span {
 	position:absolute;
 	bottom:10px;
 	left:0;
@@ -99,12 +100,47 @@
 	text-align:center;
 }
 
-.homeicon a#login {
-	background: url(home-login.png) no-repeat center top;
+.icongroup div a#login {
+	background:#a6a69a url(home-login.png) no-repeat center top;
 }
 
-.homeicon a#news {
-	background: url(home-news.png) no-repeat center top;
+.icongroup div a#news {
+	background:#a6a69a url(home-news.png) no-repeat center top;
+}
+
+.icongroup div a#social {
+	background:#a6a69a url(home-social.png) no-repeat center top;
+}
+
+.icongroup div a#events {
+	background:#a6a69a url(home-events.png) no-repeat center top;
+}
+.icongroup div a#admission {
+	background:#a6a69a url(home-admission.png) no-repeat center top;
+}
+.icongroup div a#alumni {
+	background:#a6a69a url(home-alumni.png) no-repeat center top;
+}
+.icongroup div a#athletics {
+	background:#a6a69a url(home-athletics.png) no-repeat center top;
+}
+.icongroup div a#courses {
+	background:#a6a69a url(home-courses.png) no-repeat center top;
+}
+.icongroup div a#directory {
+	background:#a6a69a url(home-directory.png) no-repeat center top;
+}
+.icongroup div a#map {
+	background:#a6a69a url(home-map.png) no-repeat center top;
+}
+.icongroup div a#rooms {
+	background:#a6a69a url(home-rooms.png) no-repeat center top;
+}
+.icongroup div a#dining {
+	background:#a6a69a url(home-dining.png) no-repeat center top;
+}
+.icongroup div a#libraries {
+	background:#a6a69a url(home-libraries.png) no-repeat center top;
 }
 
 
