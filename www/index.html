@@ -5,9 +5,8 @@
 	<title>SCU Mobile</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-	<link rel="stylesheet" href="http://m.scu.edu/uicss/scu.css" />
-	<link rel="stylesheet" href="http://m.scu.edu/uicss/secondary.css" />
-	<link href="assets/css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/secondary.css" />
 	<script src="assets/jquery-1.7.1.min.js"></script>
 	<script src="assets/jquery.mobile-1.1.1.min.js"></script>
 	
@@ -52,8 +51,7 @@
 	
 	<div data-role="header" class="ui-header ui-bar-a" role="banner">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png"></a>
-		<h1 class="ui-title" role="heading" aria-level="1"><a href="index.html" rel="external" class="ui-link">Mobile</a></h1>
-		<a href="http://m.scu.edu/#" onclick="$.mobile.silentScroll($.mobile.activePage.find(&#39;#primary-nav&#39;).position().top)" data-role="none" class="pnav-icon ui-btn-right" style="display: none;"><img alt="" src="assets/259-list-w.png"></a>
+		<h1 class="ui-title">Mobile</h1>
 	</div><!-- /header -->
 	<div data-role="content" id="homecontent">
 		
@@ -77,15 +75,18 @@
 		<div class="content-primary">
 			<div class="icongroup">
 				<div><a rel="external" href="login.html?nav=login" id="login"><span>Login</span></a></div>
+				<div><a rel="external" href="https://gmail.scu.edu/" id="gmail"><span>SCU GMail</span></a></div>
+				<div><a rel="external" href="https://ecampus.scu.edu/SCMOBILE/signin.html" id="ecampus"><span>Mobile Ecampus</span></a></div>
+				<div><a rel="external" href="https://camino.scu.edu/" id="camino"><span>Camino</span></a></div>
 				<div><a rel="external" href="news.html?nav=news" id="news"><span>News</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/social/" id="social"><span>Social</span></a></div>
+				<div><a rel="external" href="http://m.scu.edu/directory/" id="directory"><span>Directory</span></a></div>
+				<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/events/" id="events"><span>Events</span></a></div>
+				<div><a rel="external" href="http://m.scu.edu/social/" id="social"><span>Social</span></a></div>
 				<div><a rel="external" href="http://www.scu.edu/ugrad/" id="admission"><span>Admission</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/alumni/" id="alumni"><span>Alumni</span></a></div>
 				<div><a rel="external" href="http://santaclarabroncos.com/landing/index" id="athletics"><span>Athletics</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/catalog/" id="courses"><span>Courses</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/directory/" id="directory"><span>Directory</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/rooms/" id="rooms"><span>Rooms</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/dining/" id="dining"><span>Dining</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/libraries/" id="libraries"><span>Libraries</span></a></div>
@@ -106,12 +107,12 @@
 			<li><a href="/dining/"><img src="/mobimages/icon/100-coffee.png" alt="Dining" class="ui-li-icon">Dining Services</a></li>
 			<li><a href="/libraries/"><img src="/mobimages/icon/96-book.png" alt="Libraries" class="ui-li-icon">Libraries</a></li>
 		</ul> -->
-
+		<br style="clear:left;"/>
 		</div>	
 	</div><!-- /content -->
 	
 
-	<div data-role="footer" data-theme="c" class="ui-footer ui-bar-c" role="contentinfo">
+	<div data-role="footer" data-theme="c" id="footer">
 		<p style="text-align:center;">© 2013 Santa Clara University | <a href="http://m.scu.edu/redirect.cfm?site=home&to=http://www.scu.edu" rel="external" class="ui-link">Full Site</a></p>
 		<p style="text-align:center;"><a href="http://m.scu.edu/emergency" rel="external" class="ui-link">Emergency Information</a> | <a href="http://m.scu.edu/contact.cfm" rel="external" class="ui-link">Contact Us</a></p>
 	</div><!-- /footer -->

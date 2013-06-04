@@ -48,7 +48,7 @@
 
 /* SCU Home icon 175x40 pixels */
 .ui-header {
-	background: #979797 url(bg-header.png) repeat-y;
+	background: #b28720 url(bg-header.png) repeat-y;
 }
 .ui-header .sculogo {
     padding: 0px;
@@ -58,7 +58,7 @@
 .ui-header h1.ui-title
 {
 	font-family: Helvetica, Verdana, sans-serif;
-	color:#323232;
+	color:#fff;
 	font-weight:700;
 	font-size:20px;
 	line-height:20px;
@@ -75,6 +75,11 @@
 .ui-mobile .ui-bar-a {
     border-width: 0pt !important;
 }
+
+.ui-input-search {
+	background:#eee;
+}
+
 
 /*.ui-icon-pnav-icon {
     background-image: url("/images/icon/glyphish/259-list-w.png");

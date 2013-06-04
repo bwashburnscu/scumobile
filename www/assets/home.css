@@ -59,7 +59,7 @@
 #homecontent {
 	padding:0 !important;
 	margin-top:0px;
-	background:#eee1c7;
+	background:#a6a69a;
 	}
 	
 .content-primary, #homesearch {
@@ -86,6 +86,7 @@
 	height:95px;
 	color:#fff !important;
 	font-weight:500 !important;
+	font-size:.7em;
 	-moz-text-shadow: none !important;
 	-webkit-text-shadow: none !important;
 	text-shadow: none !important;
@@ -99,48 +100,53 @@
 	width:100%;
 	text-align:center;
 }
-
+.icongroup div a#gmail {
+	background:#636298 url(home-gmail.png) no-repeat center top;
+}
+.icongroup div a#ecampus {
+	background:#636298 url(home-ecampus.png) no-repeat center top;
+}
+.icongroup div a#camino {
+	background:#636298 url(home-camino.png) no-repeat center top;
+}
 .icongroup div a#login {
-	background:#a6a69a url(home-login.png) no-repeat center top;
+	background:#636298 url(home-login.png) no-repeat center top;
 }
-
 .icongroup div a#news {
-	background:#a6a69a url(home-news.png) no-repeat center top;
+	background:#636298 url(home-news.png) no-repeat center top;
 }
-
 .icongroup div a#social {
-	background:#a6a69a url(home-social.png) no-repeat center top;
+	background:#636298 url(home-social.png) no-repeat center top;
 }
-
 .icongroup div a#events {
-	background:#a6a69a url(home-events.png) no-repeat center top;
+	background:#636298 url(home-events.png) no-repeat center top;
 }
 .icongroup div a#admission {
-	background:#a6a69a url(home-admission.png) no-repeat center top;
+	background:#636298 url(home-admission.png) no-repeat center top;
 }
 .icongroup div a#alumni {
-	background:#a6a69a url(home-alumni.png) no-repeat center top;
+	background:#636298 url(home-alumni.png) no-repeat center top;
 }
 .icongroup div a#athletics {
-	background:#a6a69a url(home-athletics.png) no-repeat center top;
+	background:#636298 url(home-athletics.png) no-repeat center top;
 }
 .icongroup div a#courses {
-	background:#a6a69a url(home-courses.png) no-repeat center top;
+	background:#636298 url(home-courses.png) no-repeat center top;
 }
 .icongroup div a#directory {
-	background:#a6a69a url(home-directory.png) no-repeat center top;
+	background:#636298 url(home-directory.png) no-repeat center top;
 }
 .icongroup div a#map {
-	background:#a6a69a url(home-map.png) no-repeat center top;
+	background:#636298 url(home-map.png) no-repeat center top;
 }
 .icongroup div a#rooms {
-	background:#a6a69a url(home-rooms.png) no-repeat center top;
+	background:#636298 url(home-rooms.png) no-repeat center top;
 }
 .icongroup div a#dining {
-	background:#a6a69a url(home-dining.png) no-repeat center top;
+	background:#636298 url(home-dining.png) no-repeat center top;
 }
 .icongroup div a#libraries {
-	background:#a6a69a url(home-libraries.png) no-repeat center top;
+	background:#636298 url(home-libraries.png) no-repeat center top;
 }
 
 
