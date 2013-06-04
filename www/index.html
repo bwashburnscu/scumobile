@@ -19,20 +19,35 @@
 		window.addEventListener("orientationchange", function() {
 		  window.location.reload( true );
 		}, false);
-	</script>
-	
-	<script>
-	   $(document).ready(function() {
-	   	if($('#primary-nav').length == 0) {
-	   		$('.pnav-icon').hide();
-	   		}
-	      
-	   });
+
+	   
+	   document.addEventListener("backbutton", function() {
+            if ( $('.ui-page-active').attr('id') == 'main') {
+                exitAppPopup();
+            } else {
+                history.back();             
+            }
+        }, false);
+        
+        function exitAppPopup() {
+		    navigator.notification.confirm(
+		          'Exit SCU Mobile?'
+		        , function(button) {
+		              if (button == 2) {
+		                  navigator.app.exitApp();
+		              } 
+		          }
+		        , 'Exit'
+		        , 'No,Yes'
+		    );  
+		    return false;
+		}
+        
 	</script>
 	</head> 
-<body class="ui-mobile-viewport ui-overlay-c"> 
+<body> 
 
-<div data-role="page" class="type-home ui-page ui-body-c ui-page-active" data-url="/" tabindex="0" style="min-height: 919px;">
+<div id="main" data-role="page" class="type-home">
 	
 	<div data-role="header" class="ui-header ui-bar-a" role="banner">
 		<a rel="external" href="/" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="./assets/scu-home.png"></a>
