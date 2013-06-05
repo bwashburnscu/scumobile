@@ -80,13 +80,22 @@
 	background:#eee;
 }
 
-#main {
+#feed .ui-li-heading
+{
+  font-size: 14px;
+  white-space: normal;
+}
+
+.type-home {
 	background:#a6a69a;
 	}
 	
 #footer {
-	background:#c5c09f;
-	}
+	background:#a6a69a;
+	margin-top:60px;
+	border-bottom:none;
+}
+
 
 
 /*.ui-icon-pnav-icon {

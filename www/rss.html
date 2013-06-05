@@ -54,17 +54,26 @@
       var feedid = getUrlVars()["feed"];
       var feed = new google.feeds.Feed(rssfeed[feedid]);
       feed.setNumEntries(10);
+      feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
       feed.load(function(result) {
         if (!result.error) {
           var container = document.getElementById("feed");
           var rssContent = "";
+          var imgUrl = "";
           for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            rssContent += "<div data-role='collapsible' data-theme='a'><h3>" + entry.title + "</h3><h4>" + entry.title + "</h4><h4>" + entry.publishedDate + "</h4><p>" + entry.contentSnippet + "</p><p><a href='" + entry.link + "'>Continue Reading &raquo;</a></p></div>";
-          }
+            if (entry.xmlNode.getElementsByTagName("enclosure").length > 0) {
+            	imgUrl =  entry.xmlNode.getElementsByTagName("enclosure")[0].getAttribute("url");
+            	imgUrl = "<img src='" + imgUrl + "' />";
+            	} else {
+            	imgUrl = '';
+            	}
+            //rssContent += "<div data-role='collapsible' data-theme='a'><h3>" + entry.title + "</h3><h4>" + entry.title + "</h4><h4>" + entry.publishedDate + "</h4><p>" + entry.contentSnippet + "</p><p><a href='" + entry.link + "'>Continue Reading &raquo;</a></p></div>";
+            rssContent += "<li><a href='" + entry.link + "'>" + imgUrl + "<h3>" + entry.title + "</h3><p>" + entry.publishedDate + "</p></a></li>";
+            }          
           container.innerHTML=rssContent;
         }
-        $("#feed").collapsibleset("refresh");
+        $("#feed").listview("refresh");
       });
     }
     google.setOnLoadCallback(initialize);
@@ -84,8 +93,8 @@
 
 	<div data-role="content">
     <div class="content-primary">
-		<div data-role="collapsible-set" id="feed">
-		</div>
+		<ul data-role="listview" id="feed">
+		</ul>
 	</div>
 	<div id="primary-nav" class="content-secondary">
 		<ul data-role="listview" class="ui-listview"></ul>
