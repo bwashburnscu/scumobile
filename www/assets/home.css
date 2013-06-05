@@ -193,6 +193,7 @@
 		height:75px;
 	}
 	
+
 }
 
 
@@ -219,6 +220,15 @@
 	#homeFeatures .rblock h4 {
 			width: 160px;
 		}
+	.icongroup div {
+		width:20%;
+	}
+	.icongroup div a {
+		-webkit-background-size: 50px auto;
+		-moz-background-size: 50px auto;
+		background-size: 50px auto;
+		height:75px;
+	}
 
 }
 
@@ -248,6 +258,15 @@
 		}
 	#homelogo img {
 		height:100px;
+	}
+	.icongroup div {
+		width:25%;
+	}
+	.icongroup div a {
+		-webkit-background-size: 75px auto;
+		-moz-background-size: 75px auto;
+		background-size: 75px auto;
+		height:95px;
 	}
 }
 
