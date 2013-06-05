@@ -19,7 +19,7 @@ $("#navpage").live("pageshow", function(e) {
 				    output += data.menuitems[i].label;
 				    output += '</a></li>';
 		        }
-				$("#navmenu").append(output).listview("refresh");
+				$("#primary-nav ul").append(output).listview("refresh");
 		     }
 			});
 		});

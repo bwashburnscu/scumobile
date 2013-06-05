@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>RSS Reader</title> 
+	<title>News</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 	<link rel="stylesheet" href="assets/scu.css" />
@@ -17,7 +17,7 @@
 
 	<script>
 	   $(document).ready(function() {
-	   	if($('#navmenu').length == 0) {
+	   	if($('#primary-nav').length == 0) {
 	   		$('.pnav-icon').hide();
 	   		}
 	   });
@@ -31,7 +31,7 @@
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
 		<h1><a href="news.html">News</a></h1>
-		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#navmenu').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -70,8 +70,8 @@
 		.render().start();
 		</script>
 	</div>
-	<div class="content-secondary">
-	<ul id="navmenu" data-role="listview" class="ui-listview"></ul>
+	<div id="primary-nav" class="content-secondary">
+	<ul data-role="listview" class="ui-listview"></ul>
     <script>
     $("#newspage").live("pageshow", function(e) {
     	var navstring = getUrlVars()["nav"];
@@ -94,7 +94,7 @@
 			    output += data.menuitems[i].label;
 			    output += '</a></li>';
 	        }
-			$("#navmenu").append(output).listview("refresh");
+			$("#primary-nav ul").append(output).listview("refresh");
 	     }
 		});
 	});
@@ -113,7 +113,7 @@
 
     </script>
 	</div>
-	</div
+	</div>
 	
 
 	
