@@ -75,9 +75,9 @@
 			
 		<div class="content-primary">
 			<div class="icongroup">
-				<div><a rel="external" href="login.html?nav=login" id="login"><span>Login</span></a></div>
+				<div><a href="#login" id="login" data-transition="slide"><span>Login</span></a></div>
 				<div><a rel="external" href="http://gmail.scu.edu/" id="gmail"><span>SCU GMail</span></a></div>
-				<div><a rel="external" href="https://ecampus.scu.edu/SCMOBILE/signin.html" id="ecampus"><span>Mobile Ecampus</span></a></div>
+				<div><a href="#ecampus" id="ecampus" data-transition="slide"><span>Ecampus</span></a></div>
 				<div><a rel="external" href="https://camino.scu.edu/" id="camino"><span>Camino</span></a></div>
 				<div><a rel="external" href="news.html?nav=news" id="news"><span>News</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/directory/" id="directory"><span>Directory</span></a></div>
@@ -114,9 +114,79 @@
 	
 
 	<div data-role="footer" data-theme="c" id="footer" data-position="fixed">
-		<p style="text-align:center;">© 2013 Santa Clara University | <a href="http://m.scu.edu/redirect.cfm?site=home&to=http://www.scu.edu" rel="external" class="ui-link">Full Site</a></p>
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://m.scu.edu/redirect.cfm?site=home&to=http://www.scu.edu" rel="external" class="ui-link">Full Site</a></p>
 		<p style="text-align:center;"><a href="http://m.scu.edu/emergency" rel="external" class="ui-link">Emergency Information</a> | <a href="http://m.scu.edu/contact.cfm" rel="external" class="ui-link">Contact Us</a></p>
 	</div><!-- /footer -->
+</div><!-- /page -->
+
+<div data-role="page" id="login" class="type-interior">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>SCU Login</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+	<ul id="navmenu" data-role="listview" class="ui-listview"></ul>
+    <script>
+	    $.ajax({
+	     type: "GET",
+	     //url: 'assets/login.json',
+	     url: 'http://test01.scu.edu/nav/login.json',
+	     dataType: 'json',
+	     beforeSend: function(x) {
+	      if(x && x.overrideMimeType) {
+	       x.overrideMimeType("application/j-son;charset=UTF-8");
+	      }
+		 },
+		 success: function(data){
+		 	var output = '';
+		    for (var i in data.menuitems) {
+			    output += '<li><a href="' + data.menuitems[i].href + '" target="_blank"">';
+			    output += data.menuitems[i].label;
+			    output += '</a></li>';
+	        }
+			$("#navmenu").append(output).listview("refresh");
+	       //document.getElementById("navmenu").innerHTML=output;
+	     }
+		});
+    </script>
+
+	</div>
+	
+
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="ecampus" class="type-interior">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>eCampus</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+	<h3>Ecampus for mobile</h3>
+	<p>A version of ecampus optimized for mobile is available, including class schedule, grades, and more.</p>
+
+	<p><a href="https://ecampus.scu.edu/SCMOBILE/signin.html" data-role="button">Mobile eCampus</a></p>
+	
+	<p>The full eCampus web site is <a href="https://www.scu.edu/ecampus">available here</a>.</p>
+
+	</div>
+	
+
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+
 </div><!-- /page -->
 
 </body>
