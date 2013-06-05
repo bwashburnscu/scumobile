@@ -56,14 +56,16 @@
 		#homeFeatures .rblock p {			
 			display:none;
 		}
+
+	
 #homecontent {
 	padding:0 !important;
 	margin-top:0px;
-	background:#a6a69a;
 	}
 	
 .content-primary, #homesearch {
 	padding:10px;
+
 	}
 	
 .icongroup {

@@ -80,6 +80,14 @@
 	background:#eee;
 }
 
+#main {
+	background:#a6a69a;
+	}
+	
+#footer {
+	background:#c5c09f;
+	}
+
 
 /*.ui-icon-pnav-icon {
     background-image: url("/images/icon/glyphish/259-list-w.png");
