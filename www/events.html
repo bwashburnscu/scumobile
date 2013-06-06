@@ -1,0 +1,156 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Events</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/secondary.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script>
+		 // Listen for orientation changes
+		window.addEventListener("orientationchange", function() {
+		  window.location.reload( true );
+		}, false);
+	</script>
+
+	<script>
+	   $(document).ready(function() {
+	   	if($('#primary-nav').length == 0) {
+	   		$('.pnav-icon').hide();
+	   		}
+	   });
+   
+	   
+		function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		return vars;
+		}
+	
+	</script>
+   
+	</head> 
+<body> 
+
+<div id="navpage" data-role="page" class="type-interior">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Events</h1>
+		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <div class="content-primary">
+    	<div id="events" data-role="collapsible-set">
+		</div>
+	<script type="text/javascript">
+	        var str = '';
+    jQuery(function($){
+	    $.ajax({
+	            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange=6/6/13&endDateRange=6/6/13&ReturnFormat=json",
+	            dataType: 'json',
+	            async:false,
+	            success: function(response) {
+	
+		        var i;
+
+		        //loop over each row
+		        //data array, [0="STARTDT",1="ENDDT",2="STARTTIME",3="ENDTIME",4="TITLE",5="SCHED_ID",6="EVENT_ID",7="SERIES",8="SPONSOR",9="EVENTTYPE"]
+		        for (i = 0; i < response.DATA.length; i++) {
+		          var title = '';
+		          var eventdatetime = new Date("June 6, 2013 " + response.DATA[i][2]);
+		          var starttime = '';
+		          var starthour = eventdatetime.getHours();
+		          var startmins = eventdatetime.getMinutes();
+		          var ampm = " PM"
+		          if(starthour < 12) {
+		          	ampm = " AM";
+		          } else if(starthour > 12) {
+		          	starthour = starthour - 12;
+		          }
+		          if(starthour == 0) {
+		          	starthour = "Midnight";
+		          } else if (starthour == 12) {
+		          	starthour = "Noon";
+		          }
+		          starttime = starthour;
+		          if(startmins != 0 && starthour != 'Midnight' && starthour != 'Noon') {
+		          starttime = starttime + ":" + startmins;
+		          }
+		          if(starthour != 'Midnight' && starthour != 'Noon') {
+		          	starttime = starttime + ampm;
+		          }
+		          str += '<div data-role="collapsible">';
+		              if (response.DATA[i][4].length > 0) {
+		              	title = response.DATA[i][4];
+		              } else {
+		              	title = response.DATA[i][7];
+		              }
+		              str += '<h3>' + starttime + ' - ' +  title + '</h3>';
+		              //str += '<h4>' +  title + '</h4>';
+		               $.ajax({
+			            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=qEvent&returnFormat=plain&eventid=" + response.DATA[i][6],
+			            async:false,
+			            success: function(edata) {
+				          str += "<div>" + $(edata).find('descr').text() + "</div>";
+				          str += "<p>";
+				          str += "Contact " + $(edata).find('con_name').text();
+				          if($(edata).find('con_email').text().length > 0) {
+				          	str += "<div><a href='mailto:" + $(edata).find('con_email').text() + "'>" + $(edata).find('con_email').text() + "</a></div>";
+				          }
+				          if($(edata).find('con_phone').text().length > 0) {
+				          	str += "<div><a href='tel:" + $(edata).find('con_phone').text() + "'>" + $(edata).find('con_phone').text() + "</a></div>";
+				          }
+				          str += "</p>";
+				          str += "<p>Event schedule:";
+				          $(edata).find('sched').each(function(index){
+				          		var date_time = $(this).find('date_time').text();
+					            var cost = $(this).find('cost').text();
+					            var location = $(this).find('location').text();
+					            var loc_other = $(this).find('loc_other').text();
+					          str += "<div>" + date_time + "</div>";
+					      });
+					      str += "</p>";
+					      if($(edata).find('info_url').text().length > 0) {
+				          	str += "<div><a href='" + $(edata).find('info_url').text() + "'>More Information</a></div>";
+				          }
+				        }
+				     });
+		          str += '</div>';
+		        }
+		
+		        $('#events').html(str);
+		        $("#events").collapsibleset("refresh");
+		    },
+		    error: function(ErrorMsg) {
+		       console.log('Error');
+		    }
+        });
+    });
+    </script>
+	</div>
+	<div id="primary-nav" class="content-secondary">
+		<ul data-role="listview" class="ui-listview"></ul>
+	    <script src="assets/nav.js"></script>
+	</div>
+	</div>
+	
+
+	
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>

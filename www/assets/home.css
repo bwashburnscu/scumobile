@@ -164,6 +164,10 @@
 	background-position: center top;
 }
 
+.icongroup div a:active {
+	background-color:#f17330;
+}
+
 
 @media only screen and (min-width: 320px) { 
 	#homeFeatures {
