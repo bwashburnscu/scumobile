@@ -1,4 +1,4 @@
-$("#navpage").live("pageshow", function(e) {
+$("#navpage").on("pageshow", function(e) {
 	  var navstring = getUrlVars()["nav"];
 		if(!navstring || navstring == ''){
 			navstring = 'main';
