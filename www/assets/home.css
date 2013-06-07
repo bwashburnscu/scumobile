@@ -79,13 +79,13 @@
 
 }
 	
-.icongroup div {
+.icongroup div, .helpgroup div {
 	float:left;
 	width:25%;
 	text-align:center;
 }
 
-.icongroup div a {
+.icongroup div a, .helpgroup div a {
 	position:relative;
 	display:block;
 	margin:1px !important;
@@ -102,7 +102,7 @@
 	text-decoration:none;
 }
 
-.icongroup div a span {
+.icongroup div a span, .helpgroup div a span {
 	position:absolute;
 	bottom:10px;
 	left:0;
@@ -158,6 +158,20 @@
 	background-image: url(home-libraries.png);
 }
 
+
+.helpgroup div a#emergency {
+	background-image: url(home-emergency.png);
+}
+.helpgroup div a#fullsite {
+	background-image: url(home-fullsite.png);
+}
+.helpgroup div a#about {
+	background-image: url(home-about.png);
+}
+.helpgroup div a#customize {
+	background-image: url(home-customize.png);
+}
+
 .icongroup div a {
 	background-color:#88200d;
 	background-repeat: no-repeat;
@@ -166,6 +180,16 @@
 
 .icongroup div a:active {
 	background-color:#f17330;
+}
+
+.helpgroup div a {
+	background-color:#636298;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+.helpgroup div a:active {
+	background-color:#abdee7;
 }
 
 
@@ -202,6 +226,13 @@
 		-moz-background-size: 50px auto;
 		background-size: 50px auto;
 		height:75px;
+	}
+	
+	.helpgroup div a {
+		-webkit-background-size: 35px auto;
+		-moz-background-size: 35px auto;
+		background-size: 35px auto;
+		height:60px;
 	}
 }
 

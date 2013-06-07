@@ -4,11 +4,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>SCU Mobile</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
 	<link rel="stylesheet" href="assets/scu.css" />
 	<link rel="stylesheet" href="assets/secondary.css" />
-	<script src="assets/jquery-1.7.1.min.js"></script>
-	<script src="assets/jquery.mobile-1.1.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="assets/touchcarousel.css" />
 	<link rel="stylesheet" type="text/css" href="assets/minimal-light-skin.css" />
@@ -92,6 +92,12 @@
 				<div><a rel="external" href="http://m.scu.edu/dining/" id="dining"><span>Dining</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/libraries/" id="libraries"><span>Libraries</span></a></div>
 			</div>
+			<div class="helpgroup">
+				<div><a href="#emergency" id="emergency"><span>Emergency</span></a></div>
+				<div><a href="#about" id="about"><span>About</span></a></div>
+				<div><a rel="external" href="http://www.scu.edu/" id="fullsite"><span>Full Site</span></a></div>
+				<div><a href="#customize" id="customize"><span>Customize</span></a></div>
+			</div>
 			
 		<!-- <ul id="navHome" data-role="listview" class="ui-listview">
 			<li><a rel="external" href="login.html"><img src="/mobimages/icon/123-id-card.png" alt="SCU Login" class="ui-li-icon">SCU Login</a></li>
@@ -128,7 +134,7 @@
 
 	<div data-role="content">
 
-	<ul id="navmenu" data-role="listview" class="ui-listview"></ul>
+	<ul id="navmenu" data-role="listview"></ul>
     <script>
 	    $.ajax({
 	     type: "GET",
@@ -178,6 +184,76 @@
 	<p><a href="https://ecampus.scu.edu/SCMOBILE/signin.html" data-role="button">Mobile eCampus</a></p>
 	
 	<p>The full eCampus web site is <a href="https://www.scu.edu/ecampus">available here</a>.</p>
+
+	</div>
+	
+
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="emergency" class="type-interior">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Emergency</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	<h3>Fire, Police, Ambulance - <a href="tel:911">911</a></h3>
+	<ul data-role="listview" data-inset="true">
+		<li data-icon="custom" id="phoneicon"><a href="tel:408-554-4444">Campus Safety (1-408-554-4444)</a></li>
+		<li data-icon="custom" id="phoneicon"><a href="tel:408-554-4444">Campus Safety (1-408-554-4444)</a></li>
+	</ul>
+
+	</div>
+	
+
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="about" class="type-interior">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>About</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+	<h3>About the SCU Mobile App</h3>
+	<p>content</p>
+
+
+	</div>
+	
+
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="customize" class="type-interior">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Customize</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+	<h3>Customize your settings</h3>
+	<p>content</p>
+
 
 	</div>
 	

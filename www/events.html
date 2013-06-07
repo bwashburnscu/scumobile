@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
 	<link rel="stylesheet" href="assets/scu.css" />
 	<link rel="stylesheet" href="assets/secondary.css" />
-	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 	<script>
 		 // Listen for orientation changes
@@ -50,93 +50,152 @@
 
 	<div data-role="content">
     <div class="content-primary">
+    	<h3 id="dayTitle"></h3>
+    	<div data-role="controlgroup" data-type="horizontal">
+		      <a href="" data-role="button" data-transition="fade" data-icon="arrow-l" id="prevlink"> Prev </a>
+		      <a href="?" data-role="button" data-transition="fade">Today</a>
+		      <a href="" data-role="button" data-transition="fade" data-icon="arrow-r" data-iconpos="right" id="nextlink"> Next </a>
+		</div>
+			<script>
+			/*$("#navpage").on("pageshow", function(e) {
+			var d;
+    	   	var weekdays= [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+    	   	var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    		var url_date = getUrlVars()["d"];
+    		var url_month = getUrlVars()["m"];
+    		var url_year = getUrlVars()["y"];
+    		
+    		//create a date based on valid url variables
+    		if(!url_date || !url_month || !url_year) {
+	    		d = new Date();
+	    	} else {
+	    		d = new Date(url_year,url_month,url_date);
+	    	}
+	    	//set previous/next dates based on current date
+	    	var p = new Date(d.getTime() - (24 * 60 * 60 * 1000));
+	    	var n = new Date(d.getTime() + (24 * 60 * 60 * 1000));
+	    	
+	    	//compose the day of week and date string
+		    var curr_date = d.getDate();
+		    var curr_day = d.getDay();
+		    var curr_month = d.getMonth();
+		    var curr_year = d.getFullYear();
+	    	var dayTitleStr = weekdays[curr_day] + ", " + months[curr_month] + " " + curr_date + ", " + curr_year;
+	    	$('#dayTitle').html(dayTitleStr);
+	    	
+	    	//compose the previous/next navigation
+	    	var prev_date = p.getDate();
+		    var prev_month = p.getMonth();
+		    var prev_year = p.getFullYear();
+	    	var prevStr = "events.html?d=" + prev_date + "&m=" + prev_month + "&y=" + prev_year;
+	    	$("#prevlink").attr("href", prevStr);
+	    	
+	    	var next_date = n.getDate();
+		    var next_month = n.getMonth();
+		    var next_year = n.getFullYear();
+	    	var nextStr = "events.html?d=" + next_date + "&m=" + next_month + "&y=" + next_year;
+	    	$("#nextlink").attr("href", nextStr);
+	    	});
+	    	function getUrlVars() {
+			var vars = [], hash;
+			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			for(var i = 0; i < hashes.length; i++)
+			    {
+			        hash = hashes[i].split('=');
+			        vars.push(hash[0]);
+			        vars[hash[0]] = hash[1];
+			    }
+			return vars;
+			}*/
+	
+	    </script>
     	<div id="events" data-role="collapsible-set">
 		</div>
-	<script type="text/javascript">
-	        var str = '';
-    jQuery(function($){
-	    $.ajax({
-	            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange=6/6/13&endDateRange=6/6/13&ReturnFormat=json",
-	            dataType: 'json',
-	            async:false,
-	            success: function(response) {
-		        var i;
-
-		        //loop over each row
-		        //data array, [0="STARTDT",1="ENDDT",2="STARTTIME",3="ENDTIME",4="TITLE",5="SCHED_ID",6="EVENT_ID",7="SERIES",8="SPONSOR",9="EVENTTYPE"]
-		        for (i = 0; i < response.DATA.length; i++) {
-		          var title = '';
-		          var eventdatetime = new Date("June 6, 2013 " + response.DATA[i][2]);
-		          var starttime = '';
-		          var starthour = eventdatetime.getHours();
-		          var startmins = eventdatetime.getMinutes();
-		          var ampm = " PM"
-		          if(starthour < 12) {
-		          	ampm = " AM";
-		          } else if(starthour > 12) {
-		          	starthour = starthour - 12;
-		          }
-		          if(starthour == 0) {
-		          	starthour = "Midnight";
-		          } else if (starthour == 12) {
-		          	starthour = "Noon";
-		          }
-		          starttime = starthour;
-		          if(startmins != 0 && starthour != 'Midnight' && starthour != 'Noon') {
-		          starttime = starttime + ":" + startmins;
-		          }
-		          if(starthour != 'Midnight' && starthour != 'Noon') {
-		          	starttime = starttime + ampm;
-		          }
-		          str += '<div data-role="collapsible">';
-		              if (response.DATA[i][4].length > 0) {
-		              	title = response.DATA[i][4];
-		              } else {
-		              	title = response.DATA[i][7];
-		              }
-		              str += '<h3>' + starttime + ' - ' +  title + '</h3>';
-		              //str += '<h4>' +  title + '</h4>';
-		               $.ajax({
-			            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=qEvent&returnFormat=plain&eventid=" + response.DATA[i][6],
-			            async:false,
-			            success: function(edata) {
-				          str += "<div>" + $(edata).find('descr').text() + "</div>";
-				          str += "<p>";
-				          str += "Contact " + $(edata).find('con_name').text();
-				          if($(edata).find('con_email').text().length > 0) {
-				          	str += "<div><a href='mailto:" + $(edata).find('con_email').text() + "'>" + $(edata).find('con_email').text() + "</a></div>";
-				          }
-				          if($(edata).find('con_phone').text().length > 0) {
-				          	str += "<div><a href='tel:" + $(edata).find('con_phone').text() + "'>" + $(edata).find('con_phone').text() + "</a></div>";
-				          }
-				          str += "</p>";
-				          str += "<p>Event schedule:";
-				          $(edata).find('sched').each(function(index){
-				          		var date_time = $(this).find('date_time').text();
-					            var cost = $(this).find('cost').text();
-					            var location = $(this).find('location').text();
-					            var loc_other = $(this).find('loc_other').text();
-					          str += "<div>" + date_time + "</div>";
-					      });
-					      str += "</p>";
-					      if($(edata).find('info_url').text().length > 0) {
-				          	str += "<div><a href='" + $(edata).find('info_url').text() + "'>More Information</a></div>";
-				          }
-				        }
-				     });
-		          str += '</div>';
-		        }
-		
-		        $('#events').html(str);
-		        $("#events").collapsibleset("refresh");
-		    },
-		    error: function(ErrorMsg) {
-		       console.log('Error');
-		    }
-		    
-        });
-    });
-    </script>
+		<script type="text/javascript">
+		        var str = '';
+	    jQuery(function($){
+		    $.ajax({
+		            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange=6/6/13&endDateRange=6/6/13&ReturnFormat=json",
+		            dataType: 'json',
+		            async:false,
+		            success: function(response) {
+			        var i;
+	
+			        //loop over each row
+			        //data array, [0="STARTDT",1="ENDDT",2="STARTTIME",3="ENDTIME",4="TITLE",5="SCHED_ID",6="EVENT_ID",7="SERIES",8="SPONSOR",9="EVENTTYPE"]
+			        for (i = 0; i < response.DATA.length; i++) {
+			          var title = '';
+			          var eventdatetime = new Date("June 6, 2013 " + response.DATA[i][2]);
+			          var starttime = '';
+			          var starthour = eventdatetime.getHours();
+			          var startmins = eventdatetime.getMinutes();
+			          var ampm = " PM"
+			          if(starthour < 12) {
+			          	ampm = " AM";
+			          } else if(starthour > 12) {
+			          	starthour = starthour - 12;
+			          }
+			          if(starthour == 0) {
+			          	starthour = "Midnight";
+			          } else if (starthour == 12) {
+			          	starthour = "Noon";
+			          }
+			          starttime = starthour;
+			          if(startmins != 0 && starthour != 'Midnight' && starthour != 'Noon') {
+			          starttime = starttime + ":" + startmins;
+			          }
+			          if(starthour != 'Midnight' && starthour != 'Noon') {
+			          	starttime = starttime + ampm;
+			          }
+			          str += '<div data-role="collapsible">';
+			              if (response.DATA[i][4].length > 0) {
+			              	title = response.DATA[i][4];
+			              } else {
+			              	title = response.DATA[i][7];
+			              }
+			              str += '<h3>' + starttime + ' - ' +  title + '</h3>';
+			              //str += '<h4>' +  title + '</h4>';
+			               $.ajax({
+				            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=qEvent&returnFormat=plain&eventid=" + response.DATA[i][6],
+				            async:false,
+				            success: function(edata) {
+					          str += "<div>" + $(edata).find('descr').text() + "</div>";
+					          str += "<p>";
+					          str += "Contact " + $(edata).find('con_name').text();
+					          if($(edata).find('con_email').text().length > 0) {
+					          	str += "<div><a href='mailto:" + $(edata).find('con_email').text() + "'>" + $(edata).find('con_email').text() + "</a></div>";
+					          }
+					          if($(edata).find('con_phone').text().length > 0) {
+					          	str += "<div><a href='tel:" + $(edata).find('con_phone').text() + "'>" + $(edata).find('con_phone').text() + "</a></div>";
+					          }
+					          str += "</p>";
+					          str += "<p>Event schedule:";
+					          $(edata).find('sched').each(function(index){
+					          		var date_time = $(this).find('date_time').text();
+						            var cost = $(this).find('cost').text();
+						            var location = $(this).find('location').text();
+						            var loc_other = $(this).find('loc_other').text();
+						          str += "<div>" + date_time + "</div>";
+						      });
+						      str += "</p>";
+						      if($(edata).find('info_url').text().length > 0) {
+					          	str += "<div><a href='" + $(edata).find('info_url').text() + "'>More Information</a></div>";
+					          }
+					        }
+					     });
+			          str += '</div>';
+			        }
+			
+			        $('#events').html(str);
+			        $("#events").collapsibleset("refresh");
+			    },
+			    error: function(ErrorMsg) {
+			       console.log('Error');
+			    }
+			    
+	        });
+	    });
+	    </script>
 	</div>
 	<div id="primary-nav" class="content-secondary">
 		<ul data-role="listview" class="ui-listview"></ul>

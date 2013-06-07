@@ -3,11 +3,11 @@
 	<head> 
 	<title>News</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
 	<link rel="stylesheet" href="assets/scu.css" />
 	<link rel="stylesheet" href="assets/secondary.css" />
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 	<script>
 		 // Listen for orientation changes
 		window.addEventListener("orientationchange", function() {
@@ -47,7 +47,7 @@
 		  subject: '',
 		  interval: 6000,
 		  width: 'auto',
-		  height: '100',
+		  height: '200',
 		  theme: {
 		    shell: {
 		      background: '##eeeeee',
@@ -73,7 +73,7 @@
 	<div id="primary-nav" class="content-secondary">
 	<ul data-role="listview" class="ui-listview"></ul>
     <script>
-    $("#newspage").live("pageshow", function(e) {
+    $("#newspage").on("pageshow", function(e) {
     	var navstring = getUrlVars()["nav"];
 		if(!navstring){
 			navstring = 'news';
