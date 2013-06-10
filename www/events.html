@@ -52,12 +52,12 @@
     <div class="content-primary">
     	<h3 id="dayTitle"></h3>
     	<div data-role="controlgroup" data-type="horizontal">
-		      <a href="" data-role="button" data-transition="fade" data-icon="arrow-l" id="prevlink"> Prev </a>
-		      <a href="?" data-role="button" data-transition="fade">Today</a>
-		      <a href="" data-role="button" data-transition="fade" data-icon="arrow-r" data-iconpos="right" id="nextlink"> Next </a>
+		      <a rel="external" href="" data-role="button" data-icon="arrow-l" id="prevlink"> Prev </a>
+		      <a rel="external" href="events.html" data-role="button" >Today</a>
+		      <a rel="external" href="" data-role="button" data-icon="arrow-r" data-iconpos="right" id="nextlink"> Next </a>
 		</div>
 			<script>
-			/*$("#navpage").on("pageshow", function(e) {
+			//$("#navpage").on("pageshow", function(e) {
 			var d;
     	   	var weekdays= [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
     	   	var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
@@ -88,14 +88,16 @@
 		    var prev_month = p.getMonth();
 		    var prev_year = p.getFullYear();
 	    	var prevStr = "events.html?d=" + prev_date + "&m=" + prev_month + "&y=" + prev_year;
+	    	var prevStr = prevStr + "&nav=events";
 	    	$("#prevlink").attr("href", prevStr);
 	    	
 	    	var next_date = n.getDate();
 		    var next_month = n.getMonth();
 		    var next_year = n.getFullYear();
 	    	var nextStr = "events.html?d=" + next_date + "&m=" + next_month + "&y=" + next_year;
+	    	var nextStr = nextStr + "&nav=events";
 	    	$("#nextlink").attr("href", nextStr);
-	    	});
+	    	//});
 	    	function getUrlVars() {
 			var vars = [], hash;
 			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -106,16 +108,17 @@
 			        vars[hash[0]] = hash[1];
 			    }
 			return vars;
-			}*/
+			}/**/
 	
 	    </script>
     	<div id="events" data-role="collapsible-set">
 		</div>
 		<script type="text/javascript">
-		        var str = '';
-	    jQuery(function($){
+		    var str = '';
+		    var currDateStr = (curr_month+1) + "/" + curr_date + "/" + curr_year;
+	    	jQuery(function($){
 		    $.ajax({
-		            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange=6/6/13&endDateRange=6/6/13&ReturnFormat=json",
+		            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange="+currDateStr+"&endDateRange="+currDateStr+"&ReturnFormat=json",
 		            dataType: 'json',
 		            async:false,
 		            success: function(response) {
