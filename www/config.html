@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>News</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/secondary.css" />
+	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script>
+		 // Listen for orientation changes
+		window.addEventListener("orientationchange", function() {
+		  window.location.reload( true );
+		}, false);
+	</script>
+
+	<script>
+	   $(document).ready(function() {
+	   	if($('#primary-nav').length == 0) {
+	   		$('.pnav-icon').hide();
+	   		}
+	   });
+	</script>
+   
+	</head> 
+<body> 
+
+<div data-role="page" id="customize" class="type-interior">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Customize</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+	<p id="iconSelect">Change the home page options.</p>
+	<div data-demo-html="true">                
+		<form>
+			<fieldset id="configFields" data-role="controlgroup" data-iconpos="right">
+			</fieldset>
+		</form>
+	</div>
+	
+	<script>
+		var myConfigStr = '';
+		var checkedStr = '';
+		var myConfig = ["Login","Gmail","eCampus","Camino","News","Directory","Map","Events","Social","Admission","Alumni","Athletics","Courses","Rooms","Dining","Libraries"];
+			for (var i = 0; i < myConfig.length; i++) {
+				iconID= myConfig[i];
+				iconState = localStorage.getItem("homeIcon." + iconID + ".state");
+				if(localStorage.getItem("homeIcon." + iconID + ".state") == null || localStorage.getItem("homeIcon." + iconID + ".state") == 'true') {
+					checkedStr = ' checked="checked"';
+					}
+					else {
+					checkedStr = '';
+				}
+			    myConfigStr += '<input type="checkbox" name="'+myConfig[i]+'" id="'+myConfig[i]+'"'+checkedStr;
+			    myConfigStr += ' onclick="handleClick(this,\''+myConfig[i]+'\');">';
+			    myConfigStr += '<label for="'+myConfig[i]+'">'+myConfig[i]+'</label>';
+			}
+		$("#configFields").html(myConfigStr);
+		
+		function handleClick(s,i){
+			localStorage.setItem("homeIcon." + i + ".state", s.checked);
+			$("#iconSelect").append(' <em>Updated!</em>');
+		}
+	</script>
+
+	</div>
+	
+
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
+		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>

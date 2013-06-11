@@ -75,9 +75,73 @@
 			
 		<div class="content-primary">
 			<div class="icongroup">
-				<div><a href="#login" id="login"><span>Login</span></a></div>
-				<div><a rel="external" href="http://gmail.scu.edu/" id="gmail"><span>SCU GMail</span></a></div>
-				<div><a href="#ecampus" id="ecampus"><span>Ecampus</span></a></div>
+				<script>
+					var loginState = localStorage.getItem("homeIcon.Login.state");
+					var gmailState = localStorage.getItem("homeIcon.Gmail.state");
+					var ecampusState = localStorage.getItem("homeIcon.Ecampus.state");
+					var caminoState = localStorage.getItem("homeIcon.Camino.state");
+					var newsState = localStorage.getItem("homeIcon.News.state");
+					var directoryState = localStorage.getItem("homeIcon.Directory.state");
+					var mapState = localStorage.getItem("homeIcon.Map.state");
+					var eventsState = localStorage.getItem("homeIcon.Events.state");
+					var socialState = localStorage.getItem("homeIcon.Social.state");
+					var admissionState = localStorage.getItem("homeIcon.Admission.state");
+					var alumniState = localStorage.getItem("homeIcon.Alumni.state");
+					var athleticsState = localStorage.getItem("homeIcon.Athletics.state");
+					var coursesState = localStorage.getItem("homeIcon.Courses.state");
+					var roomsState = localStorage.getItem("homeIcon.Rooms.state");
+					var diningState = localStorage.getItem("homeIcon.Dining.state");
+					var librariesState = localStorage.getItem("homeIcon.Libraries.state");
+					if(loginState == null || loginState == 'true') {
+						document.write('<div><a href="#login" id="login"><span>Login</span></a></div>');
+					}
+					if(gmailState == null || gmailState == 'true') {
+						document.write('<div><a rel="external" href="http://gmail.scu.edu/" id="gmail"><span>SCU GMail</span></a></div>');
+					}
+					if(ecampusState == null || ecampusState == 'true') {
+						document.write('<div><a href="#ecampus" id="ecampus"><span>eCampus</span></a></div>');
+					}
+					if(caminoState == null || caminoState == 'true') {
+						document.write('<div><a rel="external" href="https://camino.scu.edu/" id="camino"><span>Camino</span></a></div>');
+					}
+					if(newsState == null || newsState == 'true') {
+						document.write('<div><a rel="external" href="news.html" id="news"><span>News</span></a></div>');
+					}
+					if(directoryState == null || directoryState == 'true') {
+						document.write('<div><a rel="external" href="http://m.scu.edu/people" id="directory"><span>Directory</span></a></div>');
+					}
+					if(mapState == null || mapState == 'true') {
+						document.write('<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>');
+					}
+					if(eventsState == null || eventsState == 'true') {
+						document.write('<div><a rel="external" href="events.html" id="events"><span>Events</span></a></div>');
+					}
+					if(socialState == null || socialState == 'true') {
+						document.write('<div><a rel="external" href="http://m.scu.edu/social/" id="social"><span>Social</span></a></div>');
+					}
+					if(admissionState == null || admissionState == 'true') {
+						document.write('<div><a rel="external" href="http://www.scu.edu/ugrad/" id="admission"><span>Admission</span></a></div>');
+					}
+					if(alumniState == null || alumniState == 'true') {
+						document.write('<div><a rel="external" href="http://m.scu.edu/alumni/" id="alumni"><span>Alumni</span></a></div>');
+					}
+					if(athleticsState == null || athleticsState == 'true') {
+						document.write('<div><a rel="external" href="http://santaclarabroncos.com/landing/index" id="athletics"><span>Athletics</span></a></div>');
+					}
+					if(coursesState == null || coursesState == 'true') {
+						document.write('<div><a rel="external" href=""http://m.scu.edu/catalog/" id="courses"><span>Courses</span></a></div>');
+					}
+					if(roomsState == null || roomsState == 'true') {
+						document.write('<div><a rel="external" href="http://m.scu.edu/rooms/" id="rooms"><span>Rooms</span></a></div>');
+					}
+					if(diningState == null || diningState == 'true') {
+						document.write('<div><a rel="external" href="http://m.scu.edu/dining/" id="dining"><span>Dining</span></a></div>');
+					}
+					if(librariesState == null || librariesState == 'true') {
+						document.write('<div><a rel="external" href="http://m.scu.edu/libraries/" id="libraries"><span>Libraries</span></a></div>');
+					}
+				</script>
+				<!-- <div><a href="#ecampus" id="ecampus"><span>Ecampus</span></a></div>
 				<div><a rel="external" href="https://camino.scu.edu/" id="camino"><span>Camino</span></a></div>
 				<div><a rel="external" href="news.html?nav=news" id="news"><span>News</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/people/" id="directory"><span>Directory</span></a></div>
@@ -90,15 +154,14 @@
 				<div><a rel="external" href="http://m.scu.edu/catalog/" id="courses"><span>Courses</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/rooms/" id="rooms"><span>Rooms</span></a></div>
 				<div><a rel="external" href="http://m.scu.edu/dining/" id="dining"><span>Dining</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/libraries/" id="libraries"><span>Libraries</span></a></div>
+				<div><a rel="external" href="http://m.scu.edu/libraries/" id="libraries"><span>Libraries</span></a></div> -->
 			</div>
 			<div class="helpgroup">
 				<div><a href="#emergency" id="emergency"><span>Emergency</span></a></div>
 				<div><a href="#about" id="about"><span>About</span></a></div>
 				<div><a rel="external" href="http://www.scu.edu/" id="fullsite"><span>Full Site</span></a></div>
-				<div><a href="#customize" id="customize"><span>Customize</span></a></div>
+				<div><a href="config.html" id="customize"><span>Customize</span></a></div>
 			</div>
-			
 		<!-- <ul id="navHome" data-role="listview" class="ui-listview">
 			<li><a rel="external" href="login.html"><img src="/mobimages/icon/123-id-card.png" alt="SCU Login" class="ui-li-icon">SCU Login</a></li>
 			<li><a rel="external" href="news.html"><img src="/mobimages/icon/70-tv.png" alt="News" class="ui-li-icon">News</a></li>
@@ -134,7 +197,7 @@
 
 	<div data-role="content">
 
-	<ul id="navmenu" data-role="listview"></ul>
+	<ul id="navmenu" data-role="listview" data-inset="true"></ul>
     <script>
 	    $.ajax({
 	     type: "GET",
@@ -241,33 +304,10 @@
 
 	<div data-role="content">
 
-	<h3>About the SCU Mobile App</h3>
-	<p>content</p>
-
-
-	</div>
-	
-
-	<div data-role="footer" data-theme="c">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
-		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
-	</div><!-- /footer -->
-
-</div><!-- /page -->
-
-<div data-role="page" id="customize" class="type-interior">
-	
-	<div data-role="header">
-		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Customize</h1>
-	</div><!-- /header -->
-
-	<div data-role="content">
-
-	<h3>Customize your settings</h3>
-	<p>content</p>
-
-
+	<h3>About SCU Mobile</h3>
+	<p>SCU Mobile is available as a mobile web site at m.scu.edu, and as native app for iOS, Android, Blackberry, Windows Phone, WebOS, and Symbian platforms. The mobile application includes general information resources for Santa Clara University, including news and events, course catalog, map, faculty/staff directory, library catalog, dining services hours and menus, and room reservations. Additionally, the mobile site provides a starting point to reach other SCU mobile resources such as SCU Gmail and Calendar, mobile ecampus, and Camino.</p>
+	<p>Development of SCU Mobile is continuing, and we'll be extending the menu options as more of SCU's network resources have mobile-optimized interfaces.</p>
+	<p>Your feedback and suggestions regarding SCU Mobile are always welcome! Please send your feedback to <a href="mailto:bwashburn@scu.edu">webmaster@scu.edu.</a></p>
 	</div>
 	
 

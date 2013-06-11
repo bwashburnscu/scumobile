@@ -158,6 +158,10 @@
 	background-image: url(home-libraries.png);
 }
 
+.helpgroup {
+	clear:left;
+}
+
 
 .helpgroup div a#emergency {
 	background-image: url(home-emergency.png);
