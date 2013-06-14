@@ -78,7 +78,7 @@
 				<script>
 					var loginState = localStorage.getItem("homeIcon.Login.state");
 					var gmailState = localStorage.getItem("homeIcon.Gmail.state");
-					var ecampusState = localStorage.getItem("homeIcon.Ecampus.state");
+					var ecampusState = localStorage.getItem("homeIcon.eCampus.state");
 					var caminoState = localStorage.getItem("homeIcon.Camino.state");
 					var newsState = localStorage.getItem("homeIcon.News.state");
 					var directoryState = localStorage.getItem("homeIcon.Directory.state");
@@ -108,7 +108,7 @@
 						document.write('<div><a rel="external" href="news.html" id="news"><span>News</span></a></div>');
 					}
 					if(directoryState == null || directoryState == 'true') {
-						document.write('<div><a rel="external" href="http://m.scu.edu/people" id="directory"><span>Directory</span></a></div>');
+						document.write('<div><a rel="external" href="directory/index.html" id="directory"><span>Directory</span></a></div>');
 					}
 					if(mapState == null || mapState == 'true') {
 						document.write('<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>');

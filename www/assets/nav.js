@@ -1,6 +1,5 @@
-$("#navpage").on("pageshow", function(e) {
-	  var navstring = getUrlVars()["nav"];
-		if(!navstring || navstring == ''){
+$(".navpage").on("pageshow", function(e) {
+	  if(!navstring || navstring == ''){
 			navstring = 'main';
 			}
 	  $.ajax({
@@ -24,14 +23,3 @@ $("#navpage").on("pageshow", function(e) {
 			});
 		});
 		
-function getUrlVars() {
-	var vars = [], hash;
-	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-	for(var i = 0; i < hashes.length; i++)
-	    {
-	        hash = hashes[i].split('=');
-	        vars.push(hash[0]);
-	        vars[hash[0]] = hash[1];
-	    }
-	return vars;
-	}
