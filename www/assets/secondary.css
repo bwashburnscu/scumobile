@@ -80,6 +80,12 @@
 	background:#eee;
 }
 
+.ui-bar-b {
+	background:none;
+	border-bottom:none;
+	border-top:1px solid #999;
+}
+
 #phoneicon .ui-icon-custom {
 	background-image: url("phoneicon.png");
 	background-position: 2px 2px;

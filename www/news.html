@@ -2,12 +2,13 @@
 <html> 
 	<head> 
 	<title>News</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
-	<link rel="stylesheet" href="assets/scu.css" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/scuapp2.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" /> 
 	<link rel="stylesheet" href="assets/secondary.css" />
-	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
 	<script>
 		 // Listen for orientation changes
 		window.addEventListener("orientationchange", function() {
@@ -26,11 +27,11 @@
 	</head> 
 <body> 
 
-<div id="newspage" data-role="page" class="navpage type-index">
+<div id="newspage" data-role="page" class="navpage type-index" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1><a href="news.html">News</a></h1>
+		<h1>News</h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 

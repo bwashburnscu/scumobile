@@ -1,64 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>SCU Mobile</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
-	<link rel="stylesheet" href="assets/scu.css" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/scuapp2.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" /> 
 	<link rel="stylesheet" href="assets/secondary.css" />
-	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="assets/touchcarousel.css" />
-	<link rel="stylesheet" type="text/css" href="assets/minimal-light-skin.css" />
 	<link rel="stylesheet" type="text/css" href="assets/home.css" />
-	<script type="text/javascript" src="assets/jquery.touchcarousel-1.1.min.js"></script>
-	<script>
-		 // Listen for orientation changes
-		window.addEventListener("orientationchange", function() {
-		  window.location.reload( true );
-		}, false);
-
-	   
-	   document.addEventListener("backbutton", function() {
-            if ( $('.ui-page-active').attr('id') == 'main') {
-                exitAppPopup();
-            } else {
-                history.back();             
-            }
-        }, false);
-        
-        function exitAppPopup() {
-		    navigator.notification.confirm(
-		          'Exit SCU Mobile?'
-		        , function(button) {
-		              if (button == 2) {
-		                  navigator.app.exitApp();
-		              } 
-		          }
-		        , 'Exit'
-		        , 'No,Yes'
-		    );  
-		    return false;
-		}
-        
-	</script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
 	</head> 
 <body> 
 
-<div id="main" data-role="page" class="type-home">
+<div id="main" data-role="page" class="type-home" data-theme="a">
 	
-	<!--<div data-role="header" class="ui-header ui-bar-a" role="banner">
-		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png"></a>
-		<h1 class="ui-title">Mobile</h1>
-	</div> /header -->
+
 	<div id="homelogo"><img src="assets/home-logo.gif" alt="Santa Clara University"/></div>
 	<div data-role="content" id="homecontent">
 		
 		<div class="content-secondary">
 			
-			<form method="GET" action="http://search.scu.edu/search" name="gs" id="homesearch">
+			<form method="GET" action="http://search.scu.edu/search" name="gs" id="homesearch" data-theme="b">
 				<input type="search" cid="q" name="q" id="search-basic" value="" placeholder="Search..." />
 				<input type="hidden" name="site" value="mobile" />
 				<input type="hidden" name="access" value="p"/>
@@ -117,7 +80,7 @@
 						document.write('<div><a rel="external" href="events.html" id="events"><span>Events</span></a></div>');
 					}
 					if(socialState == null || socialState == 'true') {
-						document.write('<div><a rel="external" href="http://m.scu.edu/social/" id="social"><span>Social</span></a></div>');
+						document.write('<div><a rel="external" href="social.html" id="social"><span>Social</span></a></div>');
 					}
 					if(admissionState == null || admissionState == 'true') {
 						document.write('<div><a rel="external" href="http://www.scu.edu/ugrad/" id="admission"><span>Admission</span></a></div>');
@@ -141,20 +104,6 @@
 						document.write('<div><a rel="external" href="http://m.scu.edu/libraries/" id="libraries"><span>Libraries</span></a></div>');
 					}
 				</script>
-				<!-- <div><a href="#ecampus" id="ecampus"><span>Ecampus</span></a></div>
-				<div><a rel="external" href="https://camino.scu.edu/" id="camino"><span>Camino</span></a></div>
-				<div><a rel="external" href="news.html?nav=news" id="news"><span>News</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/people/" id="directory"><span>Directory</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>
-				<div><a rel="external" href="events.html" id="events"><span>Events</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/social/" id="social"><span>Social</span></a></div>
-				<div><a rel="external" href="http://www.scu.edu/ugrad/" id="admission"><span>Admission</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/alumni/" id="alumni"><span>Alumni</span></a></div>
-				<div><a rel="external" href="http://santaclarabroncos.com/landing/index" id="athletics"><span>Athletics</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/catalog/" id="courses"><span>Courses</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/rooms/" id="rooms"><span>Rooms</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/dining/" id="dining"><span>Dining</span></a></div>
-				<div><a rel="external" href="http://m.scu.edu/libraries/" id="libraries"><span>Libraries</span></a></div> -->
 			</div>
 			<div class="helpgroup">
 				<div><a href="#emergency" id="emergency"><span>Emergency</span></a></div>
@@ -162,33 +111,17 @@
 				<div><a rel="external" href="http://www.scu.edu/" id="fullsite"><span>Full Site</span></a></div>
 				<div><a href="config.html" id="customize"><span>Customize</span></a></div>
 			</div>
-		<!-- <ul id="navHome" data-role="listview" class="ui-listview">
-			<li><a rel="external" href="login.html"><img src="/mobimages/icon/123-id-card.png" alt="SCU Login" class="ui-li-icon">SCU Login</a></li>
-			<li><a rel="external" href="news.html"><img src="/mobimages/icon/70-tv.png" alt="News" class="ui-li-icon">News</a></li>
-			<li><a rel="external" href="/social/"><img src="/mobimages/icon/55-network.png" alt="Social Networks" class="ui-li-icon">Social Media</a></li>
-			<li><a href="/events/"><img src="/mobimages/icon/83-calendar.png" alt="Events" class="ui-li-icon">Events</a></li>
-			<li><a rel="external" href="http://www.scu.edu/ugrad/"><img src="/mobimages/icon/140-gradhat.png" alt="admission" class="ui-li-icon">Admission</a></li>
-			<li><a href="/alumni/"><img src="/mobimages/icon/112-group.png" alt="Alumni" class="ui-li-icon">Alumni</a></li>
-			<li><a href="http://santaclarabroncos.com/landing/index"><img src="/mobimages/icon/63-runner.png" alt="Athletics" class="ui-li-icon">Athletics</a></li>
-			<li><a href="/catalog/"><img src="/mobimages/icon/104-index-cards.png" alt="Classes" class="ui-li-icon">Course Catalog</a></li>
-			<li><a href="/people/"><img src="/mobimages/icon/75-phone.png" alt="Directory" class="ui-li-icon">Directory</a></li>
-			<li><a href="/map/" data-ajax="false"><img src="/mobimages/icon/103-map.png" alt="Map" class="ui-li-icon">Map</a></li>
-			<li><a href="/rooms/"><img src="/mobimages/icon/117-todo.png" alt="Room Reservations" class="ui-li-icon">Room Reservations</a></li>
-			<li><a href="/dining/"><img src="/mobimages/icon/100-coffee.png" alt="Dining" class="ui-li-icon">Dining Services</a></li>
-			<li><a href="/libraries/"><img src="/mobimages/icon/96-book.png" alt="Libraries" class="ui-li-icon">Libraries</a></li>
-		</ul> -->
 		<br style="clear:left;"/>
 		</div>	
 	</div><!-- /content -->
 	
 
-	<div data-role="footer" data-theme="c" id="footer">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://m.scu.edu/redirect.cfm?site=home&to=http://www.scu.edu" rel="external" class="ui-link">Full Site</a></p>
-		<p style="text-align:center;"><a href="http://m.scu.edu/emergency" rel="external" class="ui-link">Emergency Information</a> | <a href="http://m.scu.edu/contact.cfm" rel="external" class="ui-link">Contact Us</a></p>
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
 	</div><!-- /footer -->
 </div><!-- /page -->
 
-<div data-role="page" id="login" class="type-interior">
+<div data-role="page" id="login" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
@@ -225,14 +158,13 @@
 	</div>
 	
 
-	<div data-role="footer" data-theme="c">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
-		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
 	</div><!-- /footer -->
 
 </div><!-- /page -->
 
-<div data-role="page" id="ecampus" class="type-interior">
+<div data-role="page" id="ecampus" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
@@ -251,14 +183,13 @@
 	</div>
 	
 
-	<div data-role="footer" data-theme="c">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
-		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
 	</div><!-- /footer -->
 
 </div><!-- /page -->
 
-<div data-role="page" id="emergency" class="type-interior">
+<div data-role="page" id="emergency" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
@@ -288,14 +219,13 @@
 	</div>
 	
 
-	<div data-role="footer" data-theme="c">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
-		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
 	</div><!-- /footer -->
 
 </div><!-- /page -->
 
-<div data-role="page" id="about" class="type-interior">
+<div data-role="page" id="about" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
@@ -311,9 +241,8 @@
 	</div>
 	
 
-	<div data-role="footer" data-theme="c">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University | <a href="http://www.scu.edu" target="_system">Full Site</a></p>
-		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
 	</div><!-- /footer -->
 
 </div><!-- /page -->

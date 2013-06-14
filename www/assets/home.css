@@ -1,62 +1,3 @@
-#homeFeatures {
-			width: 100%;
-			height: 160px;
-			margin: 0;
-			margin-bottom:20px;
-		}
-		
-		#homeFeatures .touchcarousel-item {
-			width: 320px;
-			height: 160px;
-			margin: 0px;
-			position: relative;
-			background-color:#eee;
-		}
-		
-		#homeFeatures .item-block {
-			width:320px;
-			height:160px;
-		}
-		
-		#homeFeatures .item-block a img, 
-		#homeFeatures .item-block a h4,
-		#homeFeatures .item-block a {
-			position: relative;
-			margin: 0;
-			padding: 0;	
-			border: 0;
-			float:none;		
-		}
-		
-		#homeFeatures a {
-			text-decoration:none;
-		}
-		
-		#homeFeatures img {			
-			width: 320px;
-		}
-		#homeFeatures .rblock {
-			position:absolute;
-			width: 160px;
-			top:0;
-			right:0;
-			height:160px;
-			background-color:#5cc5ef;
-			opacity:.9;
-		}
-		#homeFeatures .rblock h4 {
-			font: bold 22px/26px Helvetica, Arial, sans-serif;
-			color: #fff;
-			-moz-text-shadow: none !important;
-			-webkit-text-shadow: none !important;
-			text-shadow: none !important;
-			width: 140px;
-			margin:10px;
-		}
-		#homeFeatures .rblock p {			
-			display:none;
-		}
-
 #homelogo {
 	background:#b10f3a;
 	text-align:center;
@@ -161,7 +102,6 @@
 .helpgroup {
 	clear:left;
 }
-
 
 .helpgroup div a#emergency {
 	background-image: url(home-emergency.png);
