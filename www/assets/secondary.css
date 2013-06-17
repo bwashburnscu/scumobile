@@ -102,9 +102,11 @@
 	}
 	
 #footer {
-	background:#a6a69a;
+	background:none;
 	margin-top:60px;
+	padding-top:10px;
 	border-bottom:none;
+	border-top:1px solid #999;
 }
 
 
