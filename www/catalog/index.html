@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Directory</title> 
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/scu.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" /> 
+	<link rel="stylesheet" href="../assets/secondary.css" />
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
+
+	<script>
+	   $(document).ready(function() {
+	   	if($('#primary-nav').length == 0) {
+	   		$('.pnav-icon').hide();
+	   		}
+	   });
+   
+	   
+		function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		return vars;
+		}
+	
+	</script>
+   
+	</head> 
+<body> 
+
+<div data-role="page" class="navpage type-interior" data-theme="a">
+	
+	<div data-role="header">
+		<a rel="external" href="../index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="../assets/scu-home.png" /></a>
+		<h1>Directory</h1>
+		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="../assets/259-list-w.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div id="primary-nav" class="navpage content-primary">
+			<ul data-role="listview" class="ui-listview"></ul>
+			<script>
+				var navstring = 'catalog';
+			</script>
+		    <script src="../assets/nav.js"></script>
+		</div>
+		<div class="content-secondary">
+			<form id='searchForm' name='searchForm' action="search.html" method="get" class="ui-body ui-body-c" data-ajax="false">
+				<label for="strm" class="ui-hidden-accessible">Term:</label>
+				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
+				<select name="strm" id="strm">
+				</select>
+				<input type="search" name="search" id="search-basic" value="" />
+			</form>
+			<script type="text/javascript">
+				var tstr = '';
+		    	jQuery(function($){
+			    	$.ajax({
+			            url: "http://test01.scu.edu/docs/ws/catalog/index.cfc?method=qTerms&ReturnFormat=json",
+			            dataType: 'json',
+			            async:false,
+			            success: function(response) {
+			            	var i;
+			            	//["STRM","STRM_DESCR"]
+			            	for (i = 0; i < response.DATA.length; i++) {
+							tstr += '<option value="'+response.DATA[i][0]+'">'+response.DATA[i][1]+'</option>';
+							}
+						$('#strm').html(tstr);
+			            },
+			            error: function(ErrorMsg) {
+				       alert('Error');
+				    	}
+				  	});
+				  });
+			</script>
+			<p>Search keywords can include a 5-digit class number, instructor name, subject, or subject and catalog number (e.g. ANTH 1).</p>
+		</div>
+	</div>
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
