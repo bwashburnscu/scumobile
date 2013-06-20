@@ -114,7 +114,7 @@
 							if (personid != lastperson) {
 								pstr += '<div data-role="collapsible" '+collapsestate+'>';
 								pstr += "<h3>" + response.DATA[i][1] + ", " + response.DATA[i][0] + "</h3>";
-								pstr += '<h5><a rel="external" href="org.html?oid='+response.DATA[i][15]+'">' + response.DATA[i][14] + '</a></h5>';
+								pstr += '<h5><a rel="external" href="directory-org.html?oid='+response.DATA[i][15]+'">' + response.DATA[i][14] + '</a></h5>';
 								pstr += '<p><a href="tel:'+showphone+'">'+showphone+'</a></p>';
 								pstr += '<p><a href="mailto:'+response.DATA[i][7]+'">'+response.DATA[i][7]+'</a></p>';
 								if(response.DATA[i][10] != null && response.DATA[i][10].length > 0) {

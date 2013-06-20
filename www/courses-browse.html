@@ -65,7 +65,7 @@
 			            	var i;
 			            	//["SUBJECT","SUBJECT_DESCR","ACAD_GROUP","ACAD_GROUP_DESCR"]
 			            	for (i = 0; i < response.DATA.length; i++) {
-				    			sstr += '<li><a href="browse.html?subjectid=' + response.DATA[i][0] + '" rel="external">';
+				    			sstr += '<li><a href="courses-browse.html?subjectid=' + response.DATA[i][0] + '" rel="external">';
 				    			sstr += response.DATA[i][1];
 				    			sstr += '</a></li>';
 		        				}
@@ -89,7 +89,7 @@
 			            	var i;
 			            	//["ACAD_CAREER","ACAD_GROUP","CAREER_DESCR","CATALOG_NBR","CLASS_DESCR","CRSE_ID","GROUP_DESCR","SORTCOLUMN","SUBJECT","SUBJ_DESCR","TITLE"]
 			            	for (i = 0; i < response.DATA.length; i++) {
-				    			sstr += '<li><a href="browse.html?courseid=' + response.DATA[i][5] + '" rel="external">';
+				    			sstr += '<li><a href="courses-browse.html?courseid=' + response.DATA[i][5] + '" rel="external">';
 				    			sstr += response.DATA[i][8] + " " + response.DATA[i][3] + " : " + response.DATA[i][4] ;
 				    			sstr += '</a></li>';
 		        				}
@@ -126,7 +126,7 @@
 				    			sstr += '<span class="ui-li-count">' + response.DATA[i][22] + '</span></h3>';
 				    			sstr += '<p>' + response.DATA[i][1] + ' ' + response.DATA[i][14];
 				    			var lname = str = response.DATA[i][15].split(',')[0];
-				    			sstr += ' - <a rel="external" href="directory/search.html?q=' + lname + '">' + response.DATA[i][15] + '</a></p>';
+				    			sstr += ' - <a rel="external" href="directory-search.html?q=' + lname + '">' + response.DATA[i][15] + '</a></p>';
 				    			sstr += '</li>';
 		        				}
 		        			//sstr += '</ul>';
