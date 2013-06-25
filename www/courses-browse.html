@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>Catalog</title>
+	<title>Courses</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/scu.css" />
@@ -39,7 +39,7 @@
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Catalog</h1>
+		<h1>Courses</h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
@@ -112,13 +112,12 @@
 			            success: function(response) {
 			            	var i;
 			            	var lterm = '';
-			            	dstr += '<h2>' + response.DATA[0][8]  + ' ' + response.DATA[0][18] + '</h2>';
-			            	dstr += '<h3>' + response.DATA[0][4] + '</h3>';
+			            	dstr += '<h3>' + response.DATA[0][8]  + ' ' + response.DATA[0][18] + '</h3>';
 			            	//dstr += '<ul id="dlist" data-role="listview" data-inset="true">';
 			            	//["CRSE_ID","CLASS_NBR","STRM","STRM_DESCR","CAREER_DESCR","GROUP_DESCR","ACAD_CAREER","SUBJECT","8 SUBJECT_DESCR","ACAD_GROUP","CLASS_DESCR","11 DAYS","TIME_START","TIME_END","FACILITY","INSTRUCTOR","UNITS","TITLE","18 CATALOG_NBR","SUBCAT","SESSION_CODE","SESSION_DESCR","SEATS"]
 			            	for (i = 0; i < response.DATA.length; i++) {
 			            		if (lterm != response.DATA[i][3]) {
-			            			sstr += '<li data-role="list-divider">' + response.DATA[i][3] + '</li>';
+			            			sstr += '<li data-role="list-divider">' + response.DATA[i][3] + ' - ' + response.DATA[i][4] + '</li>';
 			            			lterm = response.DATA[i][3];
 			            			}
 				    			sstr += '<li>';
