@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>Libraries</title>
+	<title>Learning Commons Hours</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/scu.css" />
@@ -22,26 +22,58 @@
 	   		$('.pnav-icon').hide();
 	   		}
 	   });
+	
+	function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		return vars;
+		}
 	</script>
    
 	</head> 
 <body> 
-<div id="main" data-role="page" class="navpage type-index" data-theme="a">
+	
+<div id="ask" data-role="page" class="navpage type-index" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Libraries</h1>
+		<h1>Learning Commons Hours</h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
     <div class="content-primary">
-		...
+		<div id="hourshtml"></div>
+		<script>
+			var seldate = getUrlVars()["seldate"];
+		    	$.ajax({
+		            url: "http://test01.scu.edu/app/hours.cfm",
+		            type: 'get',
+		            data: 'more=i&seldate='+seldate,
+		            dataType: 'html',
+		            success: function(response) {
+		            	//alert(response);
+		            	$('#hourshtml').html(response);
+		            	$('#hourshtml').trigger('create');
+		            	},
+					    error: function(ErrorMsg) {
+					       console.log('Error');
+					       //alert(ErrorMsg);
+					    }
+					    
+			        });
+		</script>
 	</div>
 	<div id="primary-nav" class="content-secondary">
 	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
     	<script>
-			var navstring = 'libraries';
+			var navstring = 'library';
 		</script>
 	    <script src="assets/nav.js"></script>
 	</div>
