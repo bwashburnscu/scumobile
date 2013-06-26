@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Libraries</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/jquery.mobile.structure-1.3.1.min.css" /> 
+	<link rel="stylesheet" href="assets/secondary.css" />
+	<script src="assets/jquery-1.10.1.min.js"></script> 
+	<script src="assets/jquery.mobile-1.3.1.min.js"></script> 
+	<script>
+		 // Listen for orientation changes
+		window.addEventListener("orientationchange", function() {
+		  window.location.reload( true );
+		}, false);
+	</script>
+
+	<script>
+	   $(document).ready(function() {
+	   	if($('#primary-nav').length == 0) {
+	   		$('.pnav-icon').hide();
+	   		}
+	   });
+	</script>
+   
+	</head> 
+<body> 
+<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+<div data-role="page" class="navpage type-index" data-theme="a">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Libraries</h1>
+		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <div class="content-primary">
+		...
+	</div>
+	<div id="primary-nav" class="content-secondary">
+	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
+    	<script>
+			var navstring = 'libraries';
+		</script>
+	    <script src="assets/nav.js"></script>
+	</div>
+	</div>
+	
+
+	
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
