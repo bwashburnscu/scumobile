@@ -1,0 +1,201 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Dining Services</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/jquery.mobile.structure-1.3.1.min.css" /> 
+	<link rel="stylesheet" href="assets/secondary.css" />
+	<script src="assets/jquery-1.10.1.min.js"></script> 
+	<script src="assets/jquery.mobile-1.3.1.min.js"></script> 
+	<script>
+		 // Listen for orientation changes
+		window.addEventListener("orientationchange", function() {
+		  window.location.reload( true );
+		}, false);
+	</script>
+
+	<script>
+	   $(document).ready(function() {
+	   	if($('#primary-nav').length == 0) {
+	   		$('.pnav-icon').hide();
+	   		}
+	   });
+	   
+	   function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		return vars;
+		}
+		
+	</script>
+   
+	</head> 
+<body> 
+
+<div data-role="page" class="navpage type-index" data-theme="a">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Dining</h1>
+		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <div class="content-primary">
+    	<div data-role="navbar">
+    	<ul id="diningnav"></ul>
+    	</div>
+     	<h3 id="pagetitle"></h3>
+    	<div id="dininghtml"></div>
+    	<script>
+				var navbar = '';	
+				var durl = '';
+				var epath = '.div.div.div.div';
+				
+				var v = getUrlVars()["v"];
+				var p = getUrlVars()["p"];
+				var l = getUrlVars()["l"];
+				var pt = "Dining Services";
+				var mclass = '';
+				var navArray = ["Hours","About"];
+				
+				if (v == 'marketplace') {
+					if (p == 'Hours') {
+						durl = 'http://scu.cafebonappetit.com/content/marketsquare.html';
+						pt = "Marketplace Hours";
+					} else if (p == 'About') {
+						durl = 'http://scu.cafebonappetit.com/content/marketsquare.html';
+						epath = '.div.div.div.div[2].p[2]';
+						pt = "About the Marketplace";
+					} else if (p == 'Menu') {
+						durl = 'http://scu.cafebonappetit.com/content/marketsquare-weekly_menu.html';
+						pt = "Marketplace Menu";
+					}
+				}
+				
+				if (v == 'bronco') {
+					if (p == 'Hours') {
+						durl = 'http://scu.cafebonappetit.com/content/bronco.html';
+						pt = "The Bronco Hours";
+					} else if (p == 'About') {
+						durl = 'http://scu.cafebonappetit.com/content/bronco.html';
+						epath = '.div.div.div.div[2].p[1]';
+						pt = "About the Bronco";
+					} else if (p == 'Menu') {
+						durl = 'http://scu.cafebonappetit.com/content/bronco-weekly_menu.html';
+						epath = '.div.div.div[2].div.table';
+						pt = "The Bronco Menu";
+					}
+				}
+				
+				if (v == 'mission') {
+					if (p == 'Hours') {
+						durl = 'http://scu.cafebonappetit.com/content/missionbakery.html';
+						pt = "Mission Bakery Hours";
+					} else if (p == 'About') {
+						durl = 'http://scu.cafebonappetit.com/content/missionbakery.html';
+						epath = '.div.div.div.div[2].p[2]';
+						pt = "About the Mission Bakery";
+					}
+				}
+				
+				if (v == 'adobe') {
+					if (p == 'Hours') {
+						durl = 'http://www.adobelodgecatering.com/adobe/cafemenu.html';
+						epath = '.div.div.div';
+						pt = "Adobe Lodge Hours and Menu";
+					} else if (p == 'About') {
+						durl = 'http://www.adobelodgecatering.com/adobe/adobelodge.html';
+						epath = '.div.div.div';
+						pt = "About the Adobe Lodge";
+					}
+				}
+				
+				if (v == 'cellar') {
+					if (p == 'Hours') {
+						durl = 'http://scu.cafebonappetit.com/content/cellarmarket.html';
+						pt = "Cellar Market Hours";
+					} else if (p == 'About') {
+						durl = 'http://scu.cafebonappetit.com/content/cellarmarket.html';
+						epath = '.div.div.div.div[2].p[2]';
+						pt = "About the Cellar Market";
+					}
+				}
+				
+				if (v == 'cadence') {
+					if (p == 'Hours') {
+						durl = 'http://scu.cafebonappetit.com/content/cadence.html';
+						pt = "Cadence Cyber Cafe Hours";
+					} else if (p == 'About') {
+						durl = 'http://scu.cafebonappetit.com/content/cadence.html';
+						epath = '.div.div.div.div[2].p[2]';
+						pt = "About the Cadence Cyber Cafe";
+					}
+				}
+				
+				if (v == 'sunstream') {
+					if (p == 'Hours') {
+						durl = 'http://scu.cafebonappetit.com/content/sunstream.html';
+						pt = "Sunstream Cafe Hours";
+					} else if (p == 'About') {
+						durl = 'http://scu.cafebonappetit.com/content/sunstream.html';
+						epath = '.div.div.div.div[2].p[2]';
+						pt = "About the Sunstream Cafe";
+					}
+				}
+
+				for(var i=0; i<navArray.length; i++){
+				  if (p == navArray[i]) {
+				  	mclass = ' class="ui-btn-active"';
+				  	} else {
+				  	mclass = '';
+				  }
+				  navbar += '<li><a' + mclass + ' rel="external" href="dining-venue.html?v='+v+'&amp;p='+navArray[i]+'&amp;l='+l+'">'+navArray[i]+'</a></li>';
+				}
+				navbar += '<li><a rel="external" href="http://m.scu.edu/map/index.cfm?loc_id='+l+'">Map</a></li>';
+				
+				$('#diningnav').html(navbar);
+				
+				$('#pagetitle').html(pt);
+				
+				jQuery(function($){
+		    	$.ajax({
+		            url: "http://test01.scu.edu/docs/ws/dining/index.cfc?method=getPageContent&dspage="+durl+"&elementpath="+epath+"&returnformat=plain",
+		            success: function(response) {
+		            	//alert(response);
+		            	$('#dininghtml').html(response);
+		            	},
+					    error: function(ErrorMsg) {
+					       console.log('Error');
+					    }
+					    
+			        });
+			    });
+		</script>
+	</div>
+	<div id="primary-nav" class="content-secondary">
+	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
+    	<script>
+			var navstring = 'dining';
+		</script>
+	    <script src="assets/nav.js"></script>
+	</div>
+	</div>
+	
+
+	
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
