@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>Learning Commons Hours</title>
+	<title>Alumni</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/scu.css" />
@@ -22,8 +22,8 @@
 	   		$('.pnav-icon').hide();
 	   		}
 	   });
-	
-	function getUrlVars() {
+	   
+		function getUrlVars() {
 		var vars = [], hash;
 		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 		for(var i = 0; i < hashes.length; i++)
@@ -38,29 +38,29 @@
    
 	</head> 
 <body> 
-	
-<div id="ask" data-role="page" class="navpage type-index" data-theme="a">
+
+<div data-role="page" class="navpage type-index" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Library Hours</h1>
+		<h1>Alumni</h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
     <div class="content-primary">
-		<div id="hourshtml"></div>
+		<div id="alumnihtml"></div>
 		<script>
-			var seldate = getUrlVars()["seldate"];
+			//var seldate = getUrlVars()["seldate"];
 		    	$.ajax({
-		            url: "http://test01.scu.edu/app/hours.cfm",
+		            url: "http://test01.scu.edu/app/alumni-events.cfm",
 		            type: 'get',
-		            data: 'more=i&seldate='+seldate,
+		            //data: 'more=i&seldate='+seldate,
 		            dataType: 'html',
 		            success: function(response) {
 		            	//alert(response);
-		            	$('#hourshtml').html(response);
-		            	$('#hourshtml').trigger('create');
+		            	$('#alumnihtml').html(response);
+		            	$('#alumnihtml').trigger('create');
 		            	},
 					    error: function(ErrorMsg) {
 					       console.log('Error');
@@ -73,7 +73,7 @@
 	<div id="primary-nav" class="content-secondary">
 	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
     	<script>
-			var navstring = 'library';
+			var navstring = 'alumni';
 		</script>
 	    <script src="assets/nav.js"></script>
 	</div>

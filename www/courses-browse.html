@@ -29,7 +29,8 @@
 		    }
 		return vars;
 		}
-	
+		
+
 	</script>
    
 	</head> 
@@ -104,6 +105,35 @@
 			}
 			
 			if (courseid === undefined) {} else if (courseid.length > 0) {
+				
+				if (localStorage && localStorage.getItem('watchList')) {
+					// clear watchlist contents from local storage
+					//localStorage.removeItem('watchList');
+					//var wl = '';
+					var wl = localStorage.getItem('watchList').split(",");
+					} else {
+					localStorage.setItem('watchList','');
+					var wl = new Array();
+				}
+				
+				function watchlistSave(c) {
+					wl.push(c);
+					localStorage.setItem('watchList',wl);
+					//alert(localStorage.getItem('watchList'));
+				}
+				
+				function watchlistDel(c) {
+					var cid = wl.indexOf(c);
+					delete wl[cid];
+					localStorage.setItem('watchList',wl);
+					//alert(c + ' ' + localStorage.getItem('watchList'));
+				}
+				
+				function include(arr,obj) {
+					return (arr.indexOf(obj) != -1);
+				}
+				//alert(wl);
+	
 				jQuery(function($){
 			    	$.ajax({
 			            url: "http://test01.scu.edu/docs/ws/catalog/index.cfc?method=qCourse&courseid="+courseid+"&ReturnFormat=json",
@@ -113,25 +143,31 @@
 			            	var i;
 			            	var lterm = '';
 			            	dstr += '<h3>' + response.DATA[0][8]  + ' ' + response.DATA[0][18] + '</h3>';
-			            	//dstr += '<ul id="dlist" data-role="listview" data-inset="true">';
 			            	//["CRSE_ID","CLASS_NBR","STRM","STRM_DESCR","CAREER_DESCR","GROUP_DESCR","ACAD_CAREER","SUBJECT","8 SUBJECT_DESCR","ACAD_GROUP","CLASS_DESCR","11 DAYS","TIME_START","TIME_END","FACILITY","INSTRUCTOR","UNITS","TITLE","18 CATALOG_NBR","SUBCAT","SESSION_CODE","SESSION_DESCR","SEATS"]
 			            	for (i = 0; i < response.DATA.length; i++) {
 			            		if (lterm != response.DATA[i][3]) {
 			            			sstr += '<li data-role="list-divider">' + response.DATA[i][3] + ' - ' + response.DATA[i][4] + '</li>';
 			            			lterm = response.DATA[i][3];
 			            			}
+			            		var wlid = response.DATA[i][2] + '-' + response.DATA[i][1];
+			            		var valchecked = include(wl,wlid);
+			            		var checkval = '';
+			            		if (valchecked != 'undefined' && valchecked) {
+			            			checkval = ' checked';
+			            		}
 				    			sstr += '<li>';
 				    			sstr += '<h3>'+ response.DATA[i][11] +' '+ response.DATA[i][12] + '-' + response.DATA[i][13];
 				    			sstr += '<span class="ui-li-count">' + response.DATA[i][22] + '</span></h3>';
-				    			sstr += '<p>' + response.DATA[i][1] + ' ' + response.DATA[i][14];
-				    			var lname = str = response.DATA[i][15].split(',')[0];
+				    			sstr += '<p><input type="checkbox"' + checkval + ' value="'+ wlid +'" onclick="if ($(this).is(\':checked\')) { watchlistSave(this.value);} else { watchlistDel(this.value)};">';
+				    			sstr += response.DATA[i][1] + ' ' + response.DATA[i][14];
+				    			var lname = response.DATA[i][15].split(',')[0];
 				    			sstr += ' - <a rel="external" href="directory-search.html?q=' + lname + '">' + response.DATA[i][15] + '</a></p>';
 				    			sstr += '</li>';
 		        				}
-		        			//sstr += '</ul>';
 							$('#details').html(dstr);
 							$('#subjects').html(sstr);
 							$('#subjects').listview("refresh");
+							
 			            },
 			            error: function(ErrorMsg) {
 				        alert('Error');
@@ -172,7 +208,7 @@
 			</script>
 			<ul data-role="listview" class="ui-listview"></ul>
 			<script>
-				var navstring = 'catalog';
+				var navstring = 'courses';
 			</script>
 		    <script src="assets/nav.js"></script>
 		</div>
