@@ -123,10 +123,11 @@
 				}
 				
 				function watchlistDel(c) {
-					var cid = wl.indexOf(c);
-					delete wl[cid];
+					var removeItem = c;
+					wl = jQuery.grep(wl, function(value) {
+					  return value != removeItem;
+					});
 					localStorage.setItem('watchList',wl);
-					//alert(c + ' ' + localStorage.getItem('watchList'));
 				}
 				
 				function include(arr,obj) {
@@ -178,7 +179,7 @@
 			</script>
 		</div>
 		<div id="primary-nav"  class="navpage content-secondary">
-			<form id='searchForm' name='searchForm' action="search.html" method="get" class="ui-body ui-body-c" data-ajax="false">
+			<form id='searchForm' name='searchForm' action="courses-search.html" method="get" class="ui-body ui-body-c" data-ajax="false">
 				<label for="strm" class="ui-hidden-accessible">Term:</label>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
 				<select name="strm" id="strm">

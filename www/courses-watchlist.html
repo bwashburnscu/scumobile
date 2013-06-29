@@ -46,7 +46,9 @@
 
 	<div data-role="content">
 		<div class="content-primary">
-			<ul id="subjects" data-role="listview" class="ui-listview"></ul>
+			<h3>Your Watchlist</h3>
+			<div id="wldescr"></div>
+			<ul id="watchl" data-role="listview" class="ui-listview"></ul>
 			<script type="text/javascript">
 				var sstr = '';
 				
@@ -67,15 +69,18 @@
 				}
 				
 				function watchlistDel(c) {
-					var cid = wl.indexOf(c);
-					delete wl[cid];
+					var removeItem = c;
+					wl = jQuery.grep(wl, function(value) {
+					  return value != removeItem;
+					});
 					localStorage.setItem('watchList',wl);
-					//alert(c + ' ' + localStorage.getItem('watchList'));
 				}
 				
 				function include(arr,obj) {
 					return (arr.indexOf(obj) != -1);
 				}
+				
+				if(wl.length > 0) {
 
 				jQuery.each(wl, function(index, item) {
 					var tc = item.split('-');
@@ -102,10 +107,11 @@
 				            			}
 				            		//sstr += '<li data-role="list-divider">' + response.DATA[i][3] + ' - ' + response.DATA[i][4] + '</li>';
 					    			sstr += '<li>';
-					    			sstr += '<h3>' + response.DATA[i][8] + ' - ' + response.DATA[i][18]  + ' - ' + response.DATA[i][3] + '</h3>';
-					    			sstr += '<h5>' + response.DATA[i][11] + ' ' + response.DATA[i][12] + ' - ' + response.DATA[i][13];
-					    			sstr += '<span class="ui-li-count">' + response.DATA[i][22] + '</span></h5>';
-					    			sstr += '<p><input type="checkbox"' + checkval + ' value="'+ wlid +'" onclick="if ($(this).is(\':checked\')) { watchlistSave(this.value);} else { watchlistDel(this.value)};">';
+					    			sstr += '<h3>' + response.DATA[i][8] + ' - ' + response.DATA[i][18]  + ' - ' + response.DATA[i][3];
+					    			sstr += '<span class="ui-li-count">' + response.DATA[i][22] + '</span></h3>';
+					    			sstr += '<label><input type="checkbox"' + checkval + ' value="'+ wlid +'" onclick="if ($(this).is(\':checked\')) { watchlistSave(this.value);} else { watchlistDel(this.value)};" />' + response.DATA[i][11] + ' ' + response.DATA[i][12] + ' - ' + response.DATA[i][13];
+					    			sstr += '</label>';
+					    			sstr += '<p>';
 					    			sstr += response.DATA[i][1] + ' ' + response.DATA[i][14];
 					    			var lname = response.DATA[i][15].split(',')[0];
 					    			sstr += ' - <a rel="external" href="directory-search.html?q=' + lname + '">' + response.DATA[i][15] + '</a></p>';
@@ -117,15 +123,19 @@
 					        	alert('Error');
 					    	}
 					  	});
-						$('#subjects').html(sstr);
-				  		$('#subjects').listview("refresh");
+						$('#watchl').html(sstr);
+				  		$('#watchl').listview("refresh");
+				  		$('#watchl').trigger('create');
 					});	  
 				  });
+				} else {
+					$('#wldescr').html('Save classes from course listings to a watch list.');
+				}
 				  
 			</script>
 		</div>
 		<div id="primary-nav"  class="navpage content-secondary">
-			<form id='searchForm' name='searchForm' action="search.html" method="get" class="ui-body ui-body-c" data-ajax="false">
+			<form id='searchForm' name='searchForm' action="courses-search.html" method="get" class="ui-body ui-body-c" data-ajax="false">
 				<label for="strm" class="ui-hidden-accessible">Term:</label>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
 				<select name="strm" id="strm">
