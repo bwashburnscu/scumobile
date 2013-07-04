@@ -1,0 +1,148 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Alumni</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/jquery.mobile.structure-1.3.1.min.css" /> 
+	<link rel="stylesheet" href="assets/secondary.css" />
+	<script src="assets/jquery-1.10.1.min.js"></script> 
+	<script src="assets/jquery.mobile-1.3.1.min.js"></script> 
+	<script>
+		 // Listen for orientation changes
+		window.addEventListener("orientationchange", function() {
+		  window.location.reload( true );
+		}, false);
+	</script>
+
+	<script>
+	   $(document).ready(function() {
+	   	if($('#primary-nav').length == 0) {
+	   		$('.pnav-icon').hide();
+	   		}
+	   });
+	   
+		function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		return vars;
+		}
+	</script>
+   
+	</head> 
+<body> 
+
+<div data-role="page" class="navpage type-index" data-theme="a">
+	
+	<div data-role="header">
+		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Alumni</h1>
+		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <div class="content-primary">
+     	<h3 id="pagetitle"></h3>
+    	<div id="alumnihtml"></div>
+    	<script>
+				var navbar = '';	
+				var aurl = '';
+				var epath = '.div.div';
+				var eid = 'content';
+
+				var v = getUrlVars()["v"];
+				var at = "Alumni";
+				var mclass = '';
+				var navArray = ["Hours","About"];
+				
+				if (v == 'shuttles') {
+					aurl = 'http://cms.scu.edu/alumni/mobile/reunions/shuttles.cfm';
+					at = "Shuttles";
+				} else if (v == 'wireless') {
+					aurl = 'http://cms.scu.edu/alumni/mobile/reunions/wireless.cfm';
+					at = "Wireless Access";
+				} else if (v == 'faq') {
+					aurl = 'http://cms.scu.edu/alumni/mobile/reunions/faq.cfm';
+					at = "FAQs";
+			    } else if (v == 'song') {
+					aurl = 'http://cms.scu.edu/alumni/mobile/reunions/song.cfm';
+					at = "SCU Fight Song";
+				} else if (v == 'events') {
+					aurl = 'http://test01.scu.edu/app/alumni-reunion-events.cfm';
+					at = "Event Schedule";
+				} else {
+					at = "Find Your Reunion Year";
+				}
+				
+				$('#pagetitle').html(at);
+				
+				
+				if (v == 'shuttles' || v == 'wireless' || v == 'faq' || v == 'song') {
+		    	$.ajax({
+		            url: "http://test01.scu.edu/docs/ws/commonspot/index.cfc?method=getPageContent&cspage="+aurl+"&elementpath="+epath+"&elementid="+eid+"&returnformat=plain",
+		            success: function(response) {
+		            	//alert(response);
+		            	response=response.replace(/src=\"/g,"src=\"http://www.scu.edu");
+		            	response=response.replace(/href=\"\/alumni/g,"rel=\"external\" href=\"http://www.scu.edu/alumni/");
+		            	$('#alumnihtml').html(response);
+		            	},
+					    error: function(ErrorMsg) {
+					       console.log('Error');
+					    }
+					    
+			        });
+			        
+			   
+    
+			   } else if (v == 'events'){
+
+		    	$.ajax({
+		            url: aurl,
+		            type: 'get',
+
+		            dataType: 'html',
+		            success: function(response) {
+		            	$('#alumnihtml').html(response);
+		            	$('#alumnihtml').trigger('create');
+		            	},
+					    error: function(ErrorMsg) {
+					       console.log('Error');
+					    }
+					   
+			        });
+			        
+			   } else {
+					var years = '';
+			   		for (var i = 1953; i <= 2013; i+=5) {
+			   			years += '<a rel="external" href="http://www.scu.edu/alumni/alumni-events/reunions/'+i+'.cfm" data-role="button" data-inline="true">'+i+'</a>';
+			   		}
+					$('#alumnihtml').html(years);
+			   }
+	
+		</script>
+	</div>
+	<div id="primary-nav" class="content-secondary">
+	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
+    	<script>
+			var navstring = 'reunions';
+		</script>
+	    <script src="assets/nav.js"></script>
+	</div>
+	</div>
+	
+
+	
+	<div data-role="footer" data-theme="c">
+		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
