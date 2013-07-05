@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>Class Notes</title>
+	<title>Rooms</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/scu.css" />
@@ -23,16 +23,15 @@
 	   		}
 	   });
 	   
-		function getUrlVars() {
+		function getUrlParams() {
 		var vars = [], hash;
-		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-		for(var i = 0; i < hashes.length; i++)
-		    {
-		        hash = hashes[i].split('=');
-		        vars.push(hash[0]);
-		        vars[hash[0]] = hash[1];
-		    }
-		return vars;
+		var hashes = '';
+		if (window.location.href.indexOf('?') > 0) {
+			hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			hashes = hashes.toString();
+			hashes = hashes.replace(/,/g,'&');
+		}
+		return hashes;
 		}
 	</script>
    
@@ -43,38 +42,23 @@
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Class Notes</h1>
+		<h1>Rooms</h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-    <div class="content-primary">
-		<div id="alumnihtml"></div>
+		<div id="roomshtml"></div>
 		<script>
-			var v = getUrlVars()["type"];
-			var t = getUrlVars()["showtype"];
-			var d = getUrlVars()["showdt"];
-			var y = getUrlVars()["showYears"];
-			if (v == undefined) {
-				v = 'note';
-				}
-			if (t == undefined) {
-				t = '';
-				}
-			if (d == undefined) {
-				d = '>01';
-				}
-			if (y == undefined) {
-				y = '';
-				}
+			var urlparams = getUrlParams();
 		    	$.ajax({
-		            url: 'http://m.scu.edu/app/alumni-classnotes.cfm?type='+v+'&showtype='+t+'&showdt='+d+'&showYears='+y,
+		            url: 'http://test01.scu.edu/app/rooms.cfm?'+urlparams,
 		            type: 'get',
 		            dataType: 'html',
 		            
 		            success: function(response) {
-		            	$('#alumnihtml').html(response);
-		            	$('#alumnihtml').trigger('create');
+		            	//alert(response);
+		            	$('#roomshtml').html(response);
+		            	$('#roomshtml').trigger('create');
 		            	},
 					    error: function(ErrorMsg) {
 					       console.log('Error');
@@ -83,15 +67,6 @@
 			        });
 		</script>
 	</div>
-	<div id="primary-nav" class="content-secondary">
-	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
-    	<script>
-			var navstring = 'alumni';
-		</script>
-	    <script src="assets/nav.js"></script>
-	</div>
-	</div>
-	
 
 	
 	<div data-role="footer" data-theme="c">
