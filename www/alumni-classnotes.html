@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>Alumni</title>
+	<title>Class Notes</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/scu.css" />
@@ -43,74 +43,35 @@
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Alumni</h1>
+		<h1>Class Notes</h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
     <div class="content-primary">
-     	<h3 id="pagetitle"></h3>
-    	<div id="alumnihtml"></div>
-    	<script>
-				var navbar = '';	
-				var aurl = '';
-				var epath = '.div.div';
-				var eid = 'content';
-
-				var v = getUrlVars()["v"];
-				var at = "Alumni";
-				var mclass = '';
-				var navArray = ["Hours","About"];
-				
-				if (v == 'shuttles') {
-					aurl = 'http://www.scu.edu/alumni/mobile/reunions/shuttles.cfm';
-					at = "Shuttles";
-				} else if (v == 'wireless') {
-					aurl = 'http://www.scu.edu/alumni/mobile/reunions/wireless.cfm';
-					at = "Wireless Access";
-				} else if (v == 'faq') {
-					aurl = 'http://www.scu.edu/alumni/mobile/reunions/faq.cfm';
-					at = "FAQs";
-			    } else if (v == 'song') {
-					aurl = 'http://m.scu.edu/app/alumni-reunions-song.cfm';
-					at = "SCU Fight Song";
-				} else if (v == 'events') {
-					aurl = 'http://m.scu.edu/app/alumni-reunions-events.cfm';
-					at = "Event Schedule";
-				} else if (v == 'weather') {
-					aurl = 'http://m.scu.edu/app/weather.cfm';
-					at = "Current Weather at SCU";
-				} else {
-					at = "Find Your Reunion Year";
+		<div id="alumnihtml"></div>
+		<script>
+			var v = getUrlVars()["type"];
+			var t = getUrlVars()["showtype"];
+			var d = getUrlVars()["showdt"];
+			var y = getUrlVars()["showYears"];
+			if (v == undefined) {
+				v = 'note';
 				}
-				
-				$('#pagetitle').html(at);
-				
-				
-				if (v == 'shuttles' || v == 'wireless' || v == 'faq') {
+			if (t == undefined) {
+				t = '';
+				}
+			if (d == undefined) {
+				d = '>01';
+				}
+			if (y == undefined) {
+				y = '';
+				}
 		    	$.ajax({
-		            url: "http://test01.scu.edu/docs/ws/commonspot/index.cfc?method=getPageContent&cspage="+aurl+"&elementpath="+epath+"&elementid="+eid+"&returnformat=plain",
-		            success: function(response) {
-		            	//alert(response);
-		            	response=response.replace(/src=\"/g,"src=\"http://www.scu.edu");
-		            	response=response.replace(/href=\"\/alumni/g,"rel=\"external\" href=\"http://www.scu.edu/alumni/");
-		            	$('#alumnihtml').html(response);
-		            	},
-					    error: function(ErrorMsg) {
-					       console.log('Error');
-					    }
-					    
-			        });
-			        
-			   
-    
-			   } else if (v == 'events' || v == 'song' || v == 'weather'){
-
-		    	$.ajax({
-		            url: aurl,
+		            url: 'http://test01.scu.edu/app/alumni-classnotes.cfm?type='+v+'&showtype='+t+'&showdt='+d+'&showYears='+y,
 		            type: 'get',
-
 		            dataType: 'html',
+		            
 		            success: function(response) {
 		            	$('#alumnihtml').html(response);
 		            	$('#alumnihtml').trigger('create');
@@ -118,23 +79,14 @@
 					    error: function(ErrorMsg) {
 					       console.log('Error');
 					    }
-					   
+					    
 			        });
-			        
-			   } else {
-					var years = '';
-			   		for (var i = 1953; i <= 2013; i+=5) {
-			   			years += '<a rel="external" href="http://www.scu.edu/alumni/alumni-events/reunions/'+i+'.cfm" data-role="button" data-inline="true">'+i+'</a>';
-			   		}
-					$('#alumnihtml').html(years);
-			   }
-	
 		</script>
 	</div>
 	<div id="primary-nav" class="content-secondary">
 	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
     	<script>
-			var navstring = 'reunions';
+			var navstring = 'alumni';
 		</script>
 	    <script src="assets/nav.js"></script>
 	</div>
