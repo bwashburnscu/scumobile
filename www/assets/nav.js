@@ -1,4 +1,5 @@
 $(".navpage").on("pageshow", function(e) {
+	if (Build.VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) wv.getSettings().setAllowUniversalAccessFromFileURLs(true);
 	  if(!navstring || navstring == ''){
 			navstring = 'main';
 			}
