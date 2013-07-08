@@ -85,6 +85,8 @@
     <!--
         Define access to external domains.
     -->
+
     <access origin="*" />
+	<access uri="*" />
 
 </widget>
