@@ -62,7 +62,11 @@
 				    output += '</a></li>';
 		        }
 				$("#primary-nav ul").append(output).listview("refresh");
-		     }
+		    },
+		    error: function(args) { 
+				console.log(args); 
+				alert(args); 
+				}
 			});
 		});
 </script>
