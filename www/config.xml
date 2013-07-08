@@ -92,8 +92,12 @@
     -->
     <!-- <access origin="http://scu.edu" subdomains="true" />
     <access origin="http://127.0.0.1*"/> allow local pages -->
-    <access origin="*" />
-	<access uri="*" />
+    <access origin="test01.scu.edu" />
+    <access origin="m.scu.edu" />
+    <access origin="cms01.scu.edu" />
+    <access origin="www.scu.edu" />
+    <access origin="code.jquery.com" />
+
      <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
         <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/
