@@ -88,6 +88,6 @@
 
         Otherwise, you can specify specific domains:
     -->
-    <access origin="*"/>
+    <access origin="*">
 
 </widget>
