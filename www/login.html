@@ -29,10 +29,6 @@
 	<div data-role="content">
 
 	<ul id="navmenu" data-role="listview" class="ui-listview" data-inset="true"></ul>
-		<script>
-			var navstring = 'login';
-		</script>
-	    <script src="assets/nav.js"></script>
 
 	</div>
 	
@@ -43,6 +39,33 @@
 		<p style="text-align:center;"><a href="emergency.html">Emergency Information</a> | <a href="contact.html">Contact Us</a></p>
 	</div><!-- /footer -->
 </div><!-- /page -->
+<script>
+	
+	$(".navpage").on("pageshow", function(e) {
+	  if(!navstring || navstring == ''){
+			navstring = 'main';
+			}
+	  $.ajax({
+		  type: "GET",
+		  url: 'http://test01.scu.edu/nav/login.json',
+		  dataType: 'json',
+		     beforeSend: function(x) {
+		      if(x && x.overrideMimeType) {
+		       x.overrideMimeType("application/j-son;charset=UTF-8");
+		      }
+			 },
+			 success: function(data){
+			 	var output = '';
+			    for (var i in data.menuitems) {
+				    output += '<li><a href="' + data.menuitems[i].href + '" rel="external">';
+				    output += data.menuitems[i].label;
+				    output += '</a></li>';
+		        }
+				$("#primary-nav ul").append(output).listview("refresh");
+		     }
+			});
+		});
+</script>
 
 </body>
 </html>
