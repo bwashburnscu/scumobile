@@ -92,7 +92,5 @@
         Otherwise, you can specify specific domains:
     -->
     <access origin="*" />
-    <access origin="*.scu.edu" />
-    <access origin="scu.edu" subdomains="true" />
 
 </widget>
