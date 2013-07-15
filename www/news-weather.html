@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>Courses</title> 
+	<title>News</title> 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="assets/secondary.css" />
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
 	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
+
 	<script>
 	   $(document).ready(function() {
 	   	if($('#primary-nav').length == 0) {
@@ -34,55 +35,44 @@
 	</head> 
 <body> 
 
-<div data-role="page" class="navpage type-interior" data-theme="a">
+<div id="navpage" data-role="page" class="navpage type-index" data-theme="a">
 	
 	<div data-role="header">
 		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Courses</h1>
+		<h1>Weather</h1>
 		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<div id="primary-nav" class="navpage content-primary">
-			<ul data-role="listview" class="ui-listview"></ul>
-			<script>
-				var navstring = 'courses';
-			</script>
-		    <script src="assets/nav.js"></script>
-		</div>
-		<div class="content-secondary">
-			<form id='searchForm' name='searchForm' action="courses-search.html" method="get" class="ui-body ui-body-c" data-ajax="false">
-				<label for="strm" class="ui-hidden-accessible">Term:</label>
-				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
-				<select name="strm" id="strm">
-				</select>
-				<input type="search" name="search" id="search-basic" value="" />
-			</form>
-			<script type="text/javascript">
-				var tstr = '';
-		    	jQuery(function($){
-			    	$.ajax({
-			            url: "http://test01.scu.edu/docs/ws/catalog/index.cfc?method=qTerms&ReturnFormat=json",
-			            dataType: 'json',
-			            async:false,
-			            success: function(response) {
-			            	var i;
-			            	//["STRM","STRM_DESCR"]
-			            	for (i = 0; i < response.DATA.length; i++) {
-							tstr += '<option value="'+response.DATA[i][0]+'">'+response.DATA[i][1]+'</option>';
-							}
-						$('#strm').html(tstr);
-			            },
-			            error: function(ErrorMsg) {
-				       alert('Error');
-				    	}
-				  	});
-				  });
-			</script>
-			<p>Search keywords can include a 5-digit class number, instructor name, subject, or subject and catalog number (e.g. ANTH 1).</p>
-		</div>
+    <div class="content-primary">
+    	<div id="itemcontent"></div>
+    <script type="text/javascript">
+		$.ajax({
+		            url: 'http://m.scu.edu/app/weather.cfm',
+		            type: 'get',
+		            dataType: 'html',
+		            success: function(response) {
+		            	$('#itemcontent').html(response);
+		            	$('#itemcontent').trigger('create');
+		            	},
+					    error: function(ErrorMsg) {
+					       console.log('Error');
+					    }
+					   
+			   });
+    </script>
 	</div>
+	<div id="primary-nav" class="content-secondary">
+		<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
+		<script>
+			var navstring = 'news';
+		</script>
+	    <script src="assets/nav.js"></script>
+	</div>
+	</div>
+	
 
+	
 	<div data-role="footer" id="footer">
 		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
 	</div><!-- /footer -->
