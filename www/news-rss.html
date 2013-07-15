@@ -56,7 +56,6 @@
           var imgUrl = "";
           for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            var hascid = $('entry.link:contains("?c=")');
            // if (entry.xmlNode.getElementsByTagName("enclosure").length > 0) {
             	//imgUrl =  entry.xmlNode.getElementsByTagName("enclosure")[0].getAttribute("url");
             	//imgUrl = "<img src='" + imgUrl + "' />";
@@ -64,7 +63,7 @@
             	//imgUrl = '';
             	//}
             //rssContent += "<div data-role='collapsible' data-theme='a'><h3>" + entry.title + "</h3><h4>" + entry.title + "</h4><h4>" + entry.publishedDate + "</h4><p>" + entry.contentSnippet + "</p><p><a href='" + entry.link + "'>Continue Reading &raquo;</a></p></div>";
-            if (hascid) {
+            if(entry.link.indexOf('?c=') > 0) {
             	var cid = entry.link.split('?c=');
             	entry.link = 'news-blog.html?cid=' + cid[1];
             }

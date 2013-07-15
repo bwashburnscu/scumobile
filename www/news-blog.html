@@ -52,7 +52,7 @@
      /* response columns ["POST_ID","BLOG_ID","OLD_ITEM_ID","TITLE","SUBTITLE","AUTHOR_NAME","AUTHOR_EMAIL","PUBDATE","EXPDATE","PUBSTATUS","CONTENT","FEATURED","MOREINFO","SUMMARY","ACTIVE","IMG_DISPLAY","IMG_WIDTH","IMG_CAPTIONS","IMG_POS","CATEGORY","BLOG_ID","OLD_CHANNEL_ID","TITLE","LINK","BLOG_IMAGE","XMLFILE","DESCR","PUBLISHER","CONTACT_EMAIL","APPROVAL_EMAIL","ALLOW_COMM","USE_PUBL","REQUIRELOGIN","BLOG_INDEX","CREATOR","THEME_ID_DEPRECIATED","AUDIENCE_ID","SUBJECT_ID","CATEGORY","FEEDNAME","DISQUS","EXTERNAL"] */
      jQuery(function($){
 		    $.ajax({
-		            url: "http://www.scu.edu/docs/ws/blogs/index.cfc?method=queryItem&itemid="+cid+"&ReturnFormat=json",
+		            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryItem&itemid="+cid+"&ReturnFormat=json",
 		            dataType: 'json',
 		            success: function(response) {
 		            var itemhtml = '';
@@ -61,6 +61,8 @@
 		            $('#itemcontent').html(itemhtml);
 			    },
 			    error: function(ErrorMsg) {
+			    	 $('#itemcontent').html("http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryItem&itemid="+cid+"&ReturnFormat=json");
+			    
 			       console.log('Error');
 			    }
 			    
