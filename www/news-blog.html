@@ -59,10 +59,10 @@
 		            itemhtml += '<h3>' + response.DATA[0][3] + '</h3>';
 		            itemhtml += response.DATA[0][10];
 		            $('#itemcontent').html(itemhtml);
+		            $('#itemcontent').trigger('create');
 			    },
 			    error: function(ErrorMsg) {
-			    	 $('#itemcontent').html("http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryItem&itemid="+cid+"&ReturnFormat=json");
-			    
+			    	
 			       console.log('Error');
 			    }
 			    

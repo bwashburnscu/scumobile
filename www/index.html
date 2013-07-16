@@ -20,8 +20,51 @@
 	<div data-role="content" id="homecontent">
 		
 		<div class="content-secondary">
-			
-			<form method="GET" action="http://search.scu.edu/search" name="gs" id="homesearch" data-theme="b">
+			<div data-role="collapsible">
+				<h3>Featured Stories</h3>
+				<ul data-role="listview" id="features" data-inset="true"></ul>
+			</div>
+		    <script type="text/javascript">
+		
+		     var bid = 470;
+		     /* response columns ["POST_ID","BLOG_ID","OLD_ITEM_ID","TITLE","SUBTITLE","AUTHOR_NAME","AUTHOR_EMAIL","PUBDATE","EXPDATE","PUBSTATUS","CONTENT","FEATURED","MOREINFO","SUMMARY","ACTIVE","IMG_DISPLAY","IMG_WIDTH","IMG_CAPTIONS","IMG_POS","CATEGORY","BLOG_ID","OLD_CHANNEL_ID","TITLE","LINK","BLOG_IMAGE","XMLFILE","DESCR","PUBLISHER","CONTACT_EMAIL","APPROVAL_EMAIL","ALLOW_COMM","USE_PUBL","REQUIRELOGIN","BLOG_INDEX","CREATOR","THEME_ID_DEPRECIATED","AUDIENCE_ID","SUBJECT_ID","CATEGORY","FEEDNAME","DISQUS","EXTERNAL"] */
+		     jQuery(function($){
+				    $.ajax({
+				            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryBlog&blogid="+bid+"&isfeatured=1&itemcount=3&ReturnFormat=json",
+				            dataType: 'json',
+				            async:false,
+				            success: function(response) {
+				            	//["BTITLE","BLINK","BDESCR","POST_ID","TITLE","SUMMARY","CONTENT","PUBDATE","MOREINFO","AUTHOR_NAME","AUTHOR_EMAIL"]
+					            var itemhtml = '';
+					            for (i = 0; i < response.DATA.length; i++) {
+					            	itemhtml += '<li>';
+					            	itemhtml += '<a href="' + response.DATA[i][8] + '">';
+					            	$.ajax({
+					            		//["POST_ID","MEDIA_ID","FILEPATH","CAPTION","IMGTITLE","MPRIMARY","HEIGHT","WIDTH"]
+							            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryMedia&returnFormat=json&postids=" + response.DATA[i][3],
+							            dataType: 'json',
+							            async:false,
+							            success: function(edata) {
+							            	itemhtml += '<img src="http://www.scu.edu/' + edata.DATA[0][2] +'" />';
+							            }
+					     			});
+					     			itemhtml += '<span class="features-img-cover"></span>';
+					            	itemhtml += '<h3>' + response.DATA[i][4] + '</h3>';
+					            	itemhtml += '</a>';
+					            	itemhtml += '</li>';
+					            }
+					            $('#features').html(itemhtml);
+					            $('#features').listview("refresh");
+					    },
+					    error: function(ErrorMsg) {
+					    	
+					       console.log('Error');
+					    }
+					    
+			        });
+		    });
+		    </script>
+			<!--<form method="GET" action="http://search.scu.edu/search" name="gs" id="homesearch" data-theme="b">
 				<input type="search" cid="q" name="q" id="search-basic" value="" placeholder="Search..." />
 				<input type="hidden" name="site" value="mobile" />
 				<input type="hidden" name="access" value="p"/>
@@ -33,7 +76,7 @@
 				<input type="hidden" name="ie" value="UTF-8" />
 				<input type="hidden" name="client" value="mobile" />
 				<input type="hidden" name="proxystylesheet" value="mobile" />
-			</form>
+			</form> -->
 		</div>
 			
 		<div class="content-primary">

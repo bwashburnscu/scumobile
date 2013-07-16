@@ -119,7 +119,7 @@
 		    var currDateStr = (curr_month+1) + "/" + curr_date + "/" + curr_year;
 	    	jQuery(function($){
 		    $.ajax({
-		            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange="+currDateStr+"&endDateRange="+currDateStr+"&ReturnFormat=json",
+		            url: "http://m.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange="+currDateStr+"&endDateRange="+currDateStr+"&ReturnFormat=json",
 		            dataType: 'json',
 		            async:false,
 		            success: function(response) {
@@ -160,7 +160,7 @@
 			              str += '<h3>' + starttime + ' - ' +  title + '</h3>';
 			              //str += '<h4>' +  title + '</h4>';
 			               $.ajax({
-				            url: "http://test01.scu.edu/docs/ws/events/index.cfc?method=qEvent&returnFormat=plain&eventid=" + response.DATA[i][6],
+				            url: "http://m.scu.edu/docs/ws/events/index.cfc?method=qEvent&returnFormat=plain&eventid=" + response.DATA[i][6],
 				            async:false,
 				            success: function(edata) {
 					          str += "<div>" + $(edata).find('descr').text() + "</div>";
