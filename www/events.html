@@ -53,9 +53,9 @@
     <div class="content-primary">
     	<h3 id="dayTitle"></h3>
     	<div data-role="controlgroup" data-type="horizontal">
-		      <a rel="external" href="" data-role="button" data-icon="arrow-l" id="prevlink"> Prev </a>
+		      <a data-role="button" data-icon="arrow-l" id="prevlink"> Prev </a>
 		      <a rel="external" href="events.html" data-role="button" >Today</a>
-		      <a rel="external" href="" data-role="button" data-icon="arrow-r" data-iconpos="right" id="nextlink"> Next </a>
+		      <a href="" data-role="button" data-icon="arrow-r" data-iconpos="right" id="nextlink"> Next </a>
 		</div>
 			<script>
 			//$("#navpage").on("pageshow", function(e) {
@@ -91,6 +91,7 @@
 	    	var prevStr = "events.html?d=" + prev_date + "&m=" + prev_month + "&y=" + prev_year;
 	    	var prevStr = prevStr + "&nav=events";
 	    	$("#prevlink").attr("href", prevStr);
+	    	$("#prevlink").attr("rel", "external");
 	    	
 	    	var next_date = n.getDate();
 		    var next_month = n.getMonth();
@@ -98,6 +99,7 @@
 	    	var nextStr = "events.html?d=" + next_date + "&m=" + next_month + "&y=" + next_year;
 	    	var nextStr = nextStr + "&nav=events";
 	    	$("#nextlink").attr("href", nextStr);
+	    	$("#nextlink").attr("rel", "external");
 	    	//});
 	    	function getUrlVars() {
 			var vars = [], hash;
@@ -189,9 +191,11 @@
 					     });
 			          str += '</div>';
 			        }
-			
+					if (str.length == 0) {
+						str = '<p>No events scheduled on this date.</p>';
+					}
 			        $('#events').html(str);
-			        $("#events").collapsibleset("refresh");
+			        $("#events").trigger("create");
 			    },
 			    error: function(ErrorMsg) {
 			       console.log('Error');

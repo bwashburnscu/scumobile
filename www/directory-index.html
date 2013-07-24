@@ -67,7 +67,7 @@
 			var ostr = '';
 	    	jQuery(function($){
 		    	$.ajax({
-		            url: "http://test01.scu.edu/docs/ws/directory/index.cfc?method=quickRefs&ReturnFormat=json",
+		            url: "http://m.scu.edu/docs/ws/directory/index.cfc?method=quickRefs&ReturnFormat=json",
 		            dataType: 'json',
 		            async:false,
 		            success: function(response) {
@@ -91,7 +91,6 @@
 			        $('#qrOrgs').collapsibleset('refresh');
 		            },
 		            error: function(ErrorMsg) {
-			       alert('Error');
 			    	}
 			  	});
 			  });

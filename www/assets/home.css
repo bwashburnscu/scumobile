@@ -53,7 +53,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
    opacity:1 !important;
 }
 
-.ui-li {	
+#features .ui-li {	
   background:#6a737b;
 }
 

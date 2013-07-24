@@ -4,7 +4,7 @@ $(".navpage").on("pageshow", function(e) {
 			}
 	  $.ajax({
 		  type: "GET",
-		  url: 'http://test01.scu.edu/nav/'+navstring+'.json',
+		  url: 'http://m.scu.edu/nav/'+navstring+'.json',
 		  dataType: 'json',
 		     beforeSend: function(x) {
 		      if(x && x.overrideMimeType) {

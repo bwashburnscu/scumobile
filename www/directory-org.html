@@ -56,7 +56,7 @@
 			var oid = getUrlVars()["oid"];
 	    	jQuery(function($){
 		    $.ajax({
-		            url: "http://test01.scu.edu/docs/ws/directory/index.cfc?method=searchOrg&oid="+oid+"&ReturnFormat=plain",
+		            url: "http://m.scu.edu/docs/ws/directory/index.cfc?method=searchOrg&oid="+oid+"&ReturnFormat=plain",
 		            async:false,
 		            success: function(response) {
 		            var orgname = $(response).find('name').text();

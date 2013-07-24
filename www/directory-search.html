@@ -14,9 +14,8 @@
 	   	if($('#primary-nav').length == 0) {
 	   		$('.pnav-icon').hide();
 	   		}
-	   });
-   
-	   
+	   	});
+		
 		function getUrlVars() {
 		var vars = [], hash;
 		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -28,7 +27,17 @@
 		    }
 		return vars;
 		}
+		
 	</script>
+	
+	<style>
+		.content_div {
+		    display: none;
+		}
+		.content_div:first-child {
+		    display: block;
+		}
+	</style>
    
 	</head> 
 <body> 
@@ -49,9 +58,17 @@
 				<input type="search" name="q" id="search-basic" value="" />
 			</fieldset>
 		</form>
-    	<div data-role="collapsible-set" id="srPeople">
+		<div data-role="navbar">
+		    <ul>
+		        <li><a href="#" data-href="srPeople" id="srP">People</a></li>
+		        <li><a href="#" data-href="srOrgs" id="srO">Organizations</a></li>
+		    </ul>
 		</div>
-    	<div data-role="collapsible-set" id="srOrgs">
+		<div id="searchResults">
+    	<div data-role="collapsible-set" id="srPeople" class="content_div">
+		</div>
+    	<div data-role="collapsible-set" id="srOrgs" class="content_div">
+		</div>
 		</div>
 		<script type="text/javascript">
 			var pstr = '';
@@ -59,7 +76,7 @@
 			var q = getUrlVars()["q"];
 	    	jQuery(function($){
 		    $.ajax({
-		            url: "http://test01.scu.edu/docs/ws/directory/index.cfc?method=queryPeople&q="+q+"&ReturnFormat=json",
+		            url: "http://m.scu.edu/docs/ws/directory/index.cfc?method=queryPeople&q="+q+"&ReturnFormat=json",
 		            dataType: 'json',
 		            async:false,
 		            success: function(response) {
@@ -126,9 +143,12 @@
 							}
 							lastperson = response.DATA[i][5];
 						}
+						
+			    	} else {
+						pstr += 'No people were found matching your search for "' + q + '"';
+					};
 					$('#srPeople').html(pstr);
 			        $('#srPeople').collapsibleset('refresh');
-			    	}
 			    }
 			    ,
 			    error: function(ErrorMsg) {
@@ -136,7 +156,7 @@
 			    }
 			  });
 		    $.ajax({
-		            url: "http://test01.scu.edu/docs/ws/directory/index.cfc?method=queryOrgs&q="+q+"&ReturnFormat=json",
+		            url: "http://m.scu.edu/docs/ws/directory/index.cfc?method=queryOrgs&q="+q+"&ReturnFormat=json",
 		            dataType: 'json',
 		            async:false,
 		            success: function(response) {
@@ -153,7 +173,7 @@
 			        		var orgphone = response.DATA[i][4];
 							if (orgphone.indexOf('408') == -1 && orgphone.length <= 8 && orgphone.length >= 7) {
 								orgphone = '408-' + orgphone;
-							}
+								}
 			        		orgid = response.DATA[i][0];
 							ostr += '<div data-role="collapsible" '+collapsestate+'>';
 							ostr += '<h3>' + response.DATA[i][1] + '</h3>';
@@ -162,17 +182,29 @@
 							ostr += '<div>' + response.DATA[i][3] + '</div>';
 							ostr += '<div><a rel="external" href="directory-org.html?oid='+orgid+'" >View full staff listing</a></div>';
 							ostr += '</div>';
+							}
+						 
+			    		}else {
+							ostr += 'No organizations were found matching your search for "' + q + '"';
 						}
 					$('#srOrgs').html(ostr);
 			        $('#srOrgs').collapsibleset('refresh');
-			    	}
 			    }
+			    
 			    ,
 			    error: function(ErrorMsg) {
 			       alert('Error');
 			    }
 			  });
-	    });
+	    	});
+	    	
+	    	$('#srP').addClass('ui-btn-active');
+	    	
+	    	$(document).delegate('.ui-navbar a', 'click', function () {
+			    $(this).addClass('ui-btn-active');
+			    $('.content_div').hide();
+			    $('#' + $(this).attr('data-href')).show();
+			});
 	    </script>
 	</div>
 	<div id="primary-nav" class="content-secondary">
