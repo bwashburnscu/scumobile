@@ -109,11 +109,6 @@
 	border-top:1px solid #999;
 }
 
-/* fix for white screen between page navigation */
-.ui-page {
-    -webkit-backface-visibility: hidden;
-}
-
 
 
 /*.ui-icon-pnav-icon {
