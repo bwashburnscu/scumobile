@@ -1,5 +1,5 @@
 #homelogo {
-	background:#b10f3a;
+	background:#9E1B34;/* b10f3a */
 	text-align:center;
 }
 	
@@ -98,52 +98,52 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	width:100%;
 	text-align:center;
 }
-.icongroup div a#gmail {
+#igmail {
 	background-image: url(home-gmail.png);
 }
-.icongroup div a#ecampus {
+#iecampus {
 	background-image: url(home-ecampus.png);
 }
-.icongroup div a#camino {
+#icamino {
 	background-image: url(home-camino.png);
 }
-.icongroup div a#login {
+#ilogin {
 	background-image: url(home-login.png);
 }
-.icongroup div a#news {
+#inews {
 	background-image: url(home-news.png);
 }
-.icongroup div a#social {
+#isocial {
 	background-image: url(home-social.png);
 }
-.icongroup div a#events {
+#ievents {
 	background-image: url(home-events.png);
 }
-.icongroup div a#admission {
+#iadmission {
 	background-image: url(home-admission.png);
 }
-.icongroup div a#alumni {
+#ialumni {
 	background-image: url(home-alumni.png);
 }
-.icongroup div a#athletics {
+#iathletics {
 	background-image: url(home-athletics.png)
 }
-.icongroup div a#courses {
+#icourses {
 	background-image: url(home-courses.png);
 }
-.icongroup div a#directory {
+#idirectory {
 	background-image: url(home-directory.png);
 }
-.icongroup div a#map {
+#imap {
 	background-image: url(home-map.png);
 }
-.icongroup div a#rooms {
+#irooms {
 	background-image: url(home-rooms.png);
 }
-.icongroup div a#dining {
+#idining {
 	background-image: url(home-dining.png);
 }
-.icongroup div a#libraries {
+#ilibraries {
 	background-image: url(home-libraries.png);
 }
 
@@ -151,37 +151,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	clear:left;
 }
 
-.helpgroup div a#emergency {
+#iemergency {
 	background-image: url(home-emergency.png);
 }
-.helpgroup div a#fullsite {
+#ifullsite {
 	background-image: url(home-fullsite.png);
 }
-.helpgroup div a#about {
+#iabout {
 	background-image: url(home-about.png);
 }
-.helpgroup div a#customize {
+#icustomize {
 	background-image: url(home-customize.png);
 }
 
 .icongroup div a {
-	background-color:#88200d;
+	background-color:#7C211E;
 	background-repeat: no-repeat;
 	background-position: center top;
 }
 
 .icongroup div a:active {
-	background-color:#f17330;
+	background-color:#E54800;
 }
 
 .helpgroup div a {
-	background-color:#636298;
+	background-color:#564486;
 	background-repeat: no-repeat;
 	background-position: center top;
 }
 
 .helpgroup div a:active {
-	background-color:#abdee7;
+	background-color:#ADDDEB;
 }
 
 

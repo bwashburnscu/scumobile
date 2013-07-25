@@ -14,7 +14,7 @@
 		function navmenu(n,m) {
 		    $.ajax({
 		     type: "GET",
-		     url: 'http://m.scu.edu/nav/'+n+'.json',
+		     url: 'http://test01.scu.edu/nav/'+n+'.json',
 		     dataType: 'json',
 		     beforeSend: function(x) {
 		      if(x && x.overrideMimeType) {
@@ -123,61 +123,61 @@
 					
 					var icongroup = '';
 					if(loginState == null || loginState == 'true') {
-						icongroup += '<div><a href="#login" id="login"><span>Login</span></a></div>';
+						icongroup += '<div><a href="#login" id="ilogin"><span>Login</span></a></div>';
 					}
 					if(gmailState == null || gmailState == 'true') {
-						icongroup += '<div><a rel="external" href="http://gmail.scu.edu/" id="gmail"><span>SCU GMail</span></a></div>';
+						icongroup += '<div><a rel="external" href="http://gmail.scu.edu/" id="igmail"><span>SCU GMail</span></a></div>';
 					}
 					if(ecampusState == null || ecampusState == 'true') {
-						icongroup += '<div><a href="#ecampus" id="ecampus"><span>eCampus</span></a></div>';
+						icongroup += '<div><a href="#ecampus" id="iecampus"><span>eCampus</span></a></div>';
 					}
 					if(caminoState == null || caminoState == 'true') {
-						icongroup += '<div><a rel="external" href="https://camino.scu.edu/" id="camino"><span>Camino</span></a></div>';
+						icongroup += '<div><a rel="external" href="https://camino.scu.edu/" id="icamino"><span>Camino</span></a></div>';
 					}
 					if(newsState == null || newsState == 'true') {
-						icongroup += '<div><a rel="external" href="news.html" id="news"><span>News</span></a></div>';
+						icongroup += '<div><a rel="external" href="news.html" id="inews"><span>News</span></a></div>';
 					}
 					if(directoryState == null || directoryState == 'true') {
-						icongroup += '<div><a href="#directory" id="directory"><span>Directory</span></a></div>';
+						icongroup += '<div><a href="#directory" id="idirectory"><span>Directory</span></a></div>';
 					}
 					if(mapState == null || mapState == 'true') {
-						icongroup += '<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>';
+						icongroup += '<div><a rel="external" href="http://m.scu.edu/map/" id="imap"><span>Map</span></a></div>';
 					}
 					if(eventsState == null || eventsState == 'true') {
-						icongroup += '<div><a data-ajax="false" href="events.html" id="events"><span>Events</span></a></div>';
+						icongroup += '<div><a data-ajax="false" href="events.html" id="ievents"><span>Events</span></a></div>';
 					}
 					if(socialState == null || socialState == 'true') {
-						icongroup += '<div><a href="#social" id="social"><span>Social</span></a></div>';
+						icongroup += '<div><a href="#social" id="isocial"><span>Social</span></a></div>';
 					}
 					if(admissionState == null || admissionState == 'true') {
-						icongroup += '<div><a href="#admission" id="admission"><span>Admission</span></a></div>';
+						icongroup += '<div><a href="#admission" id="iadmission"><span>Admission</span></a></div>';
 					}
 					if(alumniState == null || alumniState == 'true') {
-						icongroup += '<div><a rel="external" href="alumni.html" id="alumni"><span>Alumni</span></a></div>';
+						icongroup += '<div><a rel="external" href="alumni.html" id="ialumni"><span>Alumni</span></a></div>';
 					}
 					if(athleticsState == null || athleticsState == 'true') {
-						icongroup += '<div><a rel="external" href="http://santaclarabroncos.com/landing/index" id="athletics"><span>Athletics</span></a></div>';
+						icongroup += '<div><a rel="external" href="http://santaclarabroncos.com/landing/index" id="iathletics"><span>Athletics</span></a></div>';
 					}
 					if(coursesState == null || coursesState == 'true') {
-						icongroup += '<div><a rel="external" href="courses-index.html" id="courses"><span>Courses</span></a></div>';
+						icongroup += '<div><a href="#courses" id="icourses"><span>Courses</span></a></div>';
 					}
 					if(roomsState == null || roomsState == 'true') {
-						icongroup += '<div><a rel="external" href="rooms.html" id="rooms"><span>Rooms</span></a></div>';
+						icongroup += '<div><a rel="external" href="rooms.html" id="irooms"><span>Rooms</span></a></div>';
 					}
 					if(diningState == null || diningState == 'true') {
-						icongroup += '<div><a rel="external" href="dining.html" id="dining"><span>Dining</span></a></div>';
+						icongroup += '<div><a rel="external" href="dining.html" id="idining"><span>Dining</span></a></div>';
 					}
 					if(librariesState == null || librariesState == 'true') {
-						icongroup += '<div><a href="#libraries" id="libraries"><span>Libraries</span></a></div>';
+						icongroup += '<div><a href="#libraries" id="ilibraries"><span>Libraries</span></a></div>';
 					}
 				$("#mainicons").html(icongroup);	
 				</script>
 
 			<div class="helpgroup">
-				<div><a href="#emergency" id="emergency"><span>Emergency</span></a></div>
-				<div><a href="#about" id="about"><span>About</span></a></div>
-				<div><a rel="external" href="http://www.scu.edu/" id="fullsite"><span>Full Site</span></a></div>
-				<div><a href="config.html" id="customize"><span>Customize</span></a></div>
+				<div><a href="#emergency" id="iemergency"><span>Emergency</span></a></div>
+				<div><a href="#about" id="iabout"><span>About</span></a></div>
+				<div><a rel="external" href="http://www.scu.edu/" id="ifullsite"><span>Full Site</span></a></div>
+				<div><a href="config.html" id="icustomize"><span>Customize</span></a></div>
 			</div>
 		<br style="clear:left;"/>
 		</div>	
@@ -257,12 +257,69 @@
 	</div><!-- /footer -->
 </div><!-- /apply page -->
 
+<!-- courses page -->
+<div data-role="page" id="courses" class="type-interior" data-theme="a">
+	
+	<div id="header">
+		<a href="index.html" class="homenav"><img alt="" src="assets/259-list-w.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div class="content-primary">
+			<h2 id="icourses">Course Catalog</h2>
+		<form id='searchForm' name='searchForm' action="courses-search.html" method="get" class="ui-body ui-body-a" data-ajax="false" style="border:none;">
+				<label for="strm" class="ui-hidden-accessible">Term:</label>
+				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
+				<select name="strm" id="strm">
+				</select>
+				<input type="search" name="search" id="search-basic" value="" />
+			</form>
+			<script type="text/javascript">
+				var tstr = '';
+		    	jQuery(function($){
+			    	$.ajax({
+			            url: "http://test01.scu.edu/docs/ws/catalog/index.cfc?method=qTerms&ReturnFormat=json",
+			            dataType: 'json',
+			            async:false,
+			            success: function(response) {
+			            	var i;
+			            	//["STRM","STRM_DESCR"]
+			            	for (i = 0; i < response.DATA.length; i++) {
+							tstr += '<option value="'+response.DATA[i][0]+'">'+response.DATA[i][1]+'</option>';
+							}
+						$('#strm').html(tstr);
+			            },
+			            error: function(ErrorMsg) {
+				       alert('Error');
+				    	}
+				  	});
+				  });
+			</script>
+			<p>Search keywords can include a 5-digit class number, instructor name, subject, or subject and catalog number (e.g. ANTH 1).</p>
+		
+		</div>
+		<div id="primary-nav" class="content-secondary">
+			<ul id="mcourses" data-role="listview" data-inset="true"></ul>
+		    <script>
+			    navmenu('courses','mcourses');
+		    </script>
+		</div>
+		
+	</div>
+	
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+
+</div><!-- /courses page -->
+
 <!-- directory page -->
 <div data-role="page" id="directory" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
 		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>eCampus</h1>
+		<h1>Directory</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -530,13 +587,12 @@
 <!-- scu login page -->
 <div data-role="page" id="login" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>SCU Login</h1>
+	<div id="header">
+		<a href="index.html" class="homenav"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-
+	<h2 id="ilogin">SCU Login</h2>
 	<ul id="mlogin" data-role="listview" data-inset="true"></ul>
     <script>
 	    navmenu('login','mlogin');
@@ -554,13 +610,12 @@
 <!-- social networks page -->
 <div data-role="page" id="social" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Social Networks</h1>
+	<div id="header">
+		<a href="index.html" class="homenav"><img alt="" src="assets/259-list-w.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-
+	<h2 id="isocial">Social Networks</h2>
 	<ul id="msocial" data-role="listview" data-inset="true"></ul>
     <script>
 	    navmenu('social','msocial');
