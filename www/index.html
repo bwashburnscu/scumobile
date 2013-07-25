@@ -80,7 +80,7 @@
 		</div>
 			
 		<div class="content-primary">
-			<div class="icongroup"></div>
+			<div class="icongroup" id="mainicons"></div>
 				<script>
 					var loginState = localStorage.getItem("homeIcon.Login.state");
 					var gmailState = localStorage.getItem("homeIcon.Gmail.state");
@@ -148,9 +148,9 @@
 					if(librariesState == null || librariesState == 'true') {
 						icongroup += '<div><a rel="external" href="libraries.html" id="libraries"><span>Libraries</span></a></div>';
 					}
-				$("#icongroup").html(icongroup);	
+				$("#mainicons").html(icongroup);	
 				</script>
-			<p><a href="test1.html">test</a></p>
+			<p><a rel="external" href="test1.html">test</a></p>
 			<div class="helpgroup">
 				<div><a href="#emergency" id="emergency"><span>Emergency</span></a></div>
 				<div><a href="#about" id="about"><span>About</span></a></div>
