@@ -24,7 +24,7 @@
 				<h3>Featured Stories</h3>
 				<ul data-role="listview" id="features" data-inset="true"></ul>
 			</div>
-		    <!--<script type="text/javascript">
+		    <script type="text/javascript">
 		
 		     var bid = 470;
 		     /* response columns ["POST_ID","BLOG_ID","OLD_ITEM_ID","TITLE","SUBTITLE","AUTHOR_NAME","AUTHOR_EMAIL","PUBDATE","EXPDATE","PUBSTATUS","CONTENT","FEATURED","MOREINFO","SUMMARY","ACTIVE","IMG_DISPLAY","IMG_WIDTH","IMG_CAPTIONS","IMG_POS","CATEGORY","BLOG_ID","OLD_CHANNEL_ID","TITLE","LINK","BLOG_IMAGE","XMLFILE","DESCR","PUBLISHER","CONTACT_EMAIL","APPROVAL_EMAIL","ALLOW_COMM","USE_PUBL","REQUIRELOGIN","BLOG_INDEX","CREATOR","THEME_ID_DEPRECIATED","AUDIENCE_ID","SUBJECT_ID","CATEGORY","FEEDNAME","DISQUS","EXTERNAL"] */
@@ -64,19 +64,6 @@
 			        });
 		    });
 		    </script>
-			<form method="GET" action="http://search.scu.edu/search" name="gs" id="homesearch" data-theme="b">
-				<input type="search" cid="q" name="q" id="search-basic" value="" placeholder="Search..." />
-				<input type="hidden" name="site" value="mobile" />
-				<input type="hidden" name="access" value="p"/>
-				<input type="hidden" name="entqr" value="0" />
-				<input type="hidden" name="ud" value="1" />
-				<input type="hidden" name="sort" value="date:D:L:d1" />
-				<input type="hidden" name="output" value="xml_no_dtd" />
-				<input type="hidden" name="oe" value="UTF-8" />
-				<input type="hidden" name="ie" value="UTF-8" />
-				<input type="hidden" name="client" value="mobile" />
-				<input type="hidden" name="proxystylesheet" value="mobile" />
-			</form> -->
 		</div>
 			
 		<div class="content-primary">
@@ -122,7 +109,7 @@
 						icongroup += '<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>';
 					}
 					if(eventsState == null || eventsState == 'true') {
-						icongroup += '<div><a rel="external" href="events.html" id="events"><span>Events</span></a></div>';
+						icongroup += '<div><a data-ajax="false" href="events.html" id="events"><span>Events</span></a></div>';
 					}
 					if(socialState == null || socialState == 'true') {
 						icongroup += '<div><a rel="external" href="social.html" id="social"><span>Social</span></a></div>';
@@ -150,7 +137,7 @@
 					}
 				$("#mainicons").html(icongroup);	
 				</script>
-			<p><a rel="external" href="test1.html">test</a></p>
+
 			<div class="helpgroup">
 				<div><a href="#emergency" id="emergency"><span>Emergency</span></a></div>
 				<div><a href="#about" id="about"><span>About</span></a></div>
@@ -205,7 +192,7 @@
 	
 
 	<div data-role="footer" id="footer">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
 </div><!-- /page -->
@@ -230,7 +217,7 @@
 	
 
 	<div data-role="footer" id="footer">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
 </div><!-- /page -->
@@ -266,7 +253,7 @@
 	
 
 	<div data-role="footer" id="footer">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
 </div><!-- /page -->
