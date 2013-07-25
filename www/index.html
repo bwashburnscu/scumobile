@@ -138,7 +138,7 @@
 						icongroup += '<div><a rel="external" href="news.html" id="news"><span>News</span></a></div>';
 					}
 					if(directoryState == null || directoryState == 'true') {
-						icongroup += '<div><a rel="external" href="directory-index.html" id="directory"><span>Directory</span></a></div>';
+						icongroup += '<div><a href="#directory" id="directory"><span>Directory</span></a></div>';
 					}
 					if(mapState == null || mapState == 'true') {
 						icongroup += '<div><a rel="external" href="http://m.scu.edu/map/" id="map"><span>Map</span></a></div>';
@@ -168,7 +168,7 @@
 						icongroup += '<div><a rel="external" href="dining.html" id="dining"><span>Dining</span></a></div>';
 					}
 					if(librariesState == null || librariesState == 'true') {
-						icongroup += '<div><a rel="external" href="libraries.html" id="libraries"><span>Libraries</span></a></div>';
+						icongroup += '<div><a href="#libraries" id="libraries"><span>Libraries</span></a></div>';
 					}
 				$("#mainicons").html(icongroup);	
 				</script>
@@ -209,8 +209,9 @@
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
-</div><!-- /page -->
+</div><!-- /home page -->
 
+<!-- admission page -->
 <div id="admission" data-role="page" class="navpage type-interior" data-theme="a">
 
 	<div data-role="header">
@@ -231,8 +232,9 @@
 	<div data-role="footer" id="footer">
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
-</div><!-- /page -->
+</div><!-- /admission page -->
 
+<!-- apply page -->
 <div id="apply" data-role="page" class="navpage type-interior" data-theme="a">
 	
 	<div data-role="header">
@@ -253,9 +255,87 @@
 	<div data-role="footer" id="footer">
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
-</div><!-- /page -->
+</div><!-- /apply page -->
+
+<!-- directory page -->
+<div data-role="page" id="directory" class="type-interior" data-theme="a">
+	
+	<div data-role="header">
+		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>eCampus</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div class="content-primary">
+		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-d ui-corner-all">
+			<fieldset>
+				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
+				<script>
+					var q = getUrlVars()["q"];
+					if (q != 'undefined') {
+						q = '';
+					}
+					document.write('<input type="search" name="q" id="search-basic" value="'+q+'" />');			
+				</script>
+			</fieldset>
+		</form>
+
+		<h3>Quick Reference</h3>
+		
+    	<div data-role="collapsible-set" id="qrOrgs"></div>
+		
+    	<script type="text/javascript">
+			var qrstr = '';
+			var ostr = '';
+	    	jQuery(function($){
+		    	$.ajax({
+		            url: "http://m.scu.edu/docs/ws/directory/index.cfc?method=quickRefs&ReturnFormat=json",
+		            dataType: 'json',
+		            async:false,
+		            success: function(response) {
+		            	var i;
+		            	//["ID","NAME","PHONE","ORGEMAIL","DESCR_FULL","URL"]
+			        	for (i = 0; i < response.DATA.length; i++) {
+			        		var phone = response.DATA[i][2];
+							if (phone.indexOf('408') == -1 && phone.length <= 8 && phone.length >= 7) {
+								phone = '408-' + phone;
+								}
+			        		orgid = response.DATA[i][0];
+							ostr += '<div data-role="collapsible" data-collapsed="false">';
+							ostr += "<h3>" + response.DATA[i][1] + "</h3>";
+							ostr += '<p><a href="tel:'+phone+'">'+phone+'</a></p>';
+							ostr += '<p><a href="mailto:'+response.DATA[i][3]+'">'+response.DATA[i][3]+'</a></p>';
+							ostr += '<div>' + response.DATA[i][4] + '</div>';
+							ostr += '<p><a data-ajax="false" href="directory-org.html?oid='+orgid+'">More info...</a></p>';
+							ostr += '</div>';
+						}
+					$('#qrOrgs').html(ostr);
+			        $('#qrOrgs').collapsibleset('refresh');
+		            },
+		            error: function(ErrorMsg) {
+			    	}
+			  	});
+			  });
+		</script>
+		</div>
+		<div id="primary-nav" class="content-secondary">
+			<ul id="mdirectory" data-role="listview" data-inset="true"></ul>
+		    <script>
+			    navmenu('directory','mdirectory');
+		    </script>
+		</div>
+		
+	</div>
+	
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+
+</div><!-- /directory page -->
 
 
+<!-- ecampus page -->
 <div data-role="page" id="ecampus" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
@@ -279,8 +359,9 @@
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
-</div><!-- /page -->
+</div><!-- /ecampus page -->
 
+<!-- emergency page -->
 <div data-role="page" id="emergency" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
@@ -315,8 +396,138 @@
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
-</div><!-- /page -->
+</div><!-- /emergency page -->
 
+<!-- libraries page -->
+<div data-role="page" id="libraries" class="type-interior" data-theme="a">
+	
+	<div data-role="header">
+		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Libraries</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+	<ul id="mlibraries" data-role="listview" data-inset="true"></ul>
+    <script>
+	    navmenu('libraries','mlibraries');
+    </script>
+
+	</div>
+	
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+
+</div><!-- /libraries page -->
+
+<!-- library page -->
+<div data-role="page" id="library" class="type-interior" data-theme="a">
+	
+	<div data-role="header">
+		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>University Library</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+	<ul id="mlibrary" data-role="listview" data-inset="true"></ul>
+    <script>
+	    navmenu('library','mlibrary');
+    </script>
+
+	</div>
+	
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+
+</div><!-- /library page -->
+
+<!-- library ask page -->
+<div data-role="page" id="libraryask" class="type-interior" data-theme="a">
+	
+	<div data-role="header">
+		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Ask a Librarian</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <div class="content-primary">
+		<h3>Ask A Librarian</h3>
+	
+			<p>Email: <a href="mailto:libraryreference@scu.edu">libraryreference@scu.edu</a></p>
+	
+			<p>Phone: 408-554-4658</p>
+		
+			<p>Text: 408-706-7110</p>
+		
+	<p>View the <a href="http://askalibrarian.scu.edu/">standard Web version</a> of this page.</p>
+	</div>
+	<div id="primary-nav" class="content-secondary">
+	<ul id="mlibraryask" data-role="listview" data-inset="true"></ul>
+    <script>
+	    navmenu('library','mlibraryask');
+    </script>
+	</div>
+	</div>
+	
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+
+</div><!-- /library ask page -->
+
+<!-- library hours page -->
+<div data-role="page" id="libraryhours" class="type-interior" data-theme="a">
+	
+	<div data-role="header">
+		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
+		<h1>Library Hours</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+    <div class="content-primary">
+		<div id="hourshtml"></div>
+		<script>
+			var seldate = getUrlVars()["seldate"];
+		    	$.ajax({
+		            url: "http://m.scu.edu/app/hours.cfm",
+		            type: 'get',
+		            data: 'more=i&seldate='+seldate,
+		            dataType: 'html',
+		            success: function(response) {
+		            	//alert(response);
+		            	$('#hourshtml').html(response);
+		            	$('#hourshtml').trigger('create');
+		            	},
+					    error: function(ErrorMsg) {
+					       console.log('Error');
+					       //alert(ErrorMsg);
+					    }
+					    
+			        });
+		</script>
+	</div>
+	<div id="primary-nav" class="content-secondary">
+	<ul id="mlibraryhours" data-role="listview" data-inset="true"></ul>
+    <script>
+	    navmenu('library','mlibraryhours');
+    </script>
+	</div>
+	</div>
+	
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+
+</div><!-- /library hours page -->
+
+<!-- scu login page -->
 <div data-role="page" id="login" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
@@ -338,8 +549,9 @@
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
-</div><!-- /page -->
+</div><!-- /scu login page -->
 
+<!-- social networks page -->
 <div data-role="page" id="social" class="type-interior" data-theme="a">
 	
 	<div data-role="header">
@@ -361,7 +573,7 @@
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 
-</div><!-- /page -->
+</div><!-- /social networks page -->
 
 </body>
 </html>
