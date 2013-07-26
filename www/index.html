@@ -6,15 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="assets/scu.css" />
-	<link rel="stylesheet" href="assets/home.css" />
 	<link rel="stylesheet" href="assets/secondary.css" />
+	<link rel="stylesheet" href="assets/home.css" />
 	<script src="assets/jquery-1.9.1.min.js"></script> 
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
 	<script>
 		function navmenu(n,m) {
 		    $.ajax({
 		     type: "GET",
-		     url: 'http://test01.scu.edu/nav/'+n+'.json',
+		     url: 'http://m.scu.edu/nav/'+n+'.json',
 		     dataType: 'json',
 		     beforeSend: function(x) {
 		      if(x && x.overrideMimeType) {
@@ -56,7 +56,7 @@
 		
 		<div class="content-secondary">
 			<div data-role="collapsible">
-				<h3>Featured Stories</h3>
+				<h3>SCU Today</h3>
 				<ul data-role="listview" id="features" data-inset="true"></ul>
 			</div>
 		    <script type="text/javascript">
@@ -92,8 +92,7 @@
 					            $('#features').listview("refresh");
 					    },
 					    error: function(ErrorMsg) {
-					    	
-					       console.log('Error');
+					    	console.log(ErrorMsg);
 					    }
 					    
 			        });
@@ -191,17 +190,16 @@
 
 <div data-role="page" id="about" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>About</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="SCU Home" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
+		<h2 id="iabout">About SCU Mobile</h2>
 
-	<h3>About SCU Mobile</h3>
-	<p>SCU Mobile is available as a mobile web site at m.scu.edu, and as native app for iOS, Android, Blackberry, Windows Phone, WebOS, and Symbian platforms. The mobile application includes general information resources for Santa Clara University, including news and events, course catalog, map, faculty/staff directory, library catalog, dining services hours and menus, and room reservations. Additionally, the mobile site provides a starting point to reach other SCU mobile resources such as SCU Gmail and Calendar, mobile ecampus, and Camino.</p>
-	<p>Development of SCU Mobile is continuing, and we'll be extending the menu options as more of SCU's network resources have mobile-optimized interfaces.</p>
-	<p>Your feedback and suggestions regarding SCU Mobile are always welcome! Please send your feedback to <a href="mailto:bwashburn@scu.edu">webmaster@scu.edu.</a></p>
+		<p>SCU Mobile is available as a mobile web site at m.scu.edu, and as native app for iOS, Android, Blackberry, Windows Phone, WebOS, and Symbian platforms. The mobile application includes general information resources for Santa Clara University, including news and events, course catalog, map, faculty/staff directory, library catalog, dining services hours and menus, and room reservations. Additionally, the mobile site provides a starting point to reach other SCU mobile resources such as SCU Gmail and Calendar, mobile ecampus, and Camino.</p>
+		<p>Development of SCU Mobile is continuing, and we'll be extending the menu options as more of SCU's network resources have mobile-optimized interfaces.</p>
+		<p>Your feedback and suggestions regarding SCU Mobile are always welcome! Please send your feedback to <a href="mailto:bwashburn@scu.edu">webmaster@scu.edu.</a></p>
 	</div>
 	
 
@@ -214,14 +212,12 @@
 <!-- admission page -->
 <div id="admission" data-role="page" class="navpage type-interior" data-theme="a">
 
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Admission</h1>
-		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="SCU Home" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-
+		<h2 id="iadmission">Admission</h2>
 	<ul id="madmission" data-role="listview" data-inset="true"></ul>
     <script>
 	    navmenu('admission','madmission');
@@ -237,13 +233,12 @@
 <!-- apply page -->
 <div id="apply" data-role="page" class="navpage type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Apply</h1>
-		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
+		<h2 id="iadmission">Apply Online</h2>
 
 	<ul id="mapply" data-role="listview" data-inset="true"></ul>
     <script>
@@ -260,14 +255,13 @@
 <!-- courses page -->
 <div data-role="page" id="courses" class="type-interior" data-theme="a">
 	
-	<div id="header">
-		<a href="index.html" class="homenav"><img alt="" src="assets/259-list-w.png" /></a>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<div class="content-primary">
-			<h2 id="icourses">Course Catalog</h2>
-		<form id='searchForm' name='searchForm' action="courses-search.html" method="get" class="ui-body ui-body-a" data-ajax="false" style="border:none;">
+		<h2 id="icourses">Course Catalog</h2>
+			<form id='searchForm' name='searchForm' action="courses-search.html" method="get" class="ui-body ui-body-a" data-ajax="false" style="border:none;">
 				<label for="strm" class="ui-hidden-accessible">Term:</label>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
 				<select name="strm" id="strm">
@@ -278,7 +272,7 @@
 				var tstr = '';
 		    	jQuery(function($){
 			    	$.ajax({
-			            url: "http://test01.scu.edu/docs/ws/catalog/index.cfc?method=qTerms&ReturnFormat=json",
+			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qTerms&ReturnFormat=json",
 			            dataType: 'json',
 			            async:false,
 			            success: function(response) {
@@ -290,20 +284,16 @@
 						$('#strm').html(tstr);
 			            },
 			            error: function(ErrorMsg) {
-				       alert('Error');
+				         console.log(ErrorMsg);
 				    	}
 				  	});
 				  });
 			</script>
 			<p>Search keywords can include a 5-digit class number, instructor name, subject, or subject and catalog number (e.g. ANTH 1).</p>
-		
-		</div>
-		<div id="primary-nav" class="content-secondary">
-			<ul id="mcourses" data-role="listview" data-inset="true"></ul>
+			<ul id="mcourses" data-role="listview" data-inset="true" class="ui-listview"></ul>
 		    <script>
 			    navmenu('courses','mcourses');
 		    </script>
-		</div>
 		
 	</div>
 	
@@ -317,14 +307,15 @@
 <!-- directory page -->
 <div data-role="page" id="directory" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Directory</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="SCU Home" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
+		
 		<div class="content-primary">
-		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-d ui-corner-all">
+		<h2 id="idirectory">Directory</h2>
+		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-a">
 			<fieldset>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
 				<script>
@@ -357,7 +348,7 @@
 							if (phone.indexOf('408') == -1 && phone.length <= 8 && phone.length >= 7) {
 								phone = '408-' + phone;
 								}
-			        		orgid = response.DATA[i][0];
+			        		var orgid = response.DATA[i][0];
 							ostr += '<div data-role="collapsible" data-collapsed="false">';
 							ostr += "<h3>" + response.DATA[i][1] + "</h3>";
 							ostr += '<p><a href="tel:'+phone+'">'+phone+'</a></p>';
@@ -370,6 +361,7 @@
 			        $('#qrOrgs').collapsibleset('refresh');
 		            },
 		            error: function(ErrorMsg) {
+		            	console.log(ErrorMsg);
 			    	}
 			  	});
 			  });
@@ -395,19 +387,17 @@
 <!-- ecampus page -->
 <div data-role="page" id="ecampus" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>eCampus</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-
-	<h3>Ecampus for mobile</h3>
-	<p>A version of ecampus optimized for mobile is available, including class schedule, grades, and more.</p>
-
-	<p><a href="https://ecampus.scu.edu/SCMOBILE/signin.html" data-role="button">Mobile eCampus</a></p>
+		<h2 id="iecampus">Ecampus for Mobile</h2>
+		<p>A version of ecampus optimized for mobile is available, including class schedule, grades, and more.</p>
 	
-	<p>The full eCampus web site is <a href="https://www.scu.edu/ecampus">available here</a>.</p>
+		<p><a href="https://ecampus.scu.edu/SCMOBILE/signin.html" data-role="button">Mobile eCampus</a></p>
+		
+		<p>The full eCampus web site is <a href="https://www.scu.edu/ecampus">available here</a>.</p>
 
 	</div>
 	
@@ -421,15 +411,12 @@
 <!-- emergency page -->
 <div data-role="page" id="emergency" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Emergency</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-	
-	
-		<h2>Emergency</h2>
+		<h2 id="iemergency">Emergency Contacts</h2>
 		<p>Tap to call</p>
 		<h3><a href="tel:911">Fire, Police, Ambulance - 911</a></h3>
 		<ul data-role="listview" data-inset="true">
@@ -458,12 +445,12 @@
 <!-- libraries page -->
 <div data-role="page" id="libraries" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Libraries</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
+		<h2 id="ilibraries">Libraries</h2>
 
 	<ul id="mlibraries" data-role="listview" data-inset="true"></ul>
     <script>
@@ -482,12 +469,12 @@
 <!-- library page -->
 <div data-role="page" id="library" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>University Library</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
+		<h2 id="ilibraries">University Library</h2>
 
 	<ul id="mlibrary" data-role="listview" data-inset="true"></ul>
     <script>
@@ -506,14 +493,13 @@
 <!-- library ask page -->
 <div data-role="page" id="libraryask" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Ask a Librarian</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
-
+		
 	<div data-role="content">
     <div class="content-primary">
-		<h3>Ask A Librarian</h3>
+		<h2 id="ilibraries">Ask a Librarian</h2>
 	
 			<p>Email: <a href="mailto:libraryreference@scu.edu">libraryreference@scu.edu</a></p>
 	
@@ -541,13 +527,13 @@
 <!-- library hours page -->
 <div data-role="page" id="libraryhours" class="type-interior" data-theme="a">
 	
-	<div data-role="header">
-		<a href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Library Hours</h1>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
     <div class="content-primary">
+    	<h2 id="ilibraries">Library Hours</h2>
 		<div id="hourshtml"></div>
 		<script>
 			var seldate = getUrlVars()["seldate"];
@@ -557,13 +543,11 @@
 		            data: 'more=i&seldate='+seldate,
 		            dataType: 'html',
 		            success: function(response) {
-		            	//alert(response);
 		            	$('#hourshtml').html(response);
 		            	$('#hourshtml').trigger('create');
 		            	},
 					    error: function(ErrorMsg) {
-					       console.log('Error');
-					       //alert(ErrorMsg);
+					       console.log(ErrorMsg);
 					    }
 					    
 			        });
@@ -588,7 +572,7 @@
 <div data-role="page" id="login" class="type-interior" data-theme="a">
 	
 	<div id="header">
-		<a href="index.html" class="homenav"><img alt="" src="assets/259-list-w.png" /></a>
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -611,7 +595,7 @@
 <div data-role="page" id="social" class="type-interior" data-theme="a">
 	
 	<div id="header">
-		<a href="index.html" class="homenav"><img alt="" src="assets/259-list-w.png" /></a>
+		<a href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">

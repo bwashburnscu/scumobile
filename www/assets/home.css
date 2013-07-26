@@ -16,6 +16,19 @@
 	padding:0 10px;
 }
 
+.content-secondary .ui-corner-all {
+	border-radius:0;
+}
+
+.content-secondary .ui-collapsible {
+	padding:0;
+}
+
+.content-secondary .ui-collapsible-inset {
+	margin:0;
+}
+
+
 #features {
 	white-space: normal;
 }
@@ -65,7 +78,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 	
 .icongroup {
-
+  margin-top:10px;
 }
 	
 .icongroup div, .helpgroup div {
@@ -97,71 +110,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	left:0;
 	width:100%;
 	text-align:center;
-}
-#igmail {
-	background-image: url(home-gmail.png);
-}
-#iecampus {
-	background-image: url(home-ecampus.png);
-}
-#icamino {
-	background-image: url(home-camino.png);
-}
-#ilogin {
-	background-image: url(home-login.png);
-}
-#inews {
-	background-image: url(home-news.png);
-}
-#isocial {
-	background-image: url(home-social.png);
-}
-#ievents {
-	background-image: url(home-events.png);
-}
-#iadmission {
-	background-image: url(home-admission.png);
-}
-#ialumni {
-	background-image: url(home-alumni.png);
-}
-#iathletics {
-	background-image: url(home-athletics.png)
-}
-#icourses {
-	background-image: url(home-courses.png);
-}
-#idirectory {
-	background-image: url(home-directory.png);
-}
-#imap {
-	background-image: url(home-map.png);
-}
-#irooms {
-	background-image: url(home-rooms.png);
-}
-#idining {
-	background-image: url(home-dining.png);
-}
-#ilibraries {
-	background-image: url(home-libraries.png);
-}
-
-.helpgroup {
-	clear:left;
-}
-
-#iemergency {
-	background-image: url(home-emergency.png);
-}
-#ifullsite {
-	background-image: url(home-fullsite.png);
-}
-#iabout {
-	background-image: url(home-about.png);
-}
-#icustomize {
-	background-image: url(home-customize.png);
 }
 
 .icongroup div a {

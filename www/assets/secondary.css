@@ -1,20 +1,100 @@
+#igmail {
+	background-image: url(home-gmail.png);
+}
+#iecampus {
+	background-image: url(home-ecampus.png);
+}
+#icamino {
+	background-image: url(home-camino.png);
+}
+#ilogin {
+	background-image: url(home-login.png);
+}
+#inews {
+	background-image: url(home-news.png);
+}
+#isocial {
+	background-image: url(home-social.png);
+}
+#ievents {
+	background-image: url(home-events.png);
+}
+#iadmission {
+	background-image: url(home-admission.png);
+}
+#ialumni {
+	background-image: url(home-alumni.png);
+}
+#iathletics {
+	background-image: url(home-athletics.png)
+}
+#icourses {
+	background-image: url(home-courses.png);
+}
+#idirectory {
+	background-image: url(home-directory.png);
+}
+#imap {
+	background-image: url(home-map.png);
+}
+#irooms {
+	background-image: url(home-rooms.png);
+}
+#idining {
+	background-image: url(home-dining.png);
+}
+#ilibraries {
+	background-image: url(home-libraries.png);
+}
 
+.helpgroup {
+	clear:left;
+}
+
+#iemergency {
+	background-image: url(home-emergency.png);
+}
+#ifullsite {
+	background-image: url(home-fullsite.png);
+}
+#iabout {
+	background-image: url(home-about.png);
+}
+#icustomize {
+	background-image: url(home-customize.png);
+}
+
+.type-interior .content-primary {
+	/*background:#6a737b;*/
+	padding-bottom:20px;
+}
 
 .type-interior .content-secondary {
 	border-right: 0;
 	border-left: 0;
-	margin: 10px -15px 0;
-	border-top: 1px solid #ccc;
+	padding-top:10px;
+	border-top:1px solid #eee;
 }
-.type-home .ui-content {
-	margin-top: 5px;
-	overflow: hidden;
-	position: relative;
+
+.type-interior .ui-body-a {
+	border:none;
+	color:#333;
 }
+
 .type-interior .ui-content {
 	padding: 0;
 	margin:0;
 }
+
+.type-interior .ui-li-heading {
+	color:#333;
+	margin-left:0;
+}
+
+.type-interior .ui-li-heading a, .type-interior .ui-li-desc a {
+	color:#9E1B34;
+}
+
 .content-secondary .ui-collapsible {
 	padding: 0 15px 10px;
 
@@ -24,9 +104,7 @@
 	background: none;
 	border-bottom: none;
 }
-.content-secondary .ui-listview {
-	margin: 0;
-}
+
 
 .content-primary table th, .content-primary table td {
 	padding:5px;
@@ -42,9 +120,13 @@
 	margin:0;
 }
 
-#primary-nav {
-	min-height:410px;
-	}
+.content-primary .ui-listview {
+	margin: 0px !important;
+}
+
+.ui-content p {
+	margin:0 10px;
+}
 
 
 /* SCU Home icon 175x40 pixels */
@@ -60,29 +142,33 @@
 	position:relative;
 	height:40px;
 	background: #ab0e38 url(scu-logotype-horizontal.png) center no-repeat;
-	background-size: 80%;
+	background-size: 240px;
 }
 
-#header .homenav {
+#header .homenav img {
 	position:absolute;
 	top:13px;
 	left:10px;
 	opacity:80%;
 }
 
-#header .homenav:active {
+#header .homenav img:active {
 	opacity:100%;
 }
 
-h2 {
+.ui-content h2 {
 	background-size:40px 40px;
 	background-repeat:no-repeat;
 	background-position:0px 5px;
 	color:#fff;
 	padding:15px 0 0 45px;
-	margin:0 0 0 5px;
+	margin:0 0 10px 5px;
 	font-size:1.4em;
 	font-weight:normal;
+}
+
+.ui-content h3 {
+	margin-left: 15px;
 }
 .ui-header .sculogo {
     padding: 0px;
@@ -119,6 +205,9 @@ h2 {
 	background:none;
 	border-bottom:none;
 	border-top:1px solid #999;
+	background:#c5c09f;
+	color:#666;
+	text-shadow: none;
 }
 
 #phoneicon .ui-icon-custom {
@@ -161,11 +250,9 @@ body {
 	.ui-mobile #scu-home {
 		max-width: 340px;
 	}
-/*
-	.ui-mobile .jqm-themeswitcher {
-		float: right;
+	#header {
+		background-size:360px;
 	}
-*/
 	p.intro {
 		margin: 2em 0;
 	}
@@ -187,20 +274,20 @@ body {
 	.type-interior .content-secondary {
 		margin: 30px 0 20px 2%;
 		padding: 20px 4% 0 0;
-			background: none;
-					border-top: none;
+		background: none;
+		border-top: none;
 	}
-	.type-index .content-secondary {
+	.type-interior  .content-secondary {
 		padding: 0;
 	}
-	.content-secondary .ui-collapsible {
+	.type-interior .content-secondary .ui-collapsible {
 		margin: 0;
 		padding: 0;
 	}
-	.content-secondary .ui-collapsible-content {
+	.type-interior .content-secondary .ui-collapsible-content {
 		border: none;
 	}
-	.type-index .content-secondary .ui-listview {
+	.type-interior .content-secondary .ui-listview {
 		margin: 0;
 	}
 
