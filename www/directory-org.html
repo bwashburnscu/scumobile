@@ -9,43 +9,25 @@
 	<link rel="stylesheet" href="assets/secondary.css" />
 	<script src="assets/jquery-1.10.2.min.js"></script> 
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
-	<script>
-	   $(document).ready(function() {
-	   	if($('#primary-nav').length == 0) {
-	   		$('.pnav-icon').hide();
-	   		}
-	   });
-	   
-		function getUrlVars() {
-		var vars = [], hash;
-		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-		for(var i = 0; i < hashes.length; i++)
-		    {
-		        hash = hashes[i].split('=');
-		        vars.push(hash[0]);
-		        vars[hash[0]] = hash[1];
-		    }
-		return vars;
-		}
-	</script>
+	<script src="assets/submenu.js"></script>
+	<link rel="stylesheet" href="assets/submenu.css" />
    
 	</head> 
 <body> 
 
 <div data-role="page" class="navpage type-interior" data-theme="a">
-	
-	<div data-role="header">
-		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Directory</h1>
-		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+    <script src="assets/navmenu.js"></script>
+	<script src="assets/geturlvars.js"></script>
+	<div id="header">
+		<a data-ajax="false" href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
-    <div class="content-primary">
-		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-d ui-corner-all">
+		<h2 id="idirectory" class="pagetitle"><a href="index.html#directory" data-ajax="false">Directory</a></h2>
+		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-a">
 			<fieldset>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
-				<input type="search" name="q" id="search-basic" value="" />
+				<input type="search" name="q" id="search-basic" value="" placeholder="Search" />
 			</fieldset>
 		</form>
 		<div id="orgmain"></div>
@@ -122,14 +104,6 @@
 			  });
 	    });
 	    </script>
-	</div>
-	<div id="primary-nav" class="content-secondary">
-		<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
-		<script>
-			var navstring = 'directory';
-		</script>
-	    <script src="assets/nav.js"></script>
-	</div>
 	</div>
 
 	<div data-role="footer" id="footer">

@@ -10,48 +10,14 @@
 	<link rel="stylesheet" href="assets/home.css" />
 	<script src="assets/jquery-1.9.1.min.js"></script> 
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
-	<script>
-		function navmenu(n,m) {
-		    $.ajax({
-		     type: "GET",
-		     url: 'http://m.scu.edu/nav/'+n+'.json',
-		     dataType: 'json',
-		     beforeSend: function(x) {
-		      if(x && x.overrideMimeType) {
-		       x.overrideMimeType("application/j-son;charset=UTF-8");
-		      }
-			 },
-			 success: function(data){
-			 	var output = '';
-			    for (var i in data.menuitems) {
-				    output += '<li><a href="' + data.menuitems[i].href + '" target="_blank"">';
-				    output += data.menuitems[i].label;
-				    output += '</a></li>';
-		        }
-				$("#"+m).append(output).listview("refresh");
-		     }
-			});
-		}
-		
-		function getUrlVars() {
-		var vars = [], hash;
-		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-		for(var i = 0; i < hashes.length; i++)
-		    {
-		        hash = hashes[i].split('=');
-		        vars.push(hash[0]);
-		        vars[hash[0]] = hash[1];
-		    }
-		return vars;
-		}
-    </script>
+	<script src="assets/navmenu.js"></script>
+	<script src="assets/geturlvars.js"></script>
 	</head> 
 <body> 
 
 <div id="main" data-role="page" class="type-home" data-theme="a">
-	
 
-	<div id="homelogo"><img src="assets/home-logo.gif" alt="Santa Clara University"/></div>
+	<div id="homelogo"><img src="assets/scu-logotype-home.png" alt="Santa Clara University"/></div>
 	<div data-role="content" id="homecontent">
 		
 		<div class="content-secondary">
@@ -353,13 +319,7 @@
 		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-a">
 			<fieldset>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
-				<script>
-					var q = getUrlVars()["q"];
-					if (q != 'undefined') {
-						q = '';
-					}
-					document.write('<input type="search" name="q" id="search-basic" value="'+q+'" />');			
-				</script>
+				<input type="search" name="q" id="search-basic" value="" placeholder="Search" />
 			</fieldset>
 		</form>
 

@@ -115,25 +115,26 @@ body {
 	color:#93191b;
 }
 
-.type-interior br.linebreak {
-	clear:both;
-	float:none;
-	line-height:1px;
-	font-size:1px;
-	margin:0;
-	padding:0;
-}
-
 .content-secondary .ui-collapsible {
 	padding: 0 15px 10px;
-
 }
+
+.ui-collapsible-content {
+	background:#eee;
+	color:#333;
+	text-shadow:none;
+	margin-top:0;
+}
+
+.ui-collapsible-content a {
+	color:#93191b;
+}
+
 .content-secondary .ui-collapsible-content {
 	padding: 0;
 	background: none;
 	border-bottom: none;
 }
-
 
 .content-primary table th, .content-primary table td {
 	padding:5px;
