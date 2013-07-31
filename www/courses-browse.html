@@ -68,14 +68,13 @@
 	    <script>
 	    	navmenu('courses','mcourses');
 	        var navigation = responsiveNav("#nav", {
-	            animate: true,        // Boolean: Use CSS3 transitions, true or false
-				transition: 400,      // Integer: Speed of the transition, in milliseconds
-				insert: "after",      // String: Insert the toggle before or after the navigation
+	            animate: false,        // Boolean: Use CSS3 transitions, true or false
+				insert: "before",      // String: Insert the toggle before or after the navigation
 				openPos: "relative",  // String: Position of the opened nav, relative or static
 				jsClass: "js"        // String: 'JS enabled' class which is added to <html> el
 	      });
 	    </script>
-		<h2 id="icourses">Course Catalog</h2>
+		<h2 id="icourses" class="pagetitle"><a data-ajax="false" href="index.html#courses">Course Catalog</a></h2>
 			<div id="details"></div>
 			<ul id="subjects" data-role="listview" class="ui-listview"></ul>
 			<script type="text/javascript">
@@ -128,7 +127,7 @@
 							$('#subjects').listview("refresh");
 			            },
 			            error: function(ErrorMsg) {
-				        alert('Error');
+				        console.log(ErrorMsg);
 				    	}
 				  	});
 				  });
@@ -173,7 +172,7 @@
 			            success: function(response) {
 			            	var i;
 			            	var lterm = '';
-			            	dstr += '<h3>' + response.DATA[0][8]  + ' ' + response.DATA[0][18]  + ' - ' + response.DATA[0][10] + '</h3>';
+			            	dstr += '<div id="subtitle">' + response.DATA[0][8]  + ' ' + response.DATA[0][18]  + ' - ' + response.DATA[0][10] + '</div>';
 			            	//["CRSE_ID","CLASS_NBR","STRM","STRM_DESCR","CAREER_DESCR","GROUP_DESCR","ACAD_CAREER","SUBJECT","8 SUBJECT_DESCR","ACAD_GROUP","CLASS_DESCR","11 DAYS","TIME_START","TIME_END","FACILITY","INSTRUCTOR","UNITS","TITLE","18 CATALOG_NBR","SUBCAT","SESSION_CODE","SESSION_DESCR","SEATS"]
 			            	for (i = 0; i < response.DATA.length; i++) {
 			            		if (lterm != response.DATA[i][3]) {
@@ -206,7 +205,7 @@
 							
 			            },
 			            error: function(ErrorMsg) {
-				        alert('Error');
+				        console.log(ErrorMsg);
 				    	}
 				  	});
 				  });
@@ -237,7 +236,7 @@
 						$('#strm').html(tstr);
 			            },
 			            error: function(ErrorMsg) {
-				       alert('Error');
+				       		console.log(ErrorMsg);
 				    	}
 				  	});
 				  });

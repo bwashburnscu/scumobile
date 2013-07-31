@@ -73,7 +73,7 @@
 	border-right: 0;
 	border-left: 0;
 	padding-top:10px;
-	border-top:1px solid #eee;
+	border-top:1px solid #999;
 }
 
 .type-interior .ui-body-a {
@@ -91,8 +91,19 @@
 	margin-left:0;
 }
 
+.type-interior .ui-li-desc {
+	margin-left:0;
+}
+
 .type-interior .ui-li-heading a, .type-interior .ui-li-desc a {
 	color:#9E1B34;
+}
+
+.type-interior #pagecontent {
+	padding:10px;
+	/*background:#eee1c7;
+	color:#333;*/
+	text-shadow:none;
 }
 
 .content-secondary .ui-collapsible {
@@ -156,20 +167,40 @@
 	opacity:100%;
 }
 
-.ui-content h2 {
+.ui-content h2.pagetitle {
 	background-size:40px 40px;
-	background-repeat:no-repeat;
-	background-position:0px 5px;
+	background-repeat:repeat-y;
+	background-position:10px 3px;
+	/*background-position:bottom left;
+	background-repeat:no-repeat;*/
 	color:#fff;
-	padding:15px 0 0 45px;
-	margin:0 0 10px 5px;
+	padding-left: 55px;
+	margin:0;
 	font-size:1.4em;
+	line-height:45px;
 	font-weight:normal;
+	vertical-align:bottom;
+}
+
+.ui-content h2.pagetitle a {
+	color:#fff !important;
+	font-weight:normal;
+	text-decoration:none;
 }
 
 .ui-content h3 {
 	margin-left: 15px;
 }
+
+.ui-content #subtitle {
+	font-size:1.25em;
+	padding:10px 0 10px 15px;
+	color:#eee1c7;
+	border-top:1px solid #eee1c7;
+	border-top:1px solid #eee1c7;
+	/*background:#6a737b;*/
+}
+
 .ui-header .sculogo {
     padding: 0px;
     margin:1% 5%;
@@ -204,9 +235,9 @@
 .ui-bar-b {
 	background:none;
 	border-bottom:none;
-	border-top:1px solid #999;
-	background:#c5c09f;
-	color:#666;
+	border-top:none;
+	background:#6a737b;
+	color:#fff;
 	text-shadow: none;
 }
 
@@ -219,6 +250,7 @@
 {
   font-size: 14px;
   white-space: normal;
+  margin-left:0;
 }
 
 body {

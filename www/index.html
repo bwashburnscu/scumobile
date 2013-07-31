@@ -164,7 +164,7 @@
 						icongroup += '<div><a rel="external" href="rooms.html" id="irooms"><span>Rooms</span></a></div>';
 					}
 					if(diningState == null || diningState == 'true') {
-						icongroup += '<div><a rel="external" href="dining.html" id="idining"><span>Dining</span></a></div>';
+						icongroup += '<div><a href="#dining" id="idining"><span>Dining</span></a></div>';
 					}
 					if(librariesState == null || librariesState == 'true') {
 						icongroup += '<div><a href="#libraries" id="ilibraries"><span>Libraries</span></a></div>';
@@ -195,7 +195,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="iabout">About SCU Mobile</h2>
+		<h2 id="iabout" class="pagetitle">About SCU Mobile</h2>
 
 		<p>SCU Mobile is available as a mobile web site at m.scu.edu, and as native app for iOS, Android, Blackberry, Windows Phone, WebOS, and Symbian platforms. The mobile application includes general information resources for Santa Clara University, including news and events, course catalog, map, faculty/staff directory, library catalog, dining services hours and menus, and room reservations. Additionally, the mobile site provides a starting point to reach other SCU mobile resources such as SCU Gmail and Calendar, mobile ecampus, and Camino.</p>
 		<p>Development of SCU Mobile is continuing, and we'll be extending the menu options as more of SCU's network resources have mobile-optimized interfaces.</p>
@@ -217,7 +217,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="iadmission">Admission</h2>
+		<h2 id="iadmission" class="pagetitle">Admission</h2>
 	<ul id="madmission" data-role="listview" data-inset="true"></ul>
     <script>
 	    navmenu('admission','madmission');
@@ -238,7 +238,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="iadmission">Apply Online</h2>
+		<h2 id="iadmission" class="pagetitle">Apply Online</h2>
 
 	<ul id="mapply" data-role="listview" data-inset="true"></ul>
     <script>
@@ -260,7 +260,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="icourses">Course Catalog</h2>
+		<h2 id="icourses" class="pagetitle">Course Catalog</h2>
 			<form id='searchForm' name='searchForm' action="courses-search.html" method="get" class="ui-body ui-body-a" data-ajax="false" style="border:none;">
 				<label for="strm" class="ui-hidden-accessible">Term:</label>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
@@ -304,6 +304,41 @@
 
 </div><!-- /courses page -->
 
+<!-- dining page -->
+<div id="dining" data-role="page" class="type-interior" data-theme="a">
+	
+	<div id="header">
+		<a data-ajax="false" href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	    <div class="content-primary">
+	    <h2 id="idining" class="pagetitle">Dining</h2>
+	    <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<div id="pagecontent" class="fb-like-box" data-href="https://www.facebook.com/SCUDiningServicesbyBonAppetit" data-width="292" data-show-faces="true" data-stream="false" data-show-border="false" data-header="false"></div>
+	</div>
+	<div class="content-secondary">
+			<ul id="mdining" data-role="listview" data-inset="true"></ul>
+		    <script>
+			    navmenu('dining','mdining');
+		    </script>
+	</div>
+	</div>
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- /dining page -->
+
 <!-- directory page -->
 <div data-role="page" id="directory" class="type-interior" data-theme="a">
 	
@@ -314,7 +349,7 @@
 	<div data-role="content">
 		
 		<div class="content-primary">
-		<h2 id="idirectory">Directory</h2>
+		<h2 id="idirectory" class="pagetitle">Directory</h2>
 		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-a">
 			<fieldset>
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
@@ -392,7 +427,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="iecampus">Ecampus for Mobile</h2>
+		<h2 id="iecampus" class="pagetitle">Ecampus for Mobile</h2>
 		<p>A version of ecampus optimized for mobile is available, including class schedule, grades, and more.</p>
 	
 		<p><a href="https://ecampus.scu.edu/SCMOBILE/signin.html" data-role="button">Mobile eCampus</a></p>
@@ -416,7 +451,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="iemergency">Emergency Contacts</h2>
+		<h2 id="iemergency" class="pagetitle">Emergency Contacts</h2>
 		<p>Tap to call</p>
 		<h3><a href="tel:911">Fire, Police, Ambulance - 911</a></h3>
 		<ul data-role="listview" data-inset="true">
@@ -450,7 +485,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="ilibraries">Libraries</h2>
+		<h2 id="ilibraries" class="pagetitle">Libraries</h2>
 
 	<ul id="mlibraries" data-role="listview" data-inset="true"></ul>
     <script>
@@ -474,7 +509,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2 id="ilibraries">University Library</h2>
+		<h2 id="ilibraries" class="pagetitle">University Library</h2>
 
 	<ul id="mlibrary" data-role="listview" data-inset="true"></ul>
     <script>
@@ -499,7 +534,7 @@
 		
 	<div data-role="content">
     <div class="content-primary">
-		<h2 id="ilibraries">Ask a Librarian</h2>
+		<h2 id="ilibraries" class="pagetitle">Ask a Librarian</h2>
 	
 			<p>Email: <a href="mailto:libraryreference@scu.edu">libraryreference@scu.edu</a></p>
 	
@@ -533,7 +568,7 @@
 
 	<div data-role="content">
     <div class="content-primary">
-    	<h2 id="ilibraries">Library Hours</h2>
+    	<h2 id="ilibraries" class="pagetitle">Library Hours</h2>
 		<div id="hourshtml"></div>
 		<script>
 			var seldate = getUrlVars()["seldate"];
@@ -576,7 +611,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-	<h2 id="ilogin">SCU Login</h2>
+	<h2 id="ilogin" class="pagetitle">SCU Login</h2>
 	<ul id="mlogin" data-role="listview" data-inset="true"></ul>
     <script>
 	    navmenu('login','mlogin');
@@ -599,7 +634,7 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-	<h2 id="isocial">Social Networks</h2>
+	<h2 id="isocial" class="pagetitle">Social Networks</h2>
 	<ul id="msocial" data-role="listview" data-inset="true"></ul>
     <script>
 	    navmenu('social','msocial');

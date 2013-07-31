@@ -4,19 +4,19 @@
 	<title>News</title> 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<link rel="stylesheet" href="assets/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="assets/scu.css" />
 	<link rel="stylesheet" href="assets/secondary.css" />
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
-	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
-
-	<script>
-	   $(document).ready(function() {
-	   	if($('#primary-nav').length == 0) {
-	   		$('.pnav-icon').hide();
-	   		}
-	   });
+	<script src="assets/jquery-1.10.2.min.js"></script> 
+	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
+	<link rel="stylesheet" href="assets/responsive-nav.css" />
+    <script src="assets/responsive-nav.js"></script>
    
+	</head> 
+<body> 
+
+<div data-role="page" class="type-interior" data-theme="a">
+	<script>
 	   
 		function getUrlVars() {
 		var vars = [], hash;
@@ -29,31 +29,62 @@
 		    }
 		return vars;
 		}
+		
+	    function navmenu(n,m) {
+		    $.ajax({
+		     type: "GET",
+		     url: 'http://m.scu.edu/nav/'+n+'.json',
+		     dataType: 'json',
+		     beforeSend: function(x) {
+		      if(x && x.overrideMimeType) {
+		       x.overrideMimeType("application/j-son;charset=UTF-8");
+		      }
+			 },
+			 success: function(data){
+			 	var output = '';
+			    for (var i in data.menuitems) {
+				    output += '<li><a href="' + data.menuitems[i].href + '"';
+				    //output += ' target="_blank"';
+				    output += ' data-ajax="false"';
+				    output += '>';
+				    output += data.menuitems[i].label;
+				    output += '</a></li>';
+		        }
+				$("#"+m).append(output).listview("refresh");
+		     }
+			});
+		}
 	
 	</script>
-   
-	</head> 
-<body> 
-
-<div id="navpage" data-role="page" class="navpage type-index" data-theme="a">
-	
-	<div data-role="header">
-		<a rel="external" href="index.html" data-role="none" data-direction="reverse" class="ui-btn-left"><img width="108" height="40" class="sculogo" alt="" src="assets/scu-home.png" /></a>
-		<h1>Weather</h1>
-		<a href="#" onclick="$.mobile.silentScroll($.mobile.activePage.find('#primary-nav').position().top)" data-role="none" class="pnav-icon"><img alt="" src="assets/259-list-w.png" /></a>
+	<div id="header">
+		<a data-ajax="false" href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
 	</div><!-- /header -->
 
 	<div data-role="content">
     <div class="content-primary">
-    	<div id="itemcontent"></div>
-    <script type="text/javascript">
+    	<div id="nav">
+	      <ul id="tnews"></ul>
+	    </div>
+	    <script>
+	    	navmenu('news','tnews');
+	        var navigation = responsiveNav("#nav", {
+	            animate: false,        // Boolean: Use CSS3 transitions, true or false
+				insert: "before",      // String: Insert the toggle before or after the navigation
+				openPos: "relative",  // String: Position of the opened nav, relative or static
+				jsClass: "js"        // String: 'JS enabled' class which is added to <html> el
+	      });
+	    </script>
+	    <h2 id="inews" class="pagetitle"><a href="news.html" data-ajax="false">SCU News</a></h2>
+	    <div id="subtitle">Weather</div>
+    	<div id="pagecontent"></div>
+    	<script type="text/javascript">
 		$.ajax({
 		            url: 'http://m.scu.edu/app/weather.cfm',
 		            type: 'get',
 		            dataType: 'html',
 		            success: function(response) {
-		            	$('#itemcontent').html(response);
-		            	$('#itemcontent').trigger('create');
+		            	$('#pagecontent').html(response);
+		            	$('#pagecontent').trigger('create');
 		            	},
 					    error: function(ErrorMsg) {
 					       console.log('Error');
@@ -63,18 +94,17 @@
     </script>
 	</div>
 	<div id="primary-nav" class="content-secondary">
-		<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
-		<script>
-			var navstring = 'news';
-		</script>
-	    <script src="assets/nav.js"></script>
+		<ul id="mnews" data-role="listview" data-inset="true"></ul>
+	    <script>
+		    navmenu('news','mnews');
+	    </script>
 	</div>
 	</div>
 	
 
 	
 	<div data-role="footer" id="footer">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 </div><!-- /page -->
 

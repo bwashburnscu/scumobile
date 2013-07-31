@@ -68,15 +68,14 @@
 	    <script>
 	    	navmenu('courses','mcourses');
 	        var navigation = responsiveNav("#nav", {
-	            animate: true,        // Boolean: Use CSS3 transitions, true or false
-				transition: 400,      // Integer: Speed of the transition, in milliseconds
-				insert: "after",      // String: Insert the toggle before or after the navigation
+	            animate: false,        // Boolean: Use CSS3 transitions, true or false
+				insert: "before",      // String: Insert the toggle before or after the navigation
 				openPos: "relative",  // String: Position of the opened nav, relative or static
 				jsClass: "js"        // String: 'JS enabled' class which is added to <html> el
 	      });
 	    </script>
-		<h2 id="icourses">Course Catalog</h2>
-		<h3>Search</h3>
+		<h2 id="icourses" class="pagetitle"><a data-ajax="false" href="index.html#courses">Course Catalog</a></h2>
+		<div id="subtitle">Search</div>
 		<div id="details"></div>
 			<ul id="subjects" data-role="listview" class="ui-listview"></ul>
 			<script type="text/javascript">
