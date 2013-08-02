@@ -111,10 +111,13 @@ body {
 	text-shadow:none;
 }
 
-.type-interior #pagecontent a {
-	color:#93191b;
+.type-interior #pagecontent p {
+	padding:5px 0;
 }
 
+.type-interior #pagecontent p a {
+	color:#93191b;
+}
 .content-secondary .ui-collapsible {
 	padding: 0 15px 10px;
 }
