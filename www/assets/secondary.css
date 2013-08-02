@@ -100,7 +100,7 @@ body {
 	margin-left:0;
 }
 
-.type-interior .ui-li-heading a, .type-interior .ui-li-desc a {
+.type-interior .ui-li-desc a {
 	color:#9E1B34;
 }
 
@@ -119,6 +119,11 @@ body {
 	padding: 0 15px 10px;
 }
 
+.content-primary .ui-collapsible {
+	margin:0;
+	border:none;
+}
+
 .ui-collapsible-content {
 	background:#eee;
 	color:#333;
@@ -128,6 +133,10 @@ body {
 
 .ui-collapsible-content a {
 	color:#93191b;
+}
+
+.ui-collapsible-set {
+	margin:0 !important;
 }
 
 .content-secondary .ui-collapsible-content {
