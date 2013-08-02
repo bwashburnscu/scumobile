@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Directory</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/jquery.mobile-1.3.2.min.css" />
+	<link rel="stylesheet" href="assets/scu.css" />
+	<link rel="stylesheet" href="assets/secondary.css" />
+	<script src="assets/jquery-1.10.2.min.js"></script> 
+	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
+	<script src="assets/submenu.js"></script>
+	<link rel="stylesheet" href="assets/submenu.css" />
+   
+	</head> 
+<body> 
+
+<!-- directory page -->
+<div data-role="page" id="directory" class="type-interior" data-theme="a">
+    <script src="assets/navmenu.js"></script>
+	<script src="assets/geturlvars.js"></script>
+	<div id="header" data-add-back-btn="true">
+		<a href="index.html" class="homenav"><img alt="SCU Home" src="assets/38-house.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		
+		<div class="content-primary">
+		<h2 id="idirectory" class="pagetitle">Directory</h2>
+		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-a">
+			<fieldset>
+				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
+				<input type="search" name="q" id="search-basic" value="" placeholder="Search" />
+			</fieldset>
+		</form>
+
+		<h3>Quick Reference</h3>
+		
+    	<div data-role="collapsible-set" id="qrOrgs"></div>
+		
+    	<script type="text/javascript">
+			var qrstr = '';
+			var ostr = '';
+	    	jQuery(function($){
+		    	$.ajax({
+		            url: "http://m.scu.edu/docs/ws/directory/index.cfc?method=quickRefs&ReturnFormat=json",
+		            dataType: 'json',
+		            async:false,
+		            success: function(response) {
+		            	var i;
+		            	//["ID","NAME","PHONE","ORGEMAIL","DESCR_FULL","URL"]
+			        	for (i = 0; i < response.DATA.length; i++) {
+			        		var phone = response.DATA[i][2];
+							if (phone.indexOf('408') == -1 && phone.length <= 8 && phone.length >= 7) {
+								phone = '408-' + phone;
+								}
+			        		var orgid = response.DATA[i][0];
+							ostr += '<div data-role="collapsible" data-collapsed="false">';
+							ostr += "<h3>" + response.DATA[i][1] + "</h3>";
+							ostr += '<p><a href="tel:'+phone+'">'+phone+'</a></p>';
+							ostr += '<p><a href="mailto:'+response.DATA[i][3]+'">'+response.DATA[i][3]+'</a></p>';
+							ostr += '<div>' + response.DATA[i][4] + '</div>';
+							ostr += '<p><a data-ajax="false" href="directory-org.html?oid='+orgid+'">More info...</a></p>';
+							ostr += '</div>';
+						}
+					$('#qrOrgs').html(ostr);
+			        $('#qrOrgs').collapsibleset('refresh');
+		            },
+		            error: function(ErrorMsg) {
+		            	console.log(ErrorMsg);
+			    	}
+			  	});
+			  });
+		</script>
+		</div>
+		<div id="primary-nav" class="content-secondary">
+			<ul id="mdirectory" data-role="listview" data-inset="true"></ul>
+		    <script>
+			    navmenu('directory','mdirectory');
+		    </script>
+		</div>
+		
+	</div>
+	
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+
+</div><!-- /directory page -->
+
+</body>
+</html>

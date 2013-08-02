@@ -100,10 +100,10 @@
 						icongroup += '<div><a rel="external" href="https://camino.scu.edu/" id="icamino"><span>Camino</span></a></div>';
 					}
 					if(newsState == null || newsState == 'true') {
-						icongroup += '<div><a rel="external" href="news.html" id="inews"><span>News</span></a></div>';
+						icongroup += '<div><a data-ajax="false" href="news.html" id="inews"><span>News</span></a></div>';
 					}
 					if(directoryState == null || directoryState == 'true') {
-						icongroup += '<div><a href="#directory" id="idirectory"><span>Directory</span></a></div>';
+						icongroup += '<div><a data-ajax="false" href="directory.html" id="idirectory"><span>Directory</span></a></div>';
 					}
 					if(mapState == null || mapState == 'true') {
 						icongroup += '<div><a rel="external" href="http://m.scu.edu/map/" id="imap"><span>Map</span></a></div>';
@@ -118,7 +118,7 @@
 						icongroup += '<div><a href="#admission" id="iadmission"><span>Admission</span></a></div>';
 					}
 					if(alumniState == null || alumniState == 'true') {
-						icongroup += '<div><a rel="external" href="alumni.html" id="ialumni"><span>Alumni</span></a></div>';
+						icongroup += '<div><a data-ajax="false" href="alumni.html" id="ialumni"><span>Alumni</span></a></div>';
 					}
 					if(athleticsState == null || athleticsState == 'true') {
 						icongroup += '<div><a rel="external" href="http://santaclarabroncos.com/landing/index" id="iathletics"><span>Athletics</span></a></div>';
@@ -127,7 +127,7 @@
 						icongroup += '<div><a href="#courses" id="icourses"><span>Courses</span></a></div>';
 					}
 					if(roomsState == null || roomsState == 'true') {
-						icongroup += '<div><a rel="external" href="rooms.html" id="irooms"><span>Rooms</span></a></div>';
+						icongroup += '<div><a rel="external" href="http://m.scu.edu/scumobile/www/rooms/" id="irooms"><span>Rooms</span></a></div>';
 					}
 					if(diningState == null || diningState == 'true') {
 						icongroup += '<div><a href="#dining" id="idining"><span>Dining</span></a></div>';
@@ -304,79 +304,6 @@
 </div><!-- /page -->
 
 <!-- /dining page -->
-
-<!-- directory page -->
-<div data-role="page" id="directory" class="type-interior" data-theme="a">
-	
-	<div id="header" data-add-back-btn="true">
-		<a href="index.html" class="homenav"><img alt="SCU Home" src="assets/38-house.png" /></a>
-	</div><!-- /header -->
-
-	<div data-role="content">
-		
-		<div class="content-primary">
-		<h2 id="idirectory" class="pagetitle">Directory</h2>
-		<form data-ajax="false" id='searchForm' name='searchForm' action="directory-search.html" method="get" class="ui-body ui-body-a">
-			<fieldset>
-				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
-				<input type="search" name="q" id="search-basic" value="" placeholder="Search" />
-			</fieldset>
-		</form>
-
-		<h3>Quick Reference</h3>
-		
-    	<div data-role="collapsible-set" id="qrOrgs"></div>
-		
-    	<script type="text/javascript">
-			var qrstr = '';
-			var ostr = '';
-	    	jQuery(function($){
-		    	$.ajax({
-		            url: "http://m.scu.edu/docs/ws/directory/index.cfc?method=quickRefs&ReturnFormat=json",
-		            dataType: 'json',
-		            async:false,
-		            success: function(response) {
-		            	var i;
-		            	//["ID","NAME","PHONE","ORGEMAIL","DESCR_FULL","URL"]
-			        	for (i = 0; i < response.DATA.length; i++) {
-			        		var phone = response.DATA[i][2];
-							if (phone.indexOf('408') == -1 && phone.length <= 8 && phone.length >= 7) {
-								phone = '408-' + phone;
-								}
-			        		var orgid = response.DATA[i][0];
-							ostr += '<div data-role="collapsible" data-collapsed="false">';
-							ostr += "<h3>" + response.DATA[i][1] + "</h3>";
-							ostr += '<p><a href="tel:'+phone+'">'+phone+'</a></p>';
-							ostr += '<p><a href="mailto:'+response.DATA[i][3]+'">'+response.DATA[i][3]+'</a></p>';
-							ostr += '<div>' + response.DATA[i][4] + '</div>';
-							ostr += '<p><a data-ajax="false" href="directory-org.html?oid='+orgid+'">More info...</a></p>';
-							ostr += '</div>';
-						}
-					$('#qrOrgs').html(ostr);
-			        $('#qrOrgs').collapsibleset('refresh');
-		            },
-		            error: function(ErrorMsg) {
-		            	console.log(ErrorMsg);
-			    	}
-			  	});
-			  });
-		</script>
-		</div>
-		<div id="primary-nav" class="content-secondary">
-			<ul id="mdirectory" data-role="listview" data-inset="true"></ul>
-		    <script>
-			    navmenu('directory','mdirectory');
-		    </script>
-		</div>
-		
-	</div>
-	
-
-	<div data-role="footer" id="footer">
-		<p style="text-align:center;">&copy; Santa Clara University</p>
-	</div><!-- /footer -->
-
-</div><!-- /directory page -->
 
 
 <!-- ecampus page -->
