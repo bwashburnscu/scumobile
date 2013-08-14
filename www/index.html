@@ -12,6 +12,20 @@
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
 	<script src="assets/navmenu.js"></script>
 	<script src="assets/geturlvars.js"></script>
+	<script>
+		function refreshLists() {
+		$("#madmission").listview("refresh");
+		$("#mapply").listview("refresh");
+		$("#mcourses").listview("refresh");
+		$("#mdining").listview("refresh");
+		$("#mlibraries").listview("refresh");
+		$("#mlibrary").listview("refresh");
+		$("#mlibraryask").listview("refresh");
+		$("#mlibraryhours").listview("refresh");
+		$("#mlogin").listview("refresh");
+		$("#msocial").listview("refresh");
+		}
+	</script>
 	</head> 
 <body> 
 
@@ -27,25 +41,26 @@
 			</div>
 		    <script type="text/javascript">
 		
-		     var bid = 470;
+		     var bid = 439;
 		     /* response columns ["POST_ID","BLOG_ID","OLD_ITEM_ID","TITLE","SUBTITLE","AUTHOR_NAME","AUTHOR_EMAIL","PUBDATE","EXPDATE","PUBSTATUS","CONTENT","FEATURED","MOREINFO","SUMMARY","ACTIVE","IMG_DISPLAY","IMG_WIDTH","IMG_CAPTIONS","IMG_POS","CATEGORY","BLOG_ID","OLD_CHANNEL_ID","TITLE","LINK","BLOG_IMAGE","XMLFILE","DESCR","PUBLISHER","CONTACT_EMAIL","APPROVAL_EMAIL","ALLOW_COMM","USE_PUBL","REQUIRELOGIN","BLOG_INDEX","CREATOR","THEME_ID_DEPRECIATED","AUDIENCE_ID","SUBJECT_ID","CATEGORY","FEEDNAME","DISQUS","EXTERNAL"] */
 		     jQuery(function($){
 				    $.ajax({
-				            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryBlog&blogid="+bid+"&isfeatured=1&itemcount=3&ReturnFormat=json",
+				            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryBlog&blogid="+bid+"&isfeatured=1&itemcount=8&ReturnFormat=json",
 				            dataType: 'json',
 				            async:false,
 				            success: function(response) {
-				            	//["BTITLE","BLINK","BDESCR","POST_ID","TITLE","SUMMARY","CONTENT","PUBDATE","MOREINFO","AUTHOR_NAME","AUTHOR_EMAIL"]
+				            	//["BTITLE","BLINK","BDESCR","POST_ID","TITLE","SUMMARY","PUBDATE","MOREINFO","AUTHOR_NAME","AUTHOR_EMAIL"]
 					            var itemhtml = '';
 					            for (i = 0; i < response.DATA.length; i++) {
 					            	itemhtml += '<li>';
-					            	itemhtml += '<a href="' + response.DATA[i][8] + '">';
+					            	itemhtml += '<a data-ajax="false" href="news-blog.html?cid=' + response.DATA[i][3] + '">';
 					            	$.ajax({
 					            		//["POST_ID","MEDIA_ID","FILEPATH","CAPTION","IMGTITLE","MPRIMARY","HEIGHT","WIDTH"]
 							            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryMedia&returnFormat=json&postids=" + response.DATA[i][3],
 							            dataType: 'json',
 							            async:false,
 							            success: function(edata) {
+							         
 							            	itemhtml += '<img src="http://www.scu.edu/' + edata.DATA[0][2] +'" />';
 							            }
 					     			});
@@ -55,7 +70,7 @@
 					            	itemhtml += '</li>';
 					            }
 					            $('#features').html(itemhtml);
-					            $('#features').listview("refresh");
+					            $('#features').listview("refresh");         
 					    },
 					    error: function(ErrorMsg) {
 					    	console.log(ErrorMsg);
@@ -97,7 +112,7 @@
 						icongroup += '<div><a href="#ecampus" id="iecampus"><span>eCampus</span></a></div>';
 					}
 					if(caminoState == null || caminoState == 'true') {
-						icongroup += '<div><a rel="external" href="https://camino.scu.edu/" id="icamino"><span>Camino</span></a></div>';
+						icongroup += '<div><a rel="external" href="https://camino.instructure.com/" id="icamino"><span>Camino</span></a></div>';
 					}
 					if(newsState == null || newsState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="news.html" id="inews"><span>News</span></a></div>';
@@ -186,7 +201,7 @@
 		<h2 id="iadmission" class="pagetitle">Admission</h2>
 	<ul id="madmission" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('admission','madmission');
+	    navmenu('admission','madmission','local');
     </script>
 
 	</div>
@@ -208,7 +223,7 @@
 
 	<ul id="mapply" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('apply','mapply');
+	    navmenu('apply','mapply','local');
     </script>
 
 	</div>
@@ -258,7 +273,7 @@
 			<p>Search keywords can include a 5-digit class number, instructor name, subject, or subject and catalog number (e.g. ANTH 1).</p>
 			<ul id="mcourses" data-role="listview" data-inset="true" class="ui-listview"></ul>
 		    <script>
-			    navmenu('courses','mcourses');
+			    navmenu('courses','mcourses','local');
 		    </script>
 		
 	</div>
@@ -293,7 +308,7 @@
 	<div class="content-secondary">
 			<ul id="mdining" data-role="listview" data-inset="true"></ul>
 		    <script>
-			    navmenu('dining','mdining');
+			    navmenu('dining','mdining','local');
 		    </script>
 	</div>
 	</div>
@@ -376,7 +391,7 @@
 
 	<ul id="mlibraries" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('libraries','mlibraries');
+	    navmenu('libraries','mlibraries','local');
     </script>
 
 	</div>
@@ -400,7 +415,7 @@
 
 	<ul id="mlibrary" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('library','mlibrary');
+	    navmenu('library','mlibrary','local');
     </script>
 
 	</div>
@@ -434,7 +449,7 @@
 	<div id="primary-nav" class="content-secondary">
 	<ul id="mlibraryask" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('library','mlibraryask');
+	    navmenu('library','mlibraryask','local');
     </script>
 	</div>
 	</div>
@@ -478,7 +493,7 @@
 	<div id="primary-nav" class="content-secondary">
 	<ul id="mlibraryhours" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('library','mlibraryhours');
+	    navmenu('library','mlibraryhours','local');
     </script>
 	</div>
 	</div>
@@ -501,7 +516,7 @@
 	<h2 id="ilogin" class="pagetitle">SCU Login</h2>
 	<ul id="mlogin" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('login','mlogin');
+	    navmenu('login','mlogin','local');
     </script>
 
 	</div>
@@ -524,7 +539,7 @@
 	<h2 id="isocial" class="pagetitle">Social Networks</h2>
 	<ul id="msocial" data-role="listview" data-inset="true"></ul>
     <script>
-	    navmenu('social','msocial');
+	    navmenu('social','msocial','local');
     </script>
 
 	</div>
@@ -537,4 +552,7 @@
 </div><!-- /social networks page -->
 
 </body>
+<script>
+	refreshLists();
+</script>
 </html>

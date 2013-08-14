@@ -1,4 +1,5 @@
-		function navmenu(n,m) {
+		function navmenu(n,m,a) {
+			var access = a;
 		    $.ajax({
 		     type: "GET",
 		     url: 'http://m.scu.edu/nav/'+n+'.json',
@@ -18,7 +19,10 @@
 				    output += data.menuitems[i].label;
 				    output += '</a></li>';
 		        }
-				$("#"+m).append(output).listview("refresh");
+				$("#"+m).append(output);
+				if (access != 'local') {
+					$("#"+m).listview("refresh");
+				}				
 		     }
 			});
 		}

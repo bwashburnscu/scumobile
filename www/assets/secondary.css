@@ -111,13 +111,14 @@ body {
 	text-shadow:none;
 }
 
-.type-interior #pagecontent p {
+.type-interior #pagecontent p, .ui-collapsible-content p {
 	padding:5px 0;
 }
 
-.type-interior #pagecontent p a {
+.type-interior #pagecontent p a, .type-interior #pagecontent td a {
 	color:#93191b;
 }
+
 .content-secondary .ui-collapsible {
 	padding: 0 15px 10px;
 }
@@ -132,10 +133,13 @@ body {
 	color:#333;
 	text-shadow:none;
 	margin-top:0;
+	padding:10px;
 }
 
-.ui-collapsible-content a {
-	color:#93191b;
+
+.ui-collapsible-content a, .eventlist .ui-body-a .ui-link, .classlist a {
+	color:#93191b !important;
+	text-shadow:none !important;
 }
 
 .ui-collapsible-set {
@@ -146,6 +150,11 @@ body {
 	padding: 0;
 	background: none;
 	border-bottom: none;
+}
+
+.ui-content .ui-listview-inset, .ui-panel-inner .ui-listview-inset
+{
+  margin: 0;
 }
 
 .content-primary table th, .content-primary table td {
