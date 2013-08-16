@@ -37,47 +37,36 @@
 		<div class="content-secondary">
 			<div data-role="collapsible">
 				<h3>SCU Today</h3>
-				<ul data-role="listview" id="features" data-inset="true"></ul>
+				<ul data-role="listview" id="homefeatures" data-inset="true"></ul>
 			</div>
 		    <script type="text/javascript">
-		
-		     var bid = 439;
-		     /* response columns ["POST_ID","BLOG_ID","OLD_ITEM_ID","TITLE","SUBTITLE","AUTHOR_NAME","AUTHOR_EMAIL","PUBDATE","EXPDATE","PUBSTATUS","CONTENT","FEATURED","MOREINFO","SUMMARY","ACTIVE","IMG_DISPLAY","IMG_WIDTH","IMG_CAPTIONS","IMG_POS","CATEGORY","BLOG_ID","OLD_CHANNEL_ID","TITLE","LINK","BLOG_IMAGE","XMLFILE","DESCR","PUBLISHER","CONTACT_EMAIL","APPROVAL_EMAIL","ALLOW_COMM","USE_PUBL","REQUIRELOGIN","BLOG_INDEX","CREATOR","THEME_ID_DEPRECIATED","AUDIENCE_ID","SUBJECT_ID","CATEGORY","FEEDNAME","DISQUS","EXTERNAL"] */
-		     jQuery(function($){
+			jQuery(function($){
 				    $.ajax({
-				            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryBlog&blogid="+bid+"&isfeatured=1&itemcount=3&ReturnFormat=json",
+				            url: "http://m.scu.edu/docs/syn/scumobile-home.json",
 				            dataType: 'json',
 				            async:false,
 				            success: function(response) {
-				            	//["BTITLE","BLINK","BDESCR","POST_ID","TITLE","SUMMARY","PUBDATE","MOREINFO","AUTHOR_NAME","AUTHOR_EMAIL"]
-					            var itemhtml = '';
-					            for (i = 0; i < response.DATA.length; i++) {
-					            	itemhtml += '<li>';
-					            	itemhtml += '<a data-ajax="false" href="news-blog.html?cid=' + response.DATA[i][3] + '">';
-					            	$.ajax({
-					            		//["POST_ID","MEDIA_ID","FILEPATH","CAPTION","IMGTITLE","MPRIMARY","HEIGHT","WIDTH"]
-							            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryMedia&returnFormat=json&postids=" + response.DATA[i][3],
-							            dataType: 'json',
-							            async:false,
-							            success: function(edata) {
-							         
-							            	itemhtml += '<img src="http://www.scu.edu/' + edata.DATA[0][2] +'" />';
-							            }
-					     			});
-					     			itemhtml += '<span class="features-img-cover"></span>';
-					            	itemhtml += '<h3>' + response.DATA[i][4] + '</h3>';
-					            	itemhtml += '</a>';
-					            	itemhtml += '</li>';
+				            	var itemhtml = '';
+				            	for (i = 0; i < response.posts.length; i++) {
+				            	itemhtml += '<a data-ajax="false" href="scm.html?cid=' + response.posts[i].postid + '">';
+					            itemhtml += '<div class="subtitle">' + response.posts[i].title + '</div>';
+				            	itemhtml += '<div class="imgcontent">';
+					            
+					            itemhtml += '<img src="http://www.scu.edu/' + response.posts[i].image +'" />';
+					            itemhtml += '<div class="imgdec">' + response.posts[i].summary + '</div>';
+					            
+					            itemhtml += '</div>';
+					            itemhtml += '</a>';
 					            }
-					            $('#features').html(itemhtml);
-					            $('#features').listview("refresh");         
-					    },
+					            $('#homefeatures').html(itemhtml);;
+				            },
 					    error: function(ErrorMsg) {
 					    	console.log(ErrorMsg);
 					    }
 					    
 			        });
 		    });
+
 		    </script>
 		</div>
 			

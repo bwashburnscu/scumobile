@@ -111,7 +111,12 @@ body {
 	text-shadow:none;
 }
 
-.type-interior #pagecontent p, .ui-collapsible-content p {
+.type-interior #pagecontent p {
+	padding:5px 0;
+	margin:0;
+}
+
+.ui-collapsible-content p {
 	padding:5px 0;
 }
 
@@ -179,6 +184,34 @@ body {
 	margin:0 10px;
 }
 
+.imgcontent {
+	position:relative;
+	}
+
+.imgcontent img {
+	width:100%;
+	}
+	
+.imgdec {
+	padding:15px;
+	background: rgb(51, 51, 51);
+    background: rgba(51, 51, 51, 0.25); 
+}
+
+.imgcontent a {
+	color:#fff !important;
+}
+	
+.image-inset-left {
+	float:left;
+	margin: 0 10px 10px 0;
+}
+
+.image-inset-right {
+	float:right;
+	margin: 0 0 10px 10px;
+}
+
 
 /* SCU Home icon 175x40 pixels */
 .ui-header {
@@ -213,7 +246,7 @@ body {
 	color:#fff;
 	padding-left: 55px;
 	margin:0;
-	font-size:1.4em;
+	font-size:1.3em;
 	line-height:45px;
 	font-weight:normal;
 	vertical-align:bottom;
@@ -229,7 +262,7 @@ body {
 	margin-left: 15px;
 }
 
-.ui-content #subtitle {
+.ui-content #subtitle, .ui-content .subtitle {
 	font-size:1.25em;
 	padding:10px 0 10px 15px;
 	color:#efefef;
@@ -237,7 +270,8 @@ body {
 	border-bottom:1px solid #efefef;
 	clear:both;
 	float:none;
-	/*background:#6a737b;*/
+	background: transparent;
+    background: rgba(51, 51, 51, 0.25); 
 }
 
 .ui-header .sculogo {
@@ -398,6 +432,12 @@ body {
 	.type-interior .content-secondary {
 		margin: 0;
 		padding: 0;
+	}
+	
+	.imgdec {
+		position:absolute;
+		bottom:0;
+    	background: rgba(51, 51, 51, 0.5); 
 	}
 	
 	#homeFeatures {
