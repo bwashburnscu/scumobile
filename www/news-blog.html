@@ -48,7 +48,10 @@
 		            success: function(response) {
 		            var itemhtml = '';
 		            itemhtml += '<h4>' + response.DATA[0][3] + '</h4>';
-		            itemhtml += response.DATA[0][10];
+		            var bodyhtml = response.DATA[0][10];
+		            bodyhtml = bodyhtml.replace("src=\"/","src=\"http://www.scu.edu/");
+		            bodyhtml = bodyhtml.replace("href=\"/","href=\"http://www.scu.edu/");
+		            itemhtml += bodyhtml;
 		            $('#subtitle').html(response.DATA[0][22]);
 		            $('#pagecontent').html(itemhtml);
 		            //$('#itemcontent').trigger('create');
