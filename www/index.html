@@ -95,13 +95,15 @@
 						icongroup += '<div><a href="#login" id="ilogin"><span>Login</span></a></div>';
 					}
 					if(gmailState == null || gmailState == 'true') {
-						icongroup += '<div><a href="#" onclick="window.open(\'http://gmail.scu.edu/\', \'_blank\', \'location=yes\');"><span>SCU GMail</span></a></div>';
+						icongroup += '<div><a href="#" id="igmail" onclick="window.open(\'http://gmail.scu.edu/\', \'_system\', \'location=yes\');"><span>SCU GMail</span></a></div>';
 					}
 					if(ecampusState == null || ecampusState == 'true') {
 						icongroup += '<div><a href="#ecampus" id="iecampus"><span>eCampus</span></a></div>';
 					}
 					if(caminoState == null || caminoState == 'true') {
-						icongroup += '<div><a rel="external" href="https://camino.instructure.com/" id="icamino"><span>Camino</span></a></div>';
+						icongroup += '<div><a href="#" id="icamino" onclick="window.open(\'https://camino.instructure.com/\', \'_system\', \'location=yes\');"><span>Camino</span></a></div>';
+						
+						//icongroup += '<div><a rel="external" href="https://camino.instructure.com/" id="icamino"><span>Camino</span></a></div>';
 					}
 					if(newsState == null || newsState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="news.html" id="inews"><span>News</span></a></div>';
