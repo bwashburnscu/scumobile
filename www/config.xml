@@ -91,5 +91,12 @@
         Otherwise, you can specify specific domains:
     -->
     <access origin="http://scu.edu" subdomains="true" />
+    <access origin="https://www.google.com/" />
+    <access origin="http://www.google.com/" />
+    <access origin="http://scu.cafebonappetit.com" />
+    <access origin="http://platform.twitter.com" />
+    <access origin="http://connect.facebook.net" />
+    <access origin="https://platform.twitter.com" />
+    <access origin="https://connect.facebook.net" />
 
 </widget>
