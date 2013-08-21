@@ -250,11 +250,11 @@ body {
 .ui-content h2.pagetitle {
 	background-size:40px 40px;
 	background-repeat:repeat-y;
-	background-position:10px 3px;
+	background-position:5px 0px;
 	/*background-position:bottom left;
 	background-repeat:no-repeat;*/
 	color:#fff;
-	padding-left: 55px;
+	padding-left: 50px;
 	margin:0;
 	font-size:1.3em;
 	line-height:45px;

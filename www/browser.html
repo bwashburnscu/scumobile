@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Browser</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+<body> 
+<script src="assets/geturlvars.js"></script>
+<script>
+     var url = getUrlVars()["url"];
+     var browserWindow = window.open(url, '_blank', 'location=yes');
+</script>
+
+</body>
+</html>

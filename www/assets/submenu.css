@@ -5,8 +5,8 @@
 
 nav#mobile .navicon {
 	position:absolute;
-	top:40px;
-	right:10px;
+	top:45px;
+	right:0px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
