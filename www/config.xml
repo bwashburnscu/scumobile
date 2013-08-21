@@ -90,6 +90,7 @@
 
         Otherwise, you can specify specific domains:
     -->
+    <access origin="*" />
     <access origin="http://scu.edu" subdomains="true" />
     <access origin="https://scu.edu" subdomains="true" />
     <access origin="https://google.com/" subdomains="true" />
