@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "edu.scu.m"
+        id        = "edu.scu.scumobile"
         versionCode = "10"
         version   = "1.0.0">
 
@@ -34,13 +34,13 @@
     <preference name="permissions"                value="none"/>
  -->
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"           value="2.7.0" />          <!-- all: current version of PhoneGap -->
+    <preference name="phonegap-version"           value="2.9.0" />          <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="webviewbounce"              value="false" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
     <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
-    <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
+    <!-- <preference name="stay-in-webview"            value="false" />     ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
     <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
     <preference name="detect-data-types"          value="false" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
     <preference name="exit-on-suspend"            value="true" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
@@ -58,7 +58,7 @@
 
     
     <icon src="icon.png" />
-    <!-- Define app icon for each platform.
+    <!-- Define app icon for each platform. -->
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
     <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
@@ -71,7 +71,7 @@
     <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
     <icon src="res/icon/webos/icon-64.png"          gap:platform="webos" />
     <icon src="res/icon/windows-phone/icon-48.png"  gap:platform="winphone" />
-    <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" /> -->
+    <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
     <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
@@ -90,6 +90,15 @@
 
         Otherwise, you can specify specific domains:
     -->
-    <access origin="*" />
+    <access origin="http://scu.edu" subdomains="true" />
+    <access origin="https://scu.edu" subdomains="true" />
+    <access origin="https://google.com/" subdomains="true" />
+    <access origin="http://google.com/" subdomains="true" />
+    <access origin="http://maps.googleapis.com" />
+    <access origin="http://scu.cafebonappetit.com" />
+    <access origin="http://twitter.com" subdomains="true" />
+    <access origin="http://facebook.net" subdomains="true" />
+    <access origin="https://twitter.com" subdomains="true" />
+    <access origin="https://facebook.net" subdomains="true" />
 
 </widget>
