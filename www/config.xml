@@ -86,7 +86,7 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
     <!--
-        Define access to external domains.
+        Define access to external domains. 
 
         Otherwise, you can specify specific domains:
     -->
