@@ -40,12 +40,39 @@
 	    	<div class="imgdec"></div>
 	    </div>
     	<div id="pagecontent" class="scmstory"></div>
+    	<ul id="postlist" data-role="listview"></ul>
 	    <script type="text/javascript">
 	
 	     var cid = getUrlVars()["cid"];
 	     /* response columns ["POST_ID","BLOG_ID","OLD_ITEM_ID","TITLE","SUBTITLE","AUTHOR_NAME","AUTHOR_EMAIL","PUBDATE","EXPDATE","PUBSTATUS","CONTENT","FEATURED","MOREINFO","SUMMARY","ACTIVE","IMG_DISPLAY","IMG_WIDTH","IMG_CAPTIONS","IMG_POS","CATEGORY","BLOG_ID","OLD_CHANNEL_ID","TITLE","LINK","BLOG_IMAGE","XMLFILE","DESCR","PUBLISHER","CONTACT_EMAIL","APPROVAL_EMAIL","ALLOW_COMM","USE_PUBL","REQUIRELOGIN","BLOG_INDEX","CREATOR","THEME_ID_DEPRECIATED","AUDIENCE_ID","SUBJECT_ID","CATEGORY","FEEDNAME","DISQUS","EXTERNAL"] */
 	     jQuery(function($){
-			    $.ajax({
+	     		if (typeof cid == 'undefined') {
+	     			$.ajax({
+				            url: "http://m.scu.edu/docs/syn/scumobile-home.json",
+				            dataType: 'json',
+				            async:false,
+				            success: function(response) {
+				            	var itemhtml = '';
+				            	for (i = 0; i < response.posts.length; i++) {
+				            	itemhtml += '<li><a data-ajax="false" href="scutoday.html?cid=' + response.posts[i].postid + '">';
+					            itemhtml += '<img src="http://www.scu.edu/' + response.posts[i].image +'" />';
+					            itemhtml += '<h3>' + response.posts[i].title + '</h3>';
+					            itemhtml += '<p>' + response.posts[i].summary + '</p>';
+					            itemhtml += '</a></li>';
+					            }
+					            $('#subtitle').hide();
+					            $('#imgcontent').hide();
+					            $('#pagecontent').hide();
+					            $('#postlist').html(itemhtml);
+					            $('#postlist').listview('refresh');
+				            },
+					    error: function(ErrorMsg) {
+					    	console.log(ErrorMsg);
+					    }
+					    
+			        });
+	     		} else {
+			    	$.ajax({
 			            url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryItem&itemid="+cid+"&ReturnFormat=json",
 			            dataType: 'json',
 			            success: function(response) {
@@ -68,6 +95,7 @@
 			            var $dec = $('#pagecontent h6').html();				
 						$('#pagecontent h6').hide();
 						$('.imgdec').html($dec);
+						$('#postlist').hide();
 				    },
 				    error: function(ErrorMsg) {
 				    	
@@ -75,6 +103,7 @@
 				    }
 				    
 		        });
+		       }
 	    });
 	    </script>
 	</div>
