@@ -336,6 +336,11 @@ body {
 	text-shadow: none;
 }
 
+.hint {
+	color:#666;
+	font-size:smaller;
+}
+
 #phoneicon .ui-icon-custom {
 	background-image: url("phoneicon.png");
 	background-position: 2px 2px;
