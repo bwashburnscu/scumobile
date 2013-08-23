@@ -42,11 +42,13 @@
     	<div id="pagecontent" class="scmstory"></div>
     	<ul id="postlist" data-role="listview"></ul>
 	    <script type="text/javascript">
-	
-	     var cid = getUrlVars()["cid"];
+		 var cid = window.location.href.indexOf('cid=');
+		 if (cid >= 0) {
+	      cid = getUrlVars()["cid"];
+	      }
 	     /* response columns ["POST_ID","BLOG_ID","OLD_ITEM_ID","TITLE","SUBTITLE","AUTHOR_NAME","AUTHOR_EMAIL","PUBDATE","EXPDATE","PUBSTATUS","CONTENT","FEATURED","MOREINFO","SUMMARY","ACTIVE","IMG_DISPLAY","IMG_WIDTH","IMG_CAPTIONS","IMG_POS","CATEGORY","BLOG_ID","OLD_CHANNEL_ID","TITLE","LINK","BLOG_IMAGE","XMLFILE","DESCR","PUBLISHER","CONTACT_EMAIL","APPROVAL_EMAIL","ALLOW_COMM","USE_PUBL","REQUIRELOGIN","BLOG_INDEX","CREATOR","THEME_ID_DEPRECIATED","AUDIENCE_ID","SUBJECT_ID","CATEGORY","FEEDNAME","DISQUS","EXTERNAL"] */
 	     jQuery(function($){
-	     		if (typeof cid == 'undefined') {
+	     		if (cid < 0) {
 	     			$.ajax({
 				            url: "http://m.scu.edu/docs/syn/scumobile-home.json",
 				            dataType: 'json',
