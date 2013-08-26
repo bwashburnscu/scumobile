@@ -144,6 +144,9 @@
 			            		}
 				    			sstr += '<li>';
 				    			sstr += '<h3>'+ response.DATA[i][11] +' '+ response.DATA[i][12] + ' - ' + response.DATA[i][13];
+				    			if (response.DATA[i][22] < 0) {
+					    				response.DATA[i][22] = 0;
+					    			}
 				    			sstr += '<span class="ui-li-count">' + response.DATA[i][22] + '</span></h3>';
 				    			sstr += '<p>';
 					    		sstr += response.DATA[i][1] + ' ' + response.DATA[i][14];
