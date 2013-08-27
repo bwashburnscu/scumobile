@@ -89,13 +89,14 @@
         Define access to external domains. 
 
         Otherwise, you can specify specific domains:
-    -->
+    
     <access origin="*" />
+    -->
     <access origin="http://scu.edu" subdomains="true" />
     <access origin="https://scu.edu" subdomains="true" />
     <access origin="https://google.com/" subdomains="true" />
     <access origin="http://google.com/" subdomains="true" />
-    <access origin="http://maps.googleapis.com" />
+    <access origin="http://googleapis.com" subdomains="true" />
     <access origin="http://scu.cafebonappetit.com" />
     <access origin="http://twitter.com" subdomains="true" />
     <access origin="http://facebook.net" subdomains="true" />
