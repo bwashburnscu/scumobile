@@ -30,6 +30,10 @@
 <body> 
 
 <div id="main" data-role="page" class="type-home" data-theme="a">
+	
+	<p><a href="#" onclick="window.open('http://www.scu.edu', '_blank', 'location=yes');">_blank</a></p>
+	<p><a href="#" onclick="window.open('http://www.scu.edu', '_system', 'location=yes');">_system</a></p>
+	<p><a href="#" onclick="window.open('http://www.scu.edu', '_self', 'location=yes');">_self</a></p>
 
 	<div id="homelogo"><img src="assets/scu-logotype-home.png" alt="Santa Clara University"/></div>
 	<div data-role="content" id="homecontent">
@@ -111,6 +115,7 @@
 					}
 					if(mapState == null || mapState == 'true') {
 						icongroup += '<div><a rel="external" href="browser.html?url=http://m.scu.edu/scumobile/www/map/" id="imap"><span>Map</span></a></div>';
+						//icongroup += '<div><a rel="external" href="#" onclick="window.open(\'http://m.scu.edu/scumobile/www/map/\', \'_blank\', \'location=yes\')" id="imap"><span>Map</span></a></div>';
 					}
 					if(eventsState == null || eventsState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="events.html" id="ievents"><span>Events</span></a></div>';

@@ -9,7 +9,12 @@
 <script src="assets/geturlvars.js"></script>
 <script>
      var url = getUrlVars()["url"];
-     var browserWindow = window.open(url, '_blank', 'location=yes');
+     //var browserWindow = window.open(url, '_system', 'location=yes');
+     function openNewBrowser(url){
+    	window.open(encodeURI(url), '_system');
+    	return false;
+	 }
+	 openNewBrowser(url);
 </script>
 
 </body>
