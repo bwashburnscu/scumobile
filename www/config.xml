@@ -90,7 +90,7 @@
 		<access origin="*" />
         Otherwise, you can specify specific domains:
     -->
-    
+    <access origin="*" />
     <access origin="http://127.0.0.1*"/>
     <access origin="http://scu.edu" subdomains="true" />
     <access origin="https://scu.edu" subdomains="true" />
