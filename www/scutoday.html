@@ -57,7 +57,7 @@
 				            	var itemhtml = '';
 				            	for (i = 0; i < response.posts.length; i++) {
 				            	itemhtml += '<li><a data-ajax="false" href="scutoday.html?cid=' + response.posts[i].postid + '">';
-					            itemhtml += '<img src="http://www.scu.edu/' + response.posts[i].image +'" />';
+					            itemhtml += '<img src="http://m.scu.edu/' + response.posts[i].image +'" />';
 					            itemhtml += '<h3>' + response.posts[i].title + '</h3>';
 					            itemhtml += '<p>' + response.posts[i].summary + '</p>';
 					            itemhtml += '</a></li>';
@@ -80,7 +80,7 @@
 			            success: function(response) {
 			            var itemhtml = '<p class="hint">' + response.DATA[0][5] + '</p>';
 			            itemhtml += response.DATA[0][10];
-			            itemhtml = itemhtml.replace("src=\"/","src=\"http://www.scu.edu/");
+			            itemhtml = itemhtml.replace("src=\"/","src=\"http://m.scu.edu/");
 			            itemhtml = itemhtml.replace("href=\"/","href=\"http://www.scu.edu/");
 			            var imghtml = '';
 			            $('#subtitle').html(response.DATA[0][3]);
