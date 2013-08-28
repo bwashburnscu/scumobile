@@ -80,8 +80,7 @@
 			            success: function(response) {
 			            var itemhtml = '<p class="hint">' + response.DATA[0][5] + '</p>';
 			            itemhtml += response.DATA[0][10];
-			            itemhtml = itemhtml.replace("src=\"/","src=\"http://m.scu.edu/");
-			            itemhtml = itemhtml.replace("src=\"/docs/images/rte/","src=\"http://m.scu.edu/docs/images/rte/");
+			            itemhtml = itemhtml.replace(/src=\"\//g,"src=\"http://m.scu.edu/");
 			            itemhtml = itemhtml.replace("href=\"/","href=\"http://www.scu.edu/");
 			            var imghtml = '';
 			            $('#subtitle').html(response.DATA[0][3]);

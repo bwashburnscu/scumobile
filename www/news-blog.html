@@ -50,7 +50,7 @@
 		            var itemhtml = '';
 		            itemhtml += '<h4>' + response.DATA[0][3] + '</h4>';
 		            var bodyhtml = response.DATA[0][10];
-		            bodyhtml = bodyhtml.replace("src=\"/","src=\"http://www.scu.edu/");
+		            bodyhtml = bodyhtml.replace(/src=\"\//g,"src=\"http://m.scu.edu/");
 		            bodyhtml = bodyhtml.replace("href=\"/","href=\"http://www.scu.edu/");
 		            itemhtml += bodyhtml;
 		            $('#subtitle').html(response.DATA[0][22]);
