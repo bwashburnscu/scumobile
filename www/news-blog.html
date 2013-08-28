@@ -49,6 +49,17 @@
 		            success: function(response) {
 		            var itemhtml = '';
 		            itemhtml += '<h4>' + response.DATA[0][3] + '</h4>';
+		            $.ajax({
+						//["POST_ID","MEDIA_ID","FILEPATH","CAPTION","IMGTITLE","MPRIMARY","HEIGHT","WIDTH"]
+						url: "http://m.scu.edu/docs/ws/blogs/index.cfc?method=queryMedia&returnFormat=json&postids=" + response.DATA[0][0],
+						dataType: 'json',
+						async:false,
+						success: function(edata) {
+							if (typeof edata.DATA[0] != 'undefined') {
+							itemhtml += '<img src="http://m.scu.edu' + edata.DATA[0][2] +'" class="image-inset-right" />';
+							}
+						}
+						});
 		            var bodyhtml = response.DATA[0][10];
 		            bodyhtml = bodyhtml.replace(/src=\"\//g,"src=\"http://m.scu.edu/");
 		            bodyhtml = bodyhtml.replace("href=\"/","href=\"http://www.scu.edu/");

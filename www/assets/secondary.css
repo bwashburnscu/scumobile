@@ -213,6 +213,27 @@ body {
 .imgcontent a {
 	color:#fff !important;
 }
+
+.image-caption, .image-caption-right {
+	width:100%;
+	background:#666;
+	margin-bottom:10px;
+	float:left;
+}
+
+.image-caption-right {
+	float:right;
+}
+
+.image-caption img, .image-caption-right img {
+	width:100%;
+	height:inherit;
+}
+
+.image-caption span, .image-caption-right span {
+	color:#eee;
+}
+
 	
 .image-inset-left {
 	float:left;
@@ -223,6 +244,12 @@ body {
 	float:right;
 	margin: 0 0 10px 10px;
 }
+
+.image-inset-left, .image-inset-right {
+	width:50%;
+	height:inherit;
+}
+
 
 
 /* SCU Home icon 175x40 pixels */
@@ -465,6 +492,18 @@ body {
 		position:absolute;
 		bottom:0;
     	background: rgba(51, 51, 51, 0.5); 
+	}
+	
+	.image-inset-left, .image-inset-right, .image-caption, .image-caption-right {
+		width:50%;
+	}
+	
+	.image-caption {
+		margin: 0 10px 10px 0;
+	}
+	
+	.image-caption-right {
+		margin: 0 0 10px 10px;
 	}
 	
 	#homeFeatures {
