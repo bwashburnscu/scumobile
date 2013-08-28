@@ -95,7 +95,6 @@
     -->
     
     <access origin="http://m.scu.edu" />
-    <access origin="http://phonebook.scu.edu" />
     <access origin="https://google.com/" subdomains="true" />
     <access origin="http://google.com" subdomains="true" />
     <access origin="http://googleapis.com" subdomains="true" />
