@@ -25,6 +25,12 @@
 		$("#mlogin").listview("refresh");
 		$("#msocial").listview("refresh");
 		}
+		
+	$(document).on('click', '.external', function (e) {
+		e.preventDefault();
+		var targetURL = $(this).attr('href');
+		window.open(targetURL, '_system');
+		});
 	</script>
 	</head> 
 <body> 
@@ -36,6 +42,8 @@
 	<p><a href="#" rel="external" onclick="window.open('http://www.stanford.edu/', '_self','location=yes');">non-white list self</a></p>
 	<p><a href="#" rel="external" onclick="window.open('http://www.stanford.edu/', '_blank','location=yes');">non-white list blank</a></p>
 	<p><a href="#" rel="external" onclick="window.open('http://www.stanford.edu/', '_system','location=yes');">non-white list system</a></p>
+	<p><a href="http://m.scu.edu/scumobile/www/rooms/" class="external" rel="external">white list system - external class</a></p>
+	<p><a href="http://www.stanford.edu/" class="external" rel="external">non-white list system - external class</a></p>
 	<div id="homelogo"><img src="assets/scu-logotype-home.png" alt="Santa Clara University"/></div>
 	<div data-role="content" id="homecontent">
 		
