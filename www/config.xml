@@ -93,7 +93,7 @@
     <access origin="*" />
     <access origin="http://www.scu.edu" />
     -->
-    
+    <access origin="*" />
     <access origin="http://m.scu.edu" />
     <access origin="http://phonebook.scu.edu" />
     <access origin="https://google.com/" subdomains="true" />
