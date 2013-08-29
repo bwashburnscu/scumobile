@@ -93,14 +93,15 @@
     <access origin="*" />
     <access origin="http://www.scu.edu" />
     -->
-    <access origin="*" />
+    <access Origin="http://127.0.0.1*"/>
     <access origin="http://m.scu.edu" />
     <access origin="http://phonebook.scu.edu" />
-    <access origin="https://google.com/" subdomains="true" />
     <access origin="http://google.com" subdomains="true" />
+    <access origin="https://google.com/" subdomains="true" />
     <access origin="http://googleapis.com" subdomains="true" />
     <access origin="http://gstatic.com" subdomains="true" />
     <access origin="http://scu.cafebonappetit.com" />
+    <access origin="http://platform.twitter.com" />
     <access origin="http://twitter.com" subdomains="true" />
     <access origin="http://facebook.net" subdomains="true" />
     <access origin="https://twitter.com" subdomains="true" />
