@@ -13,7 +13,9 @@
 			 	var output = '';
 			    for (var i in data.menuitems) {
 				    output += '<li><a href="' + data.menuitems[i].href + '"';
-				    //output += ' target="_blank"';
+				    if(data.menuitems[i].rel == 'external') {
+				    	output += ' target="_system"';
+				    }
 				    output += ' data-ajax="false"';
 				    output += '>';
 				    output += data.menuitems[i].label;
