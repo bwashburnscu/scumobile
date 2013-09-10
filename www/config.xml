@@ -90,9 +90,8 @@
 
         Otherwise, you can specify specific domains:
     
-    <access origin="*" />
-    <access origin="http://www.scu.edu" />
-    -->
+    
+
     <access origin="http://127.0.0.1*"/>
     <access origin="http://m.scu.edu" />
     <access origin="www.scu.edu" />
@@ -109,5 +108,6 @@
     <access origin="http://facebook.net" subdomains="true" />
     <access origin="https://facebook.net" subdomains="true" />
     <access origin="fbcdn.net" subdomains="true" />
-
+    -->
+	<access origin="*" />
 </widget>
