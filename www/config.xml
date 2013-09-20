@@ -89,9 +89,9 @@
         Define access to external domains. 
 
         Otherwise, you can specify specific domains:
-	<access origin="*" />
+
     
-	-->
+	
     <access origin="http://127.0.0.1*"/>
     <access origin="http://m.scu.edu" />
     <access origin="http://www.scu.edu" />
@@ -112,6 +112,7 @@
     <access origin="https://facebook.net" subdomains="true" />
     <access origin="http://fbcdn.net" subdomains="true" />
     <access origin="https://fbcdn.net" subdomains="true" />
-    
+-->
+    	<access origin="*" />
 
 </widget>
