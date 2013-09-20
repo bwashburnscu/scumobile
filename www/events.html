@@ -146,7 +146,9 @@
 					            url: "http://m.scu.edu/docs/ws/events/index.cfc?method=qEvent&returnFormat=plain&eventid=" + response.DATA[i][6],
 					            async:false,
 					            success: function(edata) {
-						          str += "<div>" + $(edata).find('descr').text() + "</div>";
+					              var edescr = $(edata).find('descr').text();
+					              edescr=edescr.replace(/\/docs\/images\/rte/g,"http://m.scu.edu/docs/images/rte"); 
+						          str += "<div>" + edescr + "</div>";
 						          str += "<p>";
 						          str += "Contact " + $(edata).find('con_name').text();
 						          if($(edata).find('con_email').text().length > 0) {

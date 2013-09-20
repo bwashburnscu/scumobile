@@ -24,8 +24,17 @@
 	</div><!-- /header -->
 	<div data-role="content">
     <div class="content-primary">
-     	<h3 id="pagetitle"></h3>
-    	<div id="alumnihtml"></div>
+     	<h2 id="ialumni" class="pagetitle"><a data-ajax="false" href="alumni.html">Alumni</a></h2>
+			<nav id="mobile">
+			    <a class="navicon mtoggle" href="#">MAIN MENU</a>	
+			    <ul id="submenu"></ul>    
+			    <script>
+			    	navmenu('reunions','submenu');
+			    </script>
+			</nav>
+		<div id="subtitle">Grand Reunion Weekend</div>
+		
+    	<div id="pagecontent"></div>
     	<script>
 				var navbar = '';	
 				var aurl = '';
@@ -64,12 +73,12 @@
 				
 				if (v == 'shuttles' || v == 'wireless' || v == 'faq') {
 		    	$.ajax({
-		            url: "http://test01.scu.edu/docs/ws/commonspot/index.cfc?method=getPageContent&cspage="+aurl+"&elementpath="+epath+"&elementid="+eid+"&returnformat=plain",
+		            url: "http://m.scu.edu/docs/ws/commonspot/index.cfc?method=getPageContent&cspage="+aurl+"&elementpath="+epath+"&elementid="+eid+"&returnformat=plain",
 		            success: function(response) {
 		            	//alert(response);
 		            	response=response.replace(/src=\"/g,"src=\"http://www.scu.edu");
 		            	response=response.replace(/href=\"\/alumni/g,"rel=\"external\" href=\"http://www.scu.edu/alumni/");
-		            	$('#alumnihtml').html(response);
+		            	$('#pagecontent').html(response);
 		            	},
 					    error: function(ErrorMsg) {
 					       console.log('Error');
@@ -87,8 +96,8 @@
 
 		            dataType: 'html',
 		            success: function(response) {
-		            	$('#alumnihtml').html(response);
-		            	$('#alumnihtml').trigger('create');
+		            	$('#pagecontent').html(response);
+		            	$('#pagecontent').trigger('create');
 		            	},
 					    error: function(ErrorMsg) {
 					       console.log('Error');
@@ -97,21 +106,20 @@
 			        });
 			        
 			   } else {
-					var years = '';
+					var years = '<h4>Find Your Reunion Year</h4>';
 			   		for (var i = 1953; i <= 2013; i+=5) {
 			   			years += '<a rel="external" href="http://www.scu.edu/alumni/alumni-events/reunions/'+i+'.cfm" data-role="button" data-inline="true">'+i+'</a>';
 			   		}
-					$('#alumnihtml').html(years);
+					$('#pagecontent').html(years);
 			   }
 	
 		</script>
 	</div>
 	<div id="primary-nav" class="content-secondary">
-	<ul data-role="listview" class="ui-listview" data-inset="true"></ul>
-    	<script>
-			var navstring = 'reunions';
-		</script>
-	    <script src="assets/nav.js"></script>
+	<ul id="fullmenu" data-role="listview" data-inset="true"></ul>
+			    <script>
+				    navmenu('reunions','fullmenu');
+			    </script>
 	</div>
 	</div>
 	
