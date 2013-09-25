@@ -96,30 +96,30 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
     <!--
-        Define access to external domains. 
-        
-        <access origin="*" />
 
-        Otherwise, you can specify specific domains:
--->
-    	
-    
-	
-    <access origin="http://127.0.0.1*"/>
-    <access origin="http://alumnidirectory.scu.edu" />
-    <access origin="http://astra.scu.edu" />
-    <access origin="https://ecampus.scu.edu" />
-    <access origin="http://gmail.scu.edu" />
-    <access origin="http://m.scu.edu" />
-    <access origin="http://phonebook.scu.edu" />
-    <access origin="https://sso.scu.edu" />
-    <access origin="http://www.scu.edu" />
-    <access origin="https://www.scu.edu" />
+        
+    <access origin="*" />
     <access origin="http://santaclarabroncos.com" />
     <access origin="https://scu.digication.com" />
     <access origin="https://orgsync.com" />
     <access origin="https://camino.instructure.com" />
     <access origin="http://flickr.com" subdomains="true" />
+    <access origin="https://sso.scu.edu" />
+    <access origin="http://alumnidirectory.scu.edu" />
+    <access origin="http://astra.scu.edu" />
+    <access origin="https://ecampus.scu.edu" />
+    <access origin="http://gmail.scu.edu" />
+    <access origin="http://facebook.com" subdomains="true" />
+    <access origin="https://facebook.com" subdomains="true" />
+-->
+    	
+    
+	
+    <access origin="http://127.0.0.1*"/>
+    <access origin="http://m.scu.edu" />
+    <access origin="http://phonebook.scu.edu" />
+    <access origin="http://www.scu.edu" />
+    <access origin="https://www.scu.edu" />
     <access origin="http://google.com" subdomains="true" />
     <access origin="https://google.com/" subdomains="true" />
     <access origin="http://googleapis.com" subdomains="true" />
