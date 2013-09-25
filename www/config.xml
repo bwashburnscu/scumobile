@@ -112,6 +112,7 @@
     <access origin="http://gmail.scu.edu" />
     <access origin="http://m.scu.edu" />
     <access origin="http://phonebook.scu.edu" />
+    <access origin="https://sso.scu.edu" />
     <access origin="http://www.scu.edu" />
     <access origin="https://www.scu.edu" />
     <access origin="http://santaclarabroncos.com" />
