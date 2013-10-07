@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="http://m.scu.edu/includes/css/home.css" />
 	<script src="assets/jquery-1.10.2.min.js"></script> 
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
+	<script src="cordova.js"></script>
 	<script src="http://m.scu.edu/includes/js/navmenu.js"></script>
 	<script src="http://m.scu.edu/includes/js/geturlvars.js"></script>
 	<script>
@@ -94,7 +95,7 @@
 						icongroup += '<div><a href="#login" id="ilogin"><span>Login</span></a></div>';
 					}
 					if(gmailState == null || gmailState == 'true') {
-						icongroup += '<div><a data-ajax="false"" target="_blank" href="http://gmail.scu.edu/" id="igmail"><span>SCU GMail</span></a></div>';
+						icongroup += '<div><a rel="external" data-ajax="false"" href="http://gmail.scu.edu/" onclick="window.open(this.href,\'_system\',\'location\') id="igmail"><span>SCU GMail</span></a></div>';
 					}
 					if(ecampusState == null || ecampusState == 'true') {
 						icongroup += '<div><a href="#ecampus" id="iecampus"><span>eCampus</span></a></div>';
