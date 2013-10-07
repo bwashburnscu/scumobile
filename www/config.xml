@@ -96,11 +96,11 @@
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
-
+     <!-- 
         
     <access origin="*" />
-     <!--   
-    
+  
+    -->
     <access origin="http://santaclarabroncos.com" />
     <access origin="https://scu.digication.com" />
     <access origin="https://orgsync.com" />
@@ -138,5 +138,5 @@
     <access origin="http://fbcdn.net" subdomains="true" />
     <access origin="https://fbcdn.net" subdomains="true" />
 
--->
+
 </widget>
