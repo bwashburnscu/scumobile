@@ -47,7 +47,7 @@
             	var cid = entry.link.split('?c=');
             	entry.link = 'news-blog.html?cid=' + cid[1];
             }
-            rssContent += "<li><a rel='external' href='" + entry.link + "'>" + imgUrl + "<h3>" + entry.title + "</h3><p>" + entry.publishedDate + "</p></a></li>";
+            rssContent += "<li><a rel='external' data-ajax='false' href='" + entry.link + "' onclick='window.open(this.href,\"_blank\",\"location=0\"); return false;'>" + imgUrl + "<h3>" + entry.title + "</h3><p>" + entry.publishedDate + "</p></a></li>";
             }          
           container.innerHTML=rssContent;
         }
@@ -100,6 +100,6 @@
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 </div><!-- /page -->
-
+<script type="text/javascript" src="phonegap.js"></script>
 </body>
 </html>
