@@ -148,7 +148,7 @@
 					            success: function(edata) {
 					              var edescr = $(edata).find('descr').text();
 					              edescr=edescr.replace(/\/docs\/images\/rte/g,"http://m.scu.edu/docs/images/rte");
-					              edescr=edescr.replace(/<a.*href="(.*?)".*>(.*?)<\/a>/gi, " $2 (Link->$1) ");
+					              edescr=edescr.replace(/<a.*href="(.*?)".*>(.*?)<\/a>/gi, " $2 ($1) ");
 						          str += "<div>" + edescr + "</div>";
 						          str += "<p>";
 						          str += "Contact " + $(edata).find('con_name').text();

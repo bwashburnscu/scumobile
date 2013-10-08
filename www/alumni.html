@@ -44,6 +44,7 @@
 		            dataType: 'html',
 		            success: function(response) {
 		            	//alert(response);
+		            	response=response.replace(/ href=/g,' rel="external" data-ajax="false" onclick="window.open(this.href,\'_blank\',\'location=0\');return false;" href=');
 		            	$('#alumnihtml').html(response);
 		            	$('#alumnihtml').trigger('create');
 		            	},
