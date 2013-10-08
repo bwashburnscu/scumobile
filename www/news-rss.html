@@ -48,11 +48,11 @@
             	entry.link = 'news-blog.html?cid=' + cid[1];
             }
             rssContent += "<li><a rel='external' data-ajax='false' href='" + entry.link + "'";
-            if (i >= 2 ) {
+            if (feedid >= 2 ) {
             	rssContent += " onclick='window.open(this.href,\"_blank\",\"location=0\"); return false;'";
             	}
             rssContent += ">" + imgUrl + "<h3>" + entry.title + "</h3><p>" + entry.publishedDate + "</p></a></li>";
-            }          
+            }         
           container.innerHTML=rssContent;
         }
         $("#feed").listview("refresh");

@@ -64,6 +64,7 @@
 		            var bodyhtml = response.DATA[0][10];
 		            bodyhtml = bodyhtml.replace(/src=\"\//g,"src=\"http://m.scu.edu/");
 		            bodyhtml = bodyhtml.replace("href=\"/","href=\"http://www.scu.edu/");
+		            bodyhtml = bodyhtml.replace(/ href=/g,' rel="external" data-ajax="false" onclick="window.open(this.href,\'_blank\',\'location=0\');return false;" href=');
 		            itemhtml += bodyhtml;
 		            $('#subtitle').html(response.DATA[0][22]);
 		            $('#pagecontent').html(itemhtml);
