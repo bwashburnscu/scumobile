@@ -153,10 +153,10 @@
 						          str += "<p>";
 						          str += "Contact " + $(edata).find('con_name').text();
 						          if($(edata).find('con_email').text().length > 0) {
-						          	str += "<div><a href='mailto:" + $(edata).find('con_email').text() + "'>" + $(edata).find('con_email').text() + "</a></div>";
+						          	str += "<br/><a href='mailto:" + $(edata).find('con_email').text() + "'>" + $(edata).find('con_email').text() + "</a>";
 						          }
 						          if($(edata).find('con_phone').text().length > 0) {
-						          	str += "<div><a href='tel:" + $(edata).find('con_phone').text() + "'>" + $(edata).find('con_phone').text() + "</a></div>";
+						          	str += "<br/><a href='tel:" + $(edata).find('con_phone').text() + "'>" + $(edata).find('con_phone').text() + "</a>";
 						          }
 						          str += "</p>";
 						          str += "<p>Event schedule:";
@@ -165,11 +165,11 @@
 							            var cost = $(this).find('cost').text();
 							            var location = $(this).find('location').text();
 							            var loc_other = $(this).find('loc_other').text();
-							          str += "<div>" + date_time + "</div>";
+							          str += "<br/>" + date_time + "";
 							      });
 							      str += "</p>";
 							      if($(edata).find('info_url').text().length > 0) {
-						          	str += "<div><a href='" + $(edata).find('info_url').text() + "'>More Information</a></div>";
+						          	str += "<div>More Information: " + $(edata).find('info_url').text() + "</div>";
 						          }
 						        }
 						     });
