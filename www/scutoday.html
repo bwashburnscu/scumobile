@@ -83,6 +83,8 @@
 			            itemhtml = itemhtml.replace(/src=\"\//g,"src=\"http://m.scu.edu/");
 			            itemhtml = itemhtml.replace(/<a /g,"<a rel='external' ");
 			            itemhtml = itemhtml.replace("href=\"/","href=\"http://www.scu.edu/");
+			            itemhtml = itemhtml.replace(/ href=/g,' rel="external" data-ajax="false" onclick="window.open(this.href,\'_blank\',\'location=0\');return false;" href=');
+		            
 			            var imghtml = '';
 			            $('#subtitle').html(response.DATA[0][3]);
 			            $.ajax({
