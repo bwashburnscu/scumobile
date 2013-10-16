@@ -38,6 +38,10 @@
 		 		var schoolid = getUrlVars()["schoolid"];
 		 		var subjectid = getUrlVars()["subjectid"];
 		 		var courseid = getUrlVars()["courseid"];
+		 		var strm = getUrlVars()["strm"];
+		 		if (strm === undefined) {
+		 			strm = ''
+		 		}
 		 		var dstr = '';
 				var sstr = '';
 				if (schoolid === undefined) {
@@ -45,7 +49,7 @@
 				} else if (schoolid.length > 0) {
 		    	jQuery(function($){
 			    	$.ajax({
-			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qSubjects&schoolid="+schoolid+"&ReturnFormat=json",
+			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qSubjects&schoolid="+schoolid+"&term="+strm+"&ReturnFormat=json",
 			            dataType: 'json',
 			            async:false,
 			            success: function(response) {
@@ -69,7 +73,7 @@
 			if (subjectid === undefined) {} else if (subjectid.length > 0) {
 				jQuery(function($){
 			    	$.ajax({
-			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qCourses&subjectid="+subjectid+"&ReturnFormat=json",
+			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qCourses&subjectid="+subjectid+"&term="+strm+"&ReturnFormat=json",
 			            dataType: 'json',
 			            async:false,
 			            success: function(response) {
@@ -123,7 +127,7 @@
 	
 				jQuery(function($){
 			    	$.ajax({
-			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qCourse&courseid="+courseid+"&ReturnFormat=json",
+			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qCourse&courseid="+courseid+"&term="+strm+"&ReturnFormat=json",
 			            dataType: 'json',
 			            async:false,
 			            success: function(response) {
