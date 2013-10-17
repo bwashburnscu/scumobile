@@ -36,7 +36,7 @@
 		<div id="details"></div>
 			<ul id="subjects" data-role="listview" class="ui-listview"></ul>
 			<script type="text/javascript">
-		 		var term = getUrlVars()["strm"];
+		 		var strm = getUrlVars()["strm"];
 		 		var searchQ = getUrlVars()["search"];
 		 		var dstr = '';
 				var sstr = '';
@@ -72,7 +72,7 @@
 	
 				jQuery(function($){
 			    	$.ajax({
-			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qSearch&searchQ="+searchQ+"&term="+term+"&ReturnFormat=json",
+			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qSearch&searchQ="+searchQ+"&term="+strm+"&ReturnFormat=json",
 			            dataType: 'json',
 			            async:false,
 			            success: function(response) {
@@ -107,10 +107,11 @@
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
 				<select name="strm" id="strm">
 				</select>
-				<input type="search" name="search" id="search-basic" value="" placeholder="Search" />
+				<input type="search" name="search" id="search-basic" value="" placeholder="Search..." />
+
 			</form>
 			<script type="text/javascript">
-				var tstr = '';
+				var tstr = '<option value="">Select a term</option>';
 		    	jQuery(function($){
 			    	$.ajax({
 			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qTerms&ReturnFormat=json",
@@ -119,13 +120,19 @@
 			            success: function(response) {
 			            	var i;
 			            	//["STRM","STRM_DESCR"]
+			            	var strm = getUrlVars()["strm"];
 			            	for (i = 0; i < response.DATA.length; i++) {
-							tstr += '<option value="'+response.DATA[i][0]+'">'+response.DATA[i][1]+'</option>';
+			            		if(response.DATA[i][0] == strm) {
+			            			var selectstring = ' selected="selected"';
+			            		} else {
+			            			var selectstring = '';
+			            		}
+							tstr += '<option value="'+response.DATA[i][0]+'"' + selectstring + '>'+response.DATA[i][1]+'</option>';
 							}
-						$('#strm').html(tstr);
+						$('#strm').html(tstr).selectmenu('refresh', true);;
 			            },
 			            error: function(ErrorMsg) {
-				       console.log(ErrorMsg);
+				        console.log(ErrorMsg);
 				    	}
 				  	});
 				  });

@@ -239,10 +239,10 @@
 				<label for="search-basic" class="ui-hidden-accessible">Search Input:</label>
 				<select name="strm" id="strm">
 				</select>
-				<input type="search" name="search" id="search-basic" value="" />
+				<input type="search" name="search" id="search-basic" value="" placeholder="Search..." />
 			</form>
 			<script type="text/javascript">
-				var tstr = '';
+				var tstr = '<option value="">Select a term</option>';
 		    	jQuery(function($){
 			    	$.ajax({
 			            url: "http://m.scu.edu/docs/ws/catalog/index.cfc?method=qTerms&ReturnFormat=json",
