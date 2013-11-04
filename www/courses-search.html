@@ -82,7 +82,7 @@
 			            	if(response.DATA.length > 0) {
 			            	//"CRSE_ID","CLASS_NBR","STRM","CLASS_DESCR","SUBJECT","CATALOG_NBR","SORTCOLUMN"
 			            	for (i = 0; i < response.DATA.length; i++) {
-				    			sstr += '<li><a rel="external" href="courses-browse.html?courseid='+ response.DATA[i][0] + '&strm=' + term + '">';
+				    			sstr += '<li><a rel="external" href="courses-browse.html?courseid='+ response.DATA[i][0] + '&strm=' + strm + '">';
 				    			sstr += response.DATA[i][4] + ' ' + response.DATA[i][5] + ': ' + response.DATA[i][3] + ' ' + response.DATA[i][1];
 				    			sstr += '</a></li>';
 		        				}
