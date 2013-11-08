@@ -20,8 +20,8 @@
 	rssfeed[0] = "http://www.scu.edu/syn/blog226.xml";
 	rssfeed[1] = "http://www.scu.edu/syn/blog93.xml";
 	rssfeed[2] = "http://santaclarabroncosblog.com/feed/";
-	rssfeed[3] = "http://www.thesantaclara.com/se/the-santa-clara-rss-1.1833635";
-	rssfeed[4] = "http://feeds.feedburner.com/SantaClaraLawNews";
+	rssfeed[3] = "http://thesantaclara.org/feed/";
+	rssfeed[4] = "http://law.scu.edu/feed/";
 
     function initialize() {
       var feedid = getUrlVars()["feed"];
@@ -33,7 +33,11 @@
           var container = document.getElementById("feed");
           var rssContent = "";
           var imgUrl = "";
-          $("#subtitle").html(result.feed.title);
+          if (feedid == 3 ) {
+          	$("#subtitle").html("The Santa Clara");
+          } else {
+          	$("#subtitle").html(result.feed.title);
+          }
           for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
            // if (entry.xmlNode.getElementsByTagName("enclosure").length > 0) {

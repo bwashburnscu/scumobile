@@ -153,7 +153,12 @@
 					    			}
 				    			sstr += '<span class="ui-li-count">' + response.DATA[i][22] + '</span></h3>';
 				    			sstr += '<p>';
-					    		sstr += response.DATA[i][1] + ' ' + response.DATA[i][14];
+					    		sstr += response.DATA[i][1] + ' ';
+					    		if (response.DATA[i][23] > 0) {
+					    			sstr += '<a rel="external" href="http://m.scu.edu/scumobile/www/map/index.cfm?loc_id=' + response.DATA[i][23] + '">' + response.DATA[i][14] + '</a>';
+					    		} else {
+					    			sstr += response.DATA[i][14];
+					    		}
 					    		var lname = response.DATA[i][15].split(',')[0];
 					    		sstr += ' - <a rel="external" href="directory-search.html?q=' + lname + '">' + response.DATA[i][15] + '</a></p>';
 					    			
