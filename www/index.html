@@ -24,6 +24,7 @@
 		$("#mlibraryhours").listview("refresh");
 		$("#mlogin").listview("refresh");
 		$("#msocial").listview("refresh");
+		$("#mapps").listview("refresh");
 		}
 	</script>
 	</head> 
@@ -39,6 +40,7 @@
 				<ul data-role="listview" id="homefeatures" data-inset="true"></ul>
 			</div>
 		    <script type="text/javascript">
+		    
 			jQuery(function($){
 				    $.ajax({
 				            url: "http://m.scu.edu/docs/syn/scumobile-home.json",
@@ -80,14 +82,19 @@
 					var directoryState = localStorage.getItem("homeIcon.Directory.state");
 					var mapState = localStorage.getItem("homeIcon.Map.state");
 					var eventsState = localStorage.getItem("homeIcon.Events.state");
-					var socialState = localStorage.getItem("homeIcon.Social.state");
 					var admissionState = localStorage.getItem("homeIcon.Admission.state");
 					var alumniState = localStorage.getItem("homeIcon.Alumni.state");
 					var athleticsState = localStorage.getItem("homeIcon.Athletics.state");
+					//var socialState = localStorage.getItem("homeIcon.Social.state");
+					var artsState = localStorage.getItem("homeIcon.Arts.state");
 					var coursesState = localStorage.getItem("homeIcon.Courses.state");
 					var roomsState = localStorage.getItem("homeIcon.Rooms.state");
 					var diningState = localStorage.getItem("homeIcon.Dining.state");
 					var librariesState = localStorage.getItem("homeIcon.Libraries.state");
+					var socialState = localStorage.getItem("homeIcon.Social.state");
+					var photoState = localStorage.getItem("homeIcon.Photos.state");
+					var videoState = localStorage.getItem("homeIcon.Video.state");
+					var appsState = localStorage.getItem("homeIcon.Apps.state");
 					
 					var icongroup = '';
 					if(loginState == null || loginState == 'true') {
@@ -113,10 +120,7 @@
 					}
 					if(eventsState == null || eventsState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="events.html" id="ievents"><span>Events</span></a></div>';
-					}
-					if(socialState == null || socialState == 'true') {
-						icongroup += '<div><a href="#social" id="isocial"><span>Social</span></a></div>';
-					}
+					}	
 					if(admissionState == null || admissionState == 'true') {
 						icongroup += '<div><a href="#admission" id="iadmission"><span>Admission</span></a></div>';
 					}
@@ -125,6 +129,12 @@
 					}
 					if(athleticsState == null || athleticsState == 'true') {
 						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="window.open(\'http://santaclarabroncos.com/landing/index\',\'_blank\',\'location=0\');" id="iathletics"><span>Athletics</span></a></div>';
+					}
+					/*if(socialState == null || socialState == 'true') {
+						icongroup += '<div><a href="#social" id="isocial"><span>Social</span></a></div>';
+					}*/
+					if(artsState == null || artsState == 'true') {
+						icongroup += '<div><a data-ajax="false" href="arts.html" id="iarts"><span>Arts</span></a></div>';
 					}
 					if(coursesState == null || coursesState == 'true') {
 						icongroup += '<div><a href="#courses" id="icourses"><span>Courses</span></a></div>';
@@ -137,6 +147,18 @@
 					}
 					if(librariesState == null || librariesState == 'true') {
 						icongroup += '<div><a href="#libraries" id="ilibraries"><span>Libraries</span></a></div>';
+					}
+					if(socialState == null || socialState == 'true') {
+						icongroup += '<div><a href="#social" id="isocial"><span>Social</span></a></div>';
+					}
+					if(photoState == null || photoState == 'true') {
+						icongroup += '<div><a data-ajax="false" href="social-flickr.html" id="iphotos"><span>Photos</span></a></div>';
+					}
+					if(videoState == null || videoState == 'true') {
+						icongroup += '<div><a data-ajax="false" href="social-youtube.html" id="ivideo"><span>Video</span></a></div>';
+					}
+					if(appsState == null || appsState == 'true') {
+						icongroup += '<div><a href="#apps" id="iapps"><span>SCU Apps</span></a></div>';
 					}
 				$("#mainicons").html(icongroup);	
 				</script>
@@ -223,6 +245,29 @@
 		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 </div><!-- /apply page -->
+
+<!-- Apps page -->
+<div id="apps" data-role="page" class="navpage type-interior" data-theme="a">
+	<div id="header">
+		<a data-ajax="false" href="#" data-icon="back" data-rel="back" title="Go back" class="backnav"><img alt="" src="assets/back.png" /></a>
+		<a data-ajax="false" href="index.html" class="homenav"><img alt="" src="assets/38-house.png" /></a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<h2 id="iapps" class="pagetitle">SCU Apps</h2>
+	<ul id="mapps" data-role="listview" data-inset="true"></ul>
+    <script>
+    	appsmenu = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "apps-ipad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "apps-iphone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "apps-android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "apps-ios" : "apps-iphone";
+	    navmenu(appsmenu,'mapps','local');
+    </script>
+
+	</div>
+
+	<div data-role="footer" id="footer">
+		<p style="text-align:center;">&copy; Santa Clara University</p>
+	</div><!-- /footer -->
+</div><!-- /apps page -->
+
 
 <!-- courses page -->
 <div data-role="page" id="courses" class="type-interior" data-theme="a">

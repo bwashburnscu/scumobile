@@ -117,6 +117,7 @@
 				          var starthour = eventdatetime.getHours();
 				          var startmins = eventdatetime.getMinutes();
 				          var ampm = " PM"
+				          var loc_id = 0;
 				          if(starthour < 12) {
 				          	ampm = " AM";
 				          } else if(starthour > 12) {
@@ -151,26 +152,35 @@
 					              edescr=edescr.replace(/<a.*href="(.*?)".*>(.*?)<\/a>/gi, " $2 ($1) ");
 						          str += "<div>" + edescr + "</div>";
 						          str += "<p>";
+						          if($(edata).find('con_name').text().length > 0) {
 						          str += "Contact " + $(edata).find('con_name').text();
+						          }
 						          if($(edata).find('con_email').text().length > 0) {
 						          	str += "<br/><a href='mailto:" + $(edata).find('con_email').text() + "'>" + $(edata).find('con_email').text() + "</a>";
 						          }
 						          if($(edata).find('con_phone').text().length > 0) {
 						          	str += "<br/><a href='tel:" + $(edata).find('con_phone').text() + "'>" + $(edata).find('con_phone').text() + "</a>";
 						          }
+						          
 						          str += "</p>";
 						          str += "<p>Event schedule:";
 						          $(edata).find('sched').each(function(index){
 						          		var date_time = $(this).find('date_time').text();
 							            var cost = $(this).find('cost').text();
 							            var location = $(this).find('location').text();
+							            loc_id = $(this).find('location').text();
 							            var loc_other = $(this).find('loc_other').text();
 							          str += "<br/>" + date_time + "";
 							      });
-							      str += "</p>";
+								  str += "</p>";
+								  
 							      if($(edata).find('info_url').text().length > 0) {
-						          	str += "<div>More Information: " + $(edata).find('info_url').text() + "</div>";
+						          	str += "<p><a href='" + $(edata).find('info_url').text() + "'>More information &raquo;</a></p>";
 						          }
+						          if(loc_id > 0) {
+						          	str += "<p><a href='http://m.scu.edu/scumobile/www/map/index.cfm?loc_id=" + loc_id + "'>View location on the Campus Map &raquo;</a></p>";
+						          }
+							      
 						        }
 						     });
 				          str += '</div>';
