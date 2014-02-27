@@ -109,7 +109,7 @@
 						icongroup += '<div><a href="#ecampus" id="iecampus" onClick="trackTap(\'/ecampus\');"><span>eCampus</span></a></div>';
 					}
 					if(caminoState == null || caminoState == 'true') {
-						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/gmail\');window.open(\'https://camino.instructure.com/\',\'_blank\',\'location=0\');" id="igmail"><span>Camino</span></a></div>';
+						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/camino\');window.open(\'https://camino.instructure.com/\',\'_blank\',\'location=0\');" id="igmail"><span>Camino</span></a></div>';
 					}
 					if(newsState == null || newsState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="news.html" id="inews"><span>News</span></a></div>';
@@ -166,10 +166,10 @@
 				</script>
 
 			<div class="helpgroup">
-				<div><a href="#emergency" id="iemergency"><span>Emergency</span></a></div>
-				<div><a href="#about" id="iabout"><span>About</span></a></div>
-				<div><a rel="external" data-ajax="false" href="http://www.scu.edu/" onclick="window.open(this.href,'_system','location=0');return false;" id="ifullsite"><span>Full Site</span></a></div>
-				<div><a data-ajax="false" href="config.html" id="icustomize"><span>Customize</span></a></div>
+				<div><a href="#emergency" id="iemergency" onClick="trackTap(\'/emergency\');"><span>Emergency</span></a></div>
+				<div><a href="#about" id="iabout" onClick="trackTap(\'/about\');"><span>About</span></a></div>
+				<div><a rel="external" data-ajax="false" href="http://www.scu.edu/" onclick="trackTap(\'http://www.scu.edu/\');window.open(this.href,'_system','location=0');return false;" id="ifullsite"><span>Full Site</span></a></div>
+				<div><a data-ajax="false" href="config.html" id="icustomize" onClick="trackTap(\'/customize\');"><span>Customize</span></a></div>
 			</div>
 		<br style="clear:left;"/>
 		</div>	
