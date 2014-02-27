@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="http://m.scu.edu/includes/css/submenu.css" /> 
    
 	</head> 
-<body> 
+<body onunload="endGA();"> 
 
 <div data-role="page" class="type-interior" data-theme="a">
 	<script src="http://m.scu.edu/includes/js/navmenu.js"></script>
@@ -126,9 +126,31 @@
 
 	
 	<div data-role="footer" data-theme="c">
-		<p style="text-align:center;">&copy; 2013 Santa Clara University</p>
+		<p style="text-align:center;">&copy; Santa Clara University</p>
 	</div><!-- /footer -->
 </div><!-- /page -->
 <script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
+	<script>
+	var gaPlugin;
+    document.addEventListener("deviceready", onDeviceReady, true);
+
+	function onDeviceReady() {
+		gaPlugin = window.plugins.gaPlugin;
+		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/alumni-reunions.html");
+	}
+	function nativePluginResultHandler (result) {
+		//alert('nativePluginResultHandler - '+result);
+		console.log('nativePluginResultHandler: '+result);
+	}
+	function nativePluginErrorHandler (error) {
+		//alert('nativePluginErrorHandler - '+error);
+		console.log('nativePluginErrorHandler: '+error);
+	}
+	function endGA() {
+		gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+	}
+</script>
 </body>
 </html>
