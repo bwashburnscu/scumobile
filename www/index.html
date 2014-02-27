@@ -27,33 +27,10 @@
 		$("#mapps").listview("refresh");
 		}
 	</script>
-	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-    <script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
-	<script>
-	var gaPlugin;
-	function initialize() {
-    	document.addEventListener("deviceready", onDeviceReady, true);
-	}
-	function onDeviceReady() {
-		gaPlugin = window.plugins.gaPlugin;
-		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/index.html");
-	}
-	function nativePluginResultHandler (result) {
-		//alert('nativePluginResultHandler - '+result);
-		console.log('nativePluginResultHandler: '+result);
-	}
-	function nativePluginErrorHandler (error) {
-		//alert('nativePluginErrorHandler - '+error);
-		console.log('nativePluginErrorHandler: '+error);
-	}
-	function endGA() {
-		gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
-	}
-	</script>
+
 	</head> 
 	
-<body onload="initialize();" onunload="endGA();"> 
+<body onunload="endGA();"> 
 
 <div id="main" data-role="page" class="type-home" data-theme="a">
 	<div id="homelogo"><img src="assets/scu-logotype-home.png" alt="Santa Clara University"/></div>
@@ -585,6 +562,28 @@
 <script type="text/javascript" src="phonegap.js"></script>
 <script>
 	refreshLists();
+</script>
+<script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
+	<script>
+	var gaPlugin;
+    document.addEventListener("deviceready", onDeviceReady, true);
+
+	function onDeviceReady() {
+		gaPlugin = window.plugins.gaPlugin;
+		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/index.html");
+	}
+	function nativePluginResultHandler (result) {
+		//alert('nativePluginResultHandler - '+result);
+		console.log('nativePluginResultHandler: '+result);
+	}
+	function nativePluginErrorHandler (error) {
+		//alert('nativePluginErrorHandler - '+error);
+		console.log('nativePluginErrorHandler: '+error);
+	}
+	function endGA() {
+		gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+	}
 </script>
 </body>
 
