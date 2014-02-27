@@ -11,6 +11,30 @@
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
 	<script src="http://m.scu.edu/includes/js/submenu.js"></script>
 	<link rel="stylesheet" href="http://m.scu.edu/includes/css/submenu.css" /> 
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
+	<script>
+	var gaPlugin;
+	function initGA() {
+    	document.addEventListener("deviceready", onDeviceReady, true);
+	}
+	function onDeviceReady() {
+		gaPlugin = window.plugins.gaPlugin;
+		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/news.html");
+	}
+	function nativePluginResultHandler (result) {
+		//alert('nativePluginResultHandler - '+result);
+		console.log('nativePluginResultHandler: '+result);
+	}
+	function nativePluginErrorHandler (error) {
+		//alert('nativePluginErrorHandler - '+error);
+		console.log('nativePluginErrorHandler: '+error);
+	}
+	function endGA() {
+		gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+	}
+	</script>
 	</head> 
 <body> 
 
