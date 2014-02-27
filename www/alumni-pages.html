@@ -92,12 +92,14 @@
 <script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
 	<script>
 	var gaPlugin;
+	var page = getUrlVars()["v"];
+	page = "/alumni/" + page;
     document.addEventListener("deviceready", onDeviceReady, true);
 
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/alumni-pages.html");
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, page);
 	}
 	function nativePluginResultHandler (result) {
 		//alert('nativePluginResultHandler - '+result);

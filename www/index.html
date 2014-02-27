@@ -571,7 +571,7 @@
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/index.html");
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/index");
 	}
 	function trackTap(pageView) {
 		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, pageView);

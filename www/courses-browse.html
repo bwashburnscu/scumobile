@@ -236,7 +236,7 @@
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/courses-browse.html");
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/courses/browse");
 	}
 	function nativePluginResultHandler (result) {
 		//alert('nativePluginResultHandler - '+result);
