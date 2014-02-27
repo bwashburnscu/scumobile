@@ -28,15 +28,30 @@
 		}
 	</script>
 	<script>
-		document.addEventListener("deviceready", onDeviceReady, false);
-		function onDeviceReady() {
-		    gaPlugin = window.plugins.gaPlugin;
-			gaPlugin.init(successHandler, errorHandler, "UA-48470007-1", 10);
-			gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/");
-		}
+	var gaPlugin;
+	function initGA() {
+    	document.addEventListener("deviceready", onDeviceReady, true);
+	}
+	function onDeviceReady() {
+		gaPlugin = window.plugins.gaPlugin;
+		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/");
+	}
+	function nativePluginResultHandler (result) {
+		//alert('nativePluginResultHandler - '+result);
+		console.log('nativePluginResultHandler: '+result);
+	}
+	function nativePluginErrorHandler (error) {
+		//alert('nativePluginErrorHandler - '+error);
+		console.log('nativePluginErrorHandler: '+error);
+	}
+	function endGA() {
+		gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
+	}
 	</script>
 	</head> 
-<body> 
+	
+<body onload="initGA();" onunload="endGA();"> 
 
 <div id="main" data-role="page" class="type-home" data-theme="a">
 	<div id="homelogo"><img src="assets/scu-logotype-home.png" alt="Santa Clara University"/></div>
