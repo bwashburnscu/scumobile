@@ -15,7 +15,7 @@
     <script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
 	<script>
 	var gaPlugin;
-	function initGA() {
+	function initialize() {
     	document.addEventListener("deviceready", onDeviceReady, true);
 	}
 	function onDeviceReady() {
@@ -36,7 +36,7 @@
 	}
 	</script>
 	</head> 
-<body> 
+<body onload="initialize();" onunload="endGA();"> 
 
 <div data-role="page" class="type-interior" data-theme="a">
 	<script src="http://m.scu.edu/includes/js/navmenu.js"></script>

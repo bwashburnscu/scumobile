@@ -31,7 +31,7 @@
     <script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
 	<script>
 	var gaPlugin;
-	function initGA() {
+	function initialize() {
     	document.addEventListener("deviceready", onDeviceReady, true);
 	}
 	function onDeviceReady() {
@@ -53,7 +53,7 @@
 	</script>
 	</head> 
 	
-<body onload="initGA();" onunload="endGA();"> 
+<body onload="initialize();" onunload="endGA();"> 
 
 <div id="main" data-role="page" class="type-home" data-theme="a">
 	<div id="homelogo"><img src="assets/scu-logotype-home.png" alt="Santa Clara University"/></div>
