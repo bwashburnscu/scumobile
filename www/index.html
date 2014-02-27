@@ -103,13 +103,13 @@
 						icongroup += '<div><a href="#login" id="ilogin" onClick="trackTap(\'/sculogin\');"><span>Login</span></a></div>';
 					}
 					if(gmailState == null || gmailState == 'true') {
-						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/sculogin\');window.open(\'http://gmail.scu.edu/\',\'_blank\',\'location=0\');" id="igmail"><span>SCU GMail</span></a></div>';
+						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/gmail\');window.open(\'http://gmail.scu.edu/\',\'_blank\',\'location=0\');" id="igmail"><span>SCU GMail</span></a></div>';
 					}
 					if(ecampusState == null || ecampusState == 'true') {
-						icongroup += '<div><a href="#ecampus" id="iecampus" onClick="trackTap(\'/ecampus\');><span>eCampus</span></a></div>';
+						icongroup += '<div><a href="#ecampus" id="iecampus" onClick="trackTap(\'/ecampus\');"><span>eCampus</span></a></div>';
 					}
 					if(caminoState == null || caminoState == 'true') {
-						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="window.open(\'https://camino.instructure.com/\',\'_blank\',\'location=0\');" id="igmail"><span>Camino</span></a></div>';
+						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/gmail\');window.open(\'https://camino.instructure.com/\',\'_blank\',\'location=0\');" id="igmail"><span>Camino</span></a></div>';
 					}
 					if(newsState == null || newsState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="news.html" id="inews"><span>News</span></a></div>';
@@ -118,19 +118,19 @@
 						icongroup += '<div><a data-ajax="false" href="directory.html" id="idirectory"><span>Directory</span></a></div>';
 					}
 					if(mapState == null || mapState == 'true') {
-						icongroup += '<div><a data-ajax="false" href="http://m.scu.edu/scumobile/www/map/" id="imap"><span>Map</span></a></div>';
+						icongroup += '<div><a data-ajax="false" href="http://m.scu.edu/scumobile/www/map/" onClick="trackTap(\'/map\');" id="imap"><span>Map</span></a></div>';
 					}
 					if(eventsState == null || eventsState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="events.html" id="ievents"><span>Events</span></a></div>';
 					}	
 					if(admissionState == null || admissionState == 'true') {
-						icongroup += '<div><a href="#admission" id="iadmission" onClick="trackTap(\'/admission\');><span>Admission</span></a></div>';
+						icongroup += '<div><a href="#admission" id="iadmission" onClick="trackTap(\'/admission\');"><span>Admission</span></a></div>';
 					}
 					if(alumniState == null || alumniState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="alumni.html" id="ialumni"><span>Alumni</span></a></div>';
 					}
 					if(athleticsState == null || athleticsState == 'true') {
-						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="window.open(\'http://santaclarabroncos.com/landing/index\',\'_blank\',\'location=0\');" id="iathletics"><span>Athletics</span></a></div>';
+						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/athletics\');window.open(\'http://santaclarabroncos.com/landing/index\',\'_blank\',\'location=0\');" id="iathletics"><span>Athletics</span></a></div>';
 					}
 					/*if(socialState == null || socialState == 'true') {
 						icongroup += '<div><a href="#social" id="isocial"><span>Social</span></a></div>';
@@ -139,19 +139,19 @@
 						icongroup += '<div><a data-ajax="false" href="arts.html" id="iarts"><span>Arts</span></a></div>';
 					}
 					if(coursesState == null || coursesState == 'true') {
-						icongroup += '<div><a href="#courses" id="icourses" onClick="trackTap(\'/courses\');><span>Courses</span></a></div>';
+						icongroup += '<div><a href="#courses" id="icourses" onClick="trackTap(\'/courses\');"><span>Courses</span></a></div>';
 					}
 					if(roomsState == null || roomsState == 'true') {
-						icongroup += '<div><a data-ajax="false" target="_blank" href="http://m.scu.edu/scumobile/www/rooms/" id="irooms"><span>Rooms</span></a></div>';
+						icongroup += '<div><a data-ajax="false" target="_blank" href="http://m.scu.edu/scumobile/www/rooms/" onClick="trackTap(\'/rooms\');" id="irooms"><span>Rooms</span></a></div>';
 					}
 					if(diningState == null || diningState == 'true') {
-						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="window.open(\'http://scudining.cafebonappetit.com\',\'_blank\',\'location=0\');" id="idining"><span>Dining</span></a></div>';
+						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/dining\');window.open(\'http://scudining.cafebonappetit.com\',\'_blank\',\'location=0\');" id="idining"><span>Dining</span></a></div>';
 					}
 					if(librariesState == null || librariesState == 'true') {
-						icongroup += '<div><a href="#libraries" id="ilibraries" onClick="trackTap(\'/libraries\');><span>Libraries</span></a></div>';
+						icongroup += '<div><a href="#libraries" id="ilibraries" onClick="trackTap(\'/libraries\');"><span>Libraries</span></a></div>';
 					}
 					if(socialState == null || socialState == 'true') {
-						icongroup += '<div><a href="#social" id="isocial" onClick="trackTap(\'/social\');><span>Social</span></a></div>';
+						icongroup += '<div><a href="#social" id="isocial" onClick="trackTap(\'/social\');"><span>Social</span></a></div>';
 					}
 					if(photoState == null || photoState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="social-flickr.html" id="iphotos"><span>Photos</span></a></div>';
@@ -160,7 +160,7 @@
 						icongroup += '<div><a data-ajax="false" href="social-youtube.html" id="ivideo"><span>Video</span></a></div>';
 					}
 					if(appsState == null || appsState == 'true') {
-						icongroup += '<div><a href="#apps" id="iapps" onClick="trackTap(\'/apps\');><span>SCU Apps</span></a></div>';
+						icongroup += '<div><a href="#apps" id="iapps" onClick="trackTap(\'/apps\');"><span>SCU Apps</span></a></div>';
 					}
 				$("#mainicons").html(icongroup);	
 				</script>
