@@ -93,7 +93,11 @@
 	<script>
 	var gaPlugin;
 	var page = getUrlVars()["v"];
-	page = "/alumni/" + page;
+	if (page === undefined) {
+		page = "/alumni/";			
+		} else {
+		page = "/alumni/" + page;
+	}
     document.addEventListener("deviceready", onDeviceReady, true);
 
 	function onDeviceReady() {

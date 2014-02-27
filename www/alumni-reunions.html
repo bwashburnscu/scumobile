@@ -134,7 +134,11 @@
 	<script>
 	var gaPlugin;
 	var page = getUrlVars()["v"];
-	page = "/alumni/reunions/" + page;
+	if (page === undefined) {
+		page = "/alumni/reunions/";			
+		} else {
+		page = "/alumni/reunions/" + page;
+	}
     document.addEventListener("deviceready", onDeviceReady, true);
 
 	function onDeviceReady() {
