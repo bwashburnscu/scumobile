@@ -4,8 +4,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "edu.scu.m"
-        versionCode = "19"
-        version   = "1.1.4">
+        versionCode = "20"
+        version   = "1.1.5">
 
     <name>Mobile SCU</name>
 
@@ -65,7 +65,7 @@
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
-
+	<gap:plugin name="com.adobe.plugins.gaplugin" /> <!-- UA-48470007-1 -->
     
     <icon src="icon.png" />
     <!-- Define app icon for each platform. -->
@@ -148,6 +148,7 @@
     <access origin="https://youtube.com" subdomains="true" />
     <access origin="http://ytimg.com" subdomains="true" />
     <access origin="https://ytimg.com" subdomains="true" />
+    <access origin="https://itunes.apple.com" />
 
 
 </widget>
