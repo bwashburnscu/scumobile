@@ -97,12 +97,13 @@
 <script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
 	<script>
 	var gaPlugin;
+	var bid = getUrlVars()["cid"];
     document.addEventListener("deviceready", onDeviceReady, true);
 
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/news/blog");
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/news/blog/"+bid);
 	}
 	function nativePluginResultHandler (result) {
 		//alert('nativePluginResultHandler - '+result);
