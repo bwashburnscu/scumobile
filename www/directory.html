@@ -107,7 +107,7 @@
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/directory.html");
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/directory");
 	}
 	function nativePluginResultHandler (result) {
 		//alert('nativePluginResultHandler - '+result);

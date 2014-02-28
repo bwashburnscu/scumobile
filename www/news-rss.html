@@ -26,6 +26,7 @@
     function initialize() {
       var feedid = getUrlVars()["feed"];
       var feed = new google.feeds.Feed(rssfeed[feedid]);
+      var feedtitle = '';
       feed.setNumEntries(10);
       feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
       feed.load(function(result) {
@@ -33,10 +34,11 @@
           var container = document.getElementById("feed");
           var rssContent = "";
           var imgUrl = "";
+          feedtitle = result.feed.title;
           if (feedid == 3 ) {
           	$("#subtitle").html("The Santa Clara");
           } else {
-          	$("#subtitle").html(result.feed.title);
+          	$("#subtitle").html(feedtitle);
           }
           for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
@@ -113,11 +115,11 @@
 	<script>
 	var gaPlugin;
     document.addEventListener("deviceready", onDeviceReady, true);
-
+	feedtitle = "/news/rss/"+feedtitle;
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/news-rss.html");
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, feedtitle);
 	}
 	function nativePluginResultHandler (result) {
 		//alert('nativePluginResultHandler - '+result);

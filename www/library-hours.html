@@ -81,9 +81,8 @@
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
-		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/library-hours.html");
-	}
-	function nativePluginResultHandler (result) {
+		gaPlugin.trackPage( nativePluginResultHandler, nativePluginErrorHandler, "/library/hours");
+	}	function nativePluginResultHandler (result) {
 		//alert('nativePluginResultHandler - '+result);
 		console.log('nativePluginResultHandler: '+result);
 	}
