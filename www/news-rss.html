@@ -116,8 +116,7 @@
 	<script>
 	var gaPlugin;
     document.addEventListener("deviceready", onDeviceReady, true);
-    alert(feedtitle);
-	feedtitle = "/news/rss/"+feedtitle;
+	feedtitle = "/news/rss/";
 	function onDeviceReady() {
 		gaPlugin = window.plugins.gaPlugin;
 		gaPlugin.init(nativePluginResultHandler, nativePluginErrorHandler, "UA-48470007-1", 10);
