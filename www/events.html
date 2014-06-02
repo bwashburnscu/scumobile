@@ -4,13 +4,29 @@
 	<title>Events</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<link rel="stylesheet" href="assets/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="http://m.scu.edu/includes/css/scu.css" />
 	<link rel="stylesheet" href="http://m.scu.edu/includes/css/secondary.css" />
 	<script src="assets/jquery-1.10.2.min.js"></script> 
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
 	<script src="http://m.scu.edu/includes/js/submenu.js"></script>
-	<link rel="stylesheet" href="http://m.scu.edu/includes/css/submenu.css" /> 
+	<link rel="stylesheet" href="http://m.scu.edu/includes/css/submenu.css" />
+	<style type="text/css">
+		.dayNav, #setScope {
+			text-align:center;
+		}
+		#setScope span {
+			display:inline-block;
+			background:#6a737b;
+			color:#efefef;
+			text-transform:uppercase;
+			font-size:.7em;
+			padding:10px;
+			margin-bottom:10px;
+			border-radius:3px;
+		}
+	</style>
 	</head> 
 <body onunload="endGA();"> 
 
@@ -33,12 +49,13 @@
 				    </script>
 				</nav>
 	    	<div id="subtitle"></div>
-	    	<div data-role="controlgroup" data-type="horizontal">
-			      <a data-transition="none" data-role="button" data-icon="arrow-l" id="prevlink"> Prev </a>
-			      <a data-transition="none" data-ajax="false" href="events.html" data-role="button" >Today</a>
-			      <a data-transition="none" href="" data-role="button" data-icon="arrow-r" data-iconpos="right" id="nextlink"> Next </a>
+	    	<div data-role="controlgroup" data-type="horizontal" class="dayNav">
+			      <a data-ajax="false" data-transition="none" data-role="button" data-icon="arrow-l" id="prevlink"> Prev </a>
+			      <a data-ajax="false" data-transition="none" data-ajax="false" href="events.html" data-role="button" >Today</a>
+			      <a data-ajax="false" data-transition="none" href="" data-role="button" data-icon="arrow-r" data-iconpos="right" id="nextlink"> Next </a>
 			</div>
-				<script>
+			<div id="setScope"><span></span></div>
+			<script>
 				//$("#navpage").on("pageshow", function(e) {
 				var d;
 	    	   	var weekdays= [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
@@ -98,18 +115,19 @@
 	    	<div id="events" data-role="collapsible-set">
 			</div>
 			<script type="text/javascript">
+
 			    var str = '';
 			    var currDateStr = (curr_month+1) + "/" + curr_date + "/" + curr_year;
 		    	jQuery(function($){
 			    $.ajax({
-			            url: "http://m.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange="+currDateStr+"&endDateRange="+currDateStr+"&ReturnFormat=json",
+			            url: "http://m.scu.edu/docs/ws/events/index.cfc?method=getEvents&startDateRange="+currDateStr+"&endDateRange="+currDateStr+"&display=all&ReturnFormat=json",
 			            dataType: 'json',
 			            async:false,
 			            success: function(response) {
 				        var i;
 		
 				        //loop over each row
-				        //data array, [0="STARTDT",1="ENDDT",2="STARTTIME",3="ENDTIME",4="TITLE",5="SCHED_ID",6="EVENT_ID",7="SERIES",8="SPONSOR",9="EVENTTYPE"]
+				        //data array, [0="STARTDT",1="ENDDT",2="STARTTIME",3="ENDTIME",4="TITLE",5="SCHED_ID",6="EVENT_ID",7="SERIES",8="SPONSOR",9="EVENTTYPE",9="PRIVATE"]
 				        for (i = 0; i < response.DATA.length; i++) {
 				          var title = '';
 				          var eventdatetime = new Date("June 6, 2013 " + response.DATA[i][2]);
@@ -124,20 +142,21 @@
 				          	starthour = starthour - 12;
 				          }
 				          if(starthour == 0) {
-				          	starthour = "Midnight";
-				          } else if (starthour == 12) {
+				          	starthour = "All Day";
+				          } else if (starthour == 12 && startmins == 0) {
 				          	starthour = "Noon";
 				          }
 				          starttime = starthour;
-				          if(startmins != 0 && starthour != 'Midnight' && starthour != 'Noon') {
+				          if(startmins != 0 && starthour != 'All Day' && starthour != 'Noon') {
 				          starttime = starttime + ":" + startmins;
 				          }
-				          if(starthour != 'Midnight' && starthour != 'Noon') {
+				          if(starthour != 'All Day' && starthour != 'Noon') {
 				          	starttime = starttime + ampm;
 				          }
-				          str += '<div class="eventlist" data-role="collapsible">';
+				          var displayClass = "private" + response.DATA[i][10];
+				          str += '<div class="eventlist ' + displayClass + '" data-role="collapsible">';
 				              if (response.DATA[i][4].length > 0) {
-				              	title = response.DATA[i][4];
+				              	title = response.DATA[i][7] + ": " + response.DATA[i][4];
 				              } else {
 				              	title = response.DATA[i][7];
 				              }
@@ -235,6 +254,39 @@
 	function endGA() {
 		gaPlugin.exit(nativePluginResultHandler, nativePluginErrorHandler);
 	}
+
+	$(document).ready(function(){
+			
+	if(!localStorage.getItem('scope')) {
+		localStorage.setItem('scope','all');
+		}
+					
+	if(!localStorage.getItem('scopeText')) {
+		localStorage.setItem('scopeText','Show public events only');
+		}
+	
+								
+	$("#setScope").click(function(){			
+		if(localStorage.getItem('scope') == 'all') {
+			localStorage.setItem('scope','public');
+			localStorage.setItem('scopeText','Include Faculty, Staff and Student events');
+			$('#setScope span').text(localStorage.getItem('scopeText'));
+			$(".private1").hide(500);
+	    } else if(localStorage.getItem('scope') == 'public') {
+			localStorage.setItem('scope','all');
+			localStorage.setItem('scopeText','Show public events only');
+			$('#setScope span').text(localStorage.getItem('scopeText'));
+			$(".private1").show(500);
+		}
+	});
+	
+	if(localStorage.getItem('scope') == 'public') {
+		$(".private1").hide();
+	}
+	
+	$('#setScope span').text(localStorage.getItem('scopeText'));
+	});
+
 </script>
 </body>
 </html>
