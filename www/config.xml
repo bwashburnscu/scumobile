@@ -69,6 +69,10 @@
     -->
 	<gap:plugin name="com.adobe.plugins.gaplugin" /> <!-- UA-48470007-1 -->
 	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+	
+	<gap:config-file platform="ios" parent="UIStatusBarHidden">
+	    <true/>
+	</gap:config-file>
     
     <icon src="icon.png" />
     <!-- Define app icon for each platform. -->
