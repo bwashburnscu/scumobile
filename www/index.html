@@ -27,12 +27,15 @@
 		$("#mapps").listview("refresh");
 		}
 
-		function iosStatus() {
-		    if (parseFloat(window.device.version) === 7.0) {
-		          document.body.style.marginTop = "20px";
+		function onDeviceReady() {
+		    if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+		        $('.ui-header > *').css('margin-top', function (index, curValue) {
+		            return parseInt(curValue, 10) + 20 + 'px';
+		        });
 		    }
 		}
-		document.addEventListener('deviceready', iosStatus, false);
+		
+		document.addEventListener('deviceready', onDeviceReady, false);
 		
 	</script>
 	</head> 
