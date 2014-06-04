@@ -22,6 +22,7 @@
         The 'device' permission is required for the 'deviceready' event.
         <feature name="http://api.phonegap.com/1.0/device" />
     -->
+    
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/network" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
@@ -66,6 +67,7 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
 	<gap:plugin name="com.adobe.plugins.gaplugin" /> <!-- UA-48470007-1 -->
+	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
     
     <icon src="icon.png" />
     <!-- Define app icon for each platform. -->

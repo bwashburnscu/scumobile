@@ -26,8 +26,15 @@
 		$("#msocial").listview("refresh");
 		$("#mapps").listview("refresh");
 		}
-	</script>
 
+		function iosStatus() {
+		    if (parseFloat(window.device.version) === 7.0) {
+		          document.body.style.marginTop = "20px";
+		    }
+		}
+		document.addEventListener('deviceready', iosStatus, false);
+		
+	</script>
 	</head> 
 	
 <body onunload="endGA();"> 
