@@ -68,7 +68,8 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
 	<gap:plugin name="com.adobe.plugins.gaplugin" /> <!-- UA-48470007-1 -->
-	<gap:plugin name="com.phonegap.plugin.statusbar" />
+	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+	<gap:plugin name="org.li8.inappbrowser" version="0.1" />
 
 	<gap:platforms>
 		<gap:platform name="ios" />
