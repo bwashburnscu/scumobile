@@ -27,7 +27,11 @@
 		$("#mlogin").listview("refresh");
 		$("#msocial").listview("refresh");
 		$("#mapps").listview("refresh");
-		}	
+		}
+		
+	document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() { StatusBar.hide();}
+		
 	</script>
 	</head> 
 	
