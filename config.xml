@@ -68,6 +68,9 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
 	<gap:plugin name="com.adobe.plugins.gaplugin" /> <!-- UA-48470007-1 -->
+	<gap:plugin name="org.apache.cordova.splashscreen" />
+	<gap:plugin name="org.apache.cordova.geolocation" />
+	<gap:plugin name="org.apache.cordova.network-information" />
 	
 	<!-- Uncomment this section when building for iOS
 	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
