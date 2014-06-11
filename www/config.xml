@@ -16,12 +16,6 @@
     <author href="http://www.scu.edu/webpublishing" email="bwashburn@scu.edu">
         SCU Media Services - Web Development
     </author>
-
-    <!--
-        Enable individual API permissions by defining each here.
-        The 'device' permission is required for the 'deviceready' event.
-        <feature name="http://api.phonegap.com/1.0/device" />
-    -->
     
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/network" />
@@ -29,21 +23,7 @@
     
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
-	<!-- 
-	<gap:platform name="webos" />
-	<gap:platform name="symbian" />
-	<gap:platform name="blackberry" />
-	<gap:platform name="winphone" />
-	 -->
 
-    <!--
-        If you do not want any permissions to be added to your app, add the
-        following tag to your config.xml; you will still have the INTERNET
-        permission on your app, which PhoneGap requires.
-   
-    <preference name="permissions"                value="none"/>
- -->
-    <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="3.3.0" />          <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
@@ -61,12 +41,7 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 	<preference name="splash-screen-duration"     value="3000"/>
 	<preference name="StatusBarOverlaysWebView"   value="false" />			<!-- hides iOS status bar -->
-    
-	<!-- Plugins can also be added here. -->
-    <!--
-        <gap:plugin name="Example" />
-        A list of available plugins are available at https://build.phonegap.com/docs/plugins
-    -->
+
 	<gap:plugin name="com.adobe.plugins.gaplugin" /> <!-- UA-48470007-1 -->
 	<gap:plugin name="org.apache.cordova.splashscreen" />
 	<gap:plugin name="org.apache.cordova.geolocation" />
@@ -129,15 +104,15 @@
     <access origin="http://gmail.scu.edu/*" />
 
     <access origin="http://127.0.0.1*"/>
-    <access origin="http://m.scu.edu/*" />
-    <access origin="http://phonebook.scu.edu/*" />
-    <access origin="*://*www.scu.edu/*" />
+    <access origin="*://m.scu.edu/*" />
+    <access origin="*://phonebook.scu.edu/*" />
+    <access origin="*://www.scu.edu/*" />
 	<access origin="*://*.googleapis.com/*" subdomains="true" />
 	<access origin="*://*.gstatic.com/*" subdomains="true" />
 	<access origin="*://*.google.com/*" subdomains="true" />
 	<access origin="*://*.googleusercontent.com/*" subdomains="true" />
     <access origin="*://*.jquery.com/*" subdomains="true" />
-    <access origin="http://*.flickr.com/*" />
+    <access origin="*://*.flickr.com/*" subdomains="true" />
     <access origin="*://*.twitter.com/*" subdomains="true" />
     <access origin="*://*.twimg.com/*" subdomains="true" />
     <access origin="*://*.facebook.com/*" subdomains="true" />
@@ -145,7 +120,7 @@
     <access origin="*://*.fbcdn.net/*" subdomains="true" />
     <access origin="*://*.youtube.com/*" subdomains="true" />
     <access origin="*://*.ytimg.com/*" subdomains="true" />
-    <access origin="https://itunes.apple.com/*" />
+    <access origin="*://itunes.apple.com/*" />
 	
 
 </widget>
