@@ -47,10 +47,10 @@
 	<gap:plugin name="org.apache.cordova.geolocation" />
 	<gap:plugin name="org.apache.cordova.network-information" />
 	
-	<!-- Uncomment this section when building for iOS
+	<!-- Uncomment this section when building for iOS -->
 	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
 	<gap:plugin name="org.li8.inappbrowser" version="0.1" />
-	-->
+	
     
     <icon src="icon.png" />
     <!-- Define app icon for each platform. -->
@@ -84,8 +84,8 @@
     <!--  
     <access origin="*" />
   	-->
-    
-    <!-- <access origin="http://santaclarabroncos.com/*" />
+
+    <access origin="http://santaclarabroncos.com/*" />
     <access origin="https://scu.digication.com/*" />
     <access origin="https://orgsync.com/*" />
     <access origin="https://camino.instructure.com/*" />
@@ -96,7 +96,7 @@
     <access origin="http://alumnidirectory.scu.edu/*" />
     <access origin="http://astra.scu.edu/*" />
     <access origin="https://ecampus.scu.edu/*" />
-    <access origin="http://gmail.scu.edu/*" />  -->
+    <access origin="http://gmail.scu.edu/*" />
 
     <access origin="http://127.0.0.1*"/>
     <access origin="*://m.scu.edu/*" />
