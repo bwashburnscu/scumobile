@@ -96,6 +96,7 @@
 					var diningState = localStorage.getItem("homeIcon.Dining.state");
 					var librariesState = localStorage.getItem("homeIcon.Libraries.state");
 					var socialState = localStorage.getItem("homeIcon.Social.state");
+					var sustainabilityState = localStorage.getItem("homeIcon.Sustainability.state");
 					var photoState = localStorage.getItem("homeIcon.Photos.state");
 					var videoState = localStorage.getItem("homeIcon.Video.state");
 					var appsState = localStorage.getItem("homeIcon.Apps.state");
@@ -154,6 +155,9 @@
 					}
 					if(socialState == null || socialState == 'true') {
 						icongroup += '<div><a href="#social" id="isocial" onClick="trackTap(\'/social\');"><span>Social</span></a></div>';
+					}
+					if(sustainabilityState == null || sustainabilityState == 'true') {
+						icongroup += '<div><a data-ajax="false" target="_blank" href="https://www.scu.edu/sustainability" onClick="trackTap(\'/sustainability\');" id="isustainability"><span>Sustainability</span></a></div>';
 					}
 					if(photoState == null || photoState == 'true') {
 						icongroup += '<div><a data-ajax="false" href="social-flickr.html" id="iphotos"><span>Photos</span></a></div>';
