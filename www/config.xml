@@ -101,12 +101,15 @@
 
     <access origin="http://127.0.0.1*"/>
     <access origin="*://m.scu.edu/*" />
+    <access origin="http://m.scu.edu/includes/css/" />
+    <access origin="http://m.scu.edu/includes/js/" />
+    <access origin="http://m.scu.edu/includes/images/" />
     <access origin="*://phonebook.scu.edu/*" />
     <access origin="*://www.scu.edu/*" />
-	<access origin="*://*.googleapis.com/*" subdomains="true" />
-	<access origin="*://*.gstatic.com/*" subdomains="true" />
-	<access origin="*://*.google.com/*" subdomains="true" />
-	<access origin="*://*.googleusercontent.com/*" subdomains="true" />
+    <access origin="*://*.googleapis.com/*" subdomains="true" />
+    <access origin="*://*.gstatic.com/*" subdomains="true" />
+    <access origin="*://*.google.com/*" subdomains="true" />
+    <access origin="*://*.googleusercontent.com/*" subdomains="true" />
     <access origin="*://*.jquery.com/*" subdomains="true" />
     <access origin="*://*.flickr.com/*" subdomains="true" />
     <access origin="*://*.twitter.com/*" subdomains="true" />
