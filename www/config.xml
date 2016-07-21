@@ -47,8 +47,8 @@
 	<gap:plugin name="org.apache.cordova.geolocation" />
 	<gap:plugin name="org.apache.cordova.network-information" />
 	
-	<!-- Uncomment this section when building for iOS -->
-	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+	<!-- Uncomment this section when building for iOS
+	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" /> -->
 	<!-- <gap:plugin name="org.li8.inappbrowser" version="0.1" />  -->
 	<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
 	
@@ -87,46 +87,4 @@
     <access origin="*" launch-external="yes" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-     
-    <!--  
-    <access origin="*" />
-
-
-    <access origin="http://santaclarabroncos.com/*" />
-    <access origin="https://scu.digication.com/*" />
-    <access origin="https://orgsync.com/*" />
-    <access origin="https://camino.instructure.com/*" />
-    <access origin="*://scu.cafebonappetit.com/*" />
-    <access origin="http://www.thesantaclara.com/*" />
-    <access origin="http://law.scu.edu/*" />
-    <access origin="https://sso.scu.edu/*" />
-    <access origin="http://alumnidirectory.scu.edu/*" />
-    <access origin="http://astra.scu.edu/*" />
-    <access origin="https://ecampus.scu.edu/*" />
-    <access origin="http://gmail.scu.edu/*" />
-
-    <access origin="http://127.0.0.1*"/>
-    <access origin="*://m.scu.edu/*" />
-    <access origin="http://m.scu.edu/includes/css/" />
-    <access origin="http://m.scu.edu/includes/js/" />
-    <access origin="http://m.scu.edu/includes/images/" />
-    <access origin="*://phonebook.scu.edu/*" />
-    <access origin="*://www.scu.edu/*" />
-	<access origin="*://*.googleapis.com/*" subdomains="true" />
-	<access origin="*://*.gstatic.com/*" subdomains="true" />
-	<access origin="*://*.google.com/*" subdomains="true" />
-	<access origin="*://*.googleusercontent.com/*" subdomains="true" />
-    <access origin="*://*.jquery.com/*" subdomains="true" />
-    <access origin="*://*.flickr.com/*" subdomains="true" />
-    <access origin="*://*.twitter.com/*" subdomains="true" />
-    <access origin="*://*.twimg.com/*" subdomains="true" />
-    <access origin="*://*.facebook.com/*" subdomains="true" />
-    <access origin="*://*.facebook.net/*" subdomains="true" />
-    <access origin="*://*.fbcdn.net/*" subdomains="true" />
-    <access origin="*://*.youtube.com/*" subdomains="true" />
-    <access origin="*://*.ytimg.com/*" subdomains="true" />
-    <access origin="*://itunes.apple.com/*" />
-    -->
-	
-
 </widget>
