@@ -47,8 +47,8 @@
 	<gap:plugin name="org.apache.cordova.geolocation" />
 	<gap:plugin name="org.apache.cordova.network-information" />
 	
-	<!-- Uncomment this section when building for iOS
-	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" /> -->
+	<!-- Uncomment this section when building for iOS -->
+	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
 	<!-- <gap:plugin name="org.li8.inappbrowser" version="0.1" />  -->
 	<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
 	
