@@ -127,10 +127,11 @@
 						icongroup += '<div><a data-ajax="false" target="_blank" href="https://www.scu.edu/events/" onClick="trackTap(\'/events\');" id="ievents"><span>Events</span></a></div>';
 					}	
 					if(admissionState == null || admissionState == 'true') {
-						icongroup += '<div><a href="#admission" id="iadmission" onClick="trackTap(\'/admission\');"><span>Admission</span></a></div>';
+						icongroup += '<div><a data-ajax="false" target="_blank" href="https://www.scu.edu/admission/" onClick="trackTap(\'/admission\');" id="iadmission"><span>Admission</span></a></div>';
 					}
 					if(alumniState == null || alumniState == 'true') {
-						icongroup += '<div><a data-ajax="false" href="alumni.html" id="ialumni"><span>Alumni</span></a></div>';
+						icongroup += '<div><a data-ajax="false" target="_blank" href="https://www.scu.edu/alumni/" onClick="trackTap(\'/alumni\');" id="ialumni"><span>Alumni</span></a></div>';
+
 					}
 					if(athleticsState == null || athleticsState == 'true') {
 						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/athletics\');window.open(\'http://santaclarabroncos.com/landing/index\',\'_blank\',\'location=0\');" id="iathletics"><span>Athletics</span></a></div>';
@@ -139,13 +140,13 @@
 						icongroup += '<div><a href="#social" id="isocial"><span>Social</span></a></div>';
 					}*/
 					if(artsState == null || artsState == 'true') {
-						icongroup += '<div><a data-ajax="false" href="arts.html" id="iarts"><span>Arts</span></a></div>';
+						icongroup += '<div><a data-ajax="false" target="_blank" href="https://www.scu.edu/arts/" onClick="trackTap(\'/arts\');" id="iarts"><span>Arts</span></a></div>';
 					}
 					if(coursesState == null || coursesState == 'true') {
 						icongroup += '<div><a href="#courses" id="icourses" onClick="trackTap(\'/courses\');"><span>Courses</span></a></div>';
 					}
 					if(roomsState == null || roomsState == 'true') {
-						icongroup += '<div><a data-ajax="false" target="_blank" href="http://m.scu.edu/scumobile/www/rooms/" onClick="trackTap(\'/rooms\');" id="irooms"><span>Rooms</span></a></div>';
+						icongroup += '<div><a data-ajax="false" target="_blank" href="https://www.scu.edu/rooms/" onClick="trackTap(\'/rooms\');" id="irooms"><span>Rooms</span></a></div>';
 					}
 					if(diningState == null || diningState == 'true') {
 						icongroup += '<div><a rel="external" data-ajax="false" href="#" onclick="trackTap(\'/dining\');window.open(\'http://scudining.cafebonappetit.com\',\'_blank\',\'location=0\');" id="idining"><span>Dining</span></a></div>';
