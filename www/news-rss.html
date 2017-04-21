@@ -11,67 +11,45 @@
 	<script src="assets/jquery.mobile-1.3.2.min.js"></script>
 	<script src="http://m.scu.edu/includes/js/submenu.js"></script>
 	<link rel="stylesheet" href="http://m.scu.edu/includes/css/submenu.css" /> 
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" charset="utf-8" src="statusbar.js"></script>
-	<script type="text/javascript" charset="utf-8" src="inappbrowser.js"></script>
+	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
     <script type="text/javascript">
-
-    google.load("feeds", "1");
     
     var rssfeed = new Array();
-	rssfeed[0] = "http://www.scu.edu/syn/blog226.xml";
-	rssfeed[1] = "http://www.scu.edu/syn/blog93.xml";
-	rssfeed[2] = "http://santaclarabroncosblog.com/feed/";
+	rssfeed[0] = "https://www.scu.edu/media/scuedu/xml-assets/c12266-public.xml";
+	rssfeed[1] = "https://www.scu.edu/media/scuedu/xml-assets/c79816-public.xml";
+	rssfeed[2] = "http://santaclarabroncos.com/landing/headlines-featured?print=rss";
 	rssfeed[3] = "http://thesantaclara.org/feed/";
 	rssfeed[4] = "http://law.scu.edu/feed/";
 	
     var feedtitle = '';
     
-    function initialize() {
-      var feedid = getUrlVars()["feed"];
-      var feed = new google.feeds.Feed(rssfeed[feedid]);
-      feed.setNumEntries(10);
-      feed.setResultFormat(google.feeds.Feed.MIXED_FORMAT);
-      feed.load(function(result) {
-        if (!result.error) {
-          var container = document.getElementById("feed");
+    YUI().use('yql', function(Y){
+    	var feedid = getUrlVars()["feed"];
+        var query = 'select * from rss where url = "' + rssfeed[feedid] + '"';
+        var q = Y.YQL(query, function(r){
+          //r now contains the result of the YQL Query as a JSON
+          var container = document.getElementById("newsfeed");
           var rssContent = "";
           var imgUrl = "";
-          feedtitle = result.feed.title;
-          if (feedid == 3 ) {
-          	$("#subtitle").html("The Santa Clara");
-          } else {
-          	$("#subtitle").html(feedtitle);
+          var feed = r.query.results.item // get feed as array of entries
+          for (var i=0; i<feed.length; i++){
+          	rssContent += "<li><a rel='external' data-ajax='false' href='" + feed[i].link + "'";
+          	//if (feedid >= 2 ) {
+          	//rssContent += " onclick='window.open(this.href,\'_blank\',\'location=0\'); return false;'";
+          	//}
+          	rssContent += ">" + imgUrl + "<h3>" + feed[i].title + "</h3><p>" + feed[i].description + "</p></a></li>";
           }
-          for (var i = 0; i < result.feed.entries.length; i++) {
-            var entry = result.feed.entries[i];
-           // if (entry.xmlNode.getElementsByTagName("enclosure").length > 0) {
-            	//imgUrl =  entry.xmlNode.getElementsByTagName("enclosure")[0].getAttribute("url");
-            	//imgUrl = "<img src='" + imgUrl + "' />";
-            	//} else {
-            	//imgUrl = '';
-            	//}
-            //rssContent += "<div data-role='collapsible' data-theme='a'><h3>" + entry.title + "</h3><h4>" + entry.title + "</h4><h4>" + entry.publishedDate + "</h4><p>" + entry.contentSnippet + "</p><p><a href='" + entry.link + "'>Continue Reading &raquo;</a></p></div>";
-            if(entry.link.indexOf('?c=') > 0) {
-            	var cid = entry.link.split('?c=');
-            	entry.link = 'news-blog.html?cid=' + cid[1];
-            }
-            rssContent += "<li><a rel='external' data-ajax='false' href='" + entry.link + "'";
-            if (feedid >= 2 ) {
-            	rssContent += " onclick='window.open(this.href,\"_blank\",\"location=0\"); return false;'";
-            	}
-            rssContent += ">" + imgUrl + "<h3>" + entry.title + "</h3><p>" + entry.publishedDate + "</p></a></li>";
-            }         
-          container.innerHTML=rssContent;
-        }
-        $("#feed").listview("refresh");
-      });
+        container.innerHTML=rssContent;
+        //console.log(r)
+        });
+        
+    });
+    function setListview () {
+    $("#newsfeed").listview("refresh");
     }
-    google.setOnLoadCallback(initialize);
-    
     </script>
 	</head> 
-<body onunload="endGA();"> 
+<body onload="setListview();" onunload="endGA();"> 
 
 <div data-role="page" class="type-interior" data-theme="a">
 	<script src="http://m.scu.edu/includes/js/navmenu.js"></script>
@@ -96,7 +74,7 @@
 	
 		</nav>
 	    <div id="subtitle"></div>
-		<ul data-role="listview" id="feed">
+		<ul data-role="listview" id="newsfeed">
 		</ul>
 	</div>
 	<div class="content-secondary">
